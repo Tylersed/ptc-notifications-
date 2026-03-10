@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PTC App Hub</title>
+  <meta name="description" content="Single front door for Peachtree Town & Country apps." />
+  <script defer src="https://alcdn.msauth.net/browser/2.38.0/js/msal-browser.min.js"></script>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">PTC</div>
+      <div>
+        <div class="eyebrow">Peachtree Town & Country</div>
+        <h1>App Hub</h1>
+        <p class="subtitle">One secure front door for the tools your team uses every day.</p>
+      </div>
+    </div>
+
+    <div class="topActions">
+      <button id="btnSignIn" class="btn btn-primary">Sign in with Microsoft</button>
+      <button id="btnSignOut" class="btn" disabled>Sign out</button>
+    </div>
+  </header>
+
+  <main class="pageShell">
+    <section class="hero card">
+      <div class="heroCopy">
+        <p class="kicker">Workspace launcher</p>
+        <h2>Open everything from one place.</h2>
+        <p class="heroText">
+          Staff sign into the hub with Microsoft, then open Outlook, Monday, Slack, HubSpot, Google Drive,
+          and the rest of the stack in one click. Each app keeps its own secure session, so saved passwords or SSO
+          handle the actual login experience.
+        </p>
+
+        <div class="heroButtons">
+          <button id="heroSignIn" class="btn btn-primary">Enter the hub</button>
+          <button id="btnOpenFavorites" class="btn" disabled>Open favorites</button>
+        </div>
+
+        <div class="heroMeta">
+          <span class="chip">Hub sign-in</span>
+          <span class="chip">Per-app login</span>
+          <span class="chip">Saved passwords / SSO</span>
+        </div>
+      </div>
+
+      <div class="heroPanel">
+        <div class="statBlock">
+          <div class="statLabel">Status</div>
+          <div class="statValue" id="hubStatus">Locked</div>
+          <div class="statSub" id="hubSubStatus">Sign in to reveal the app workspace.</div>
+        </div>
+        <div class="statGrid">
+          <div class="miniStat">
+            <span class="miniLabel">Signed in user</span>
+            <strong id="driverName">—</strong>
+          </div>
+          <div class="miniStat">
+            <span class="miniLabel">Email</span>
+            <strong id="driverEmail">—</strong>
+          </div>
+          <div class="miniStat">
+            <span class="miniLabel">Apps in hub</span>
+            <strong id="appCount">0</strong>
+          </div>
+          <div class="miniStat">
+            <span class="miniLabel">Favorites</span>
+            <strong id="favoriteCount">0</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace card locked" id="workspace">
+      <div class="sectionHead">
+        <div>
+          <p class="kicker">Launch center</p>
+          <h3>Company apps</h3>
+          <p class="sectionText">Search, filter, pin favorites, and launch your tools in a new tab.</p>
+        </div>
+        <div class="workspaceControls">
+          <label class="searchWrap" for="appSearch">
+            <span>Search</span>
+            <input id="appSearch" type="search" placeholder="Search Outlook, Drive, marketing, support..." disabled />
+          </label>
+        </div>
+      </div>
+
+      <div class="filters" id="categoryFilters"></div>
+
+      <div class="favoritesWrap" id="favoritesWrap" hidden>
+        <div class="subHead">
+          <h4>Favorites</h4>
+          <p>Your pinned apps stay at the top on this browser.</p>
+        </div>
+        <div class="favoritesGrid" id="favoriteGrid"></div>
+      </div>
+
+      <div class="subHead">
+        <h4>All apps</h4>
+        <p id="resultSummary">Sign in to view the workspace.</p>
+      </div>
+
+      <div class="appGrid" id="appGrid"></div>
+
+      <div class="emptyState" id="emptyState" hidden>
+        <h4>No apps match that search.</h4>
+        <p>Try a different keyword or switch categories.</p>
+      </div>
+    </section>
+
+    <section class="infoGrid">
+      <article class="card infoCard">
+        <div class="subHead tight">
+          <h4>How staff use it</h4>
+        </div>
+        <ol class="steps">
+          <li>Open the PTC App Hub.</li>
+          <li>Sign into the hub with Microsoft.</li>
+          <li>Click the app you need.</li>
+          <li>Your browser password manager or SSO handles the app login.</li>
+        </ol>
+      </article>
+
+      <article class="card infoCard">
+        <div class="subHead tight">
+          <h4>Why this version is cleaner</h4>
+        </div>
+        <ul class="plainList">
+          <li>No Outlook folder routing.</li>
+          <li>No fake notification counts.</li>
+          <li>Every platform keeps its own secure session.</li>
+          <li>Simple for staff to understand and easy to expand later.</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <script defer src="./app.js"></script>
+</body>
+</html>
