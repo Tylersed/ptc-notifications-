@@ -1,5 +1,5 @@
 const CONFIG = {
-$ClientID  = "44da37f2-7583-47aa-a316-7a734bd35dcd",
+$ClientID  = "cf321f12-ce1d-4067-b44e-05fafad8258d",
 $TenantID  = "bcfdd46a-c2dd-4e71-a9f8-5cd31816ff9e",
   loginRequest: { scopes: ["User.Read"] },
   apps: [
