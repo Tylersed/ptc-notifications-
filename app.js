@@ -1,6 +1,6 @@
 const CONFIG = {
-  $ClientID    = "44da37f2-7583-47aa-a316-7a734bd35dcd",
-$TenantID    = "bcfdd46a-c2dd-4e71-a9f8-5cd31816ff9e",
+$ClientID  = "44da37f2-7583-47aa-a316-7a734bd35dcd",
+$TenantID  = "bcfdd46a-c2dd-4e71-a9f8-5cd31816ff9e",
   loginRequest: { scopes: ["User.Read"] },
   apps: [
     { id: "outlook", name: "Outlook", category: "Communication", href: "https://outlook.office.com/mail/", description: "Email, calendar, and day-to-day communication for the team.", access: "Microsoft sign-in", login: "Password manager / SSO", badge: "Core" },
