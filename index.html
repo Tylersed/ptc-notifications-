@@ -42,9 +42,23 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
 .modal{position:fixed;inset:0;z-index:800;display:none}.modal.open{display:block}.modal-scrim{position:absolute;inset:0;background:var(--overlay);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}.modal-panel{position:relative;z-index:1;width:min(920px,calc(100% - 34px));max-height:calc(100svh - 34px);margin:17px auto;background:var(--card);border:1px solid var(--border);border-radius:26px;box-shadow:0 40px 100px rgba(0,0,0,.32);display:flex;flex-direction:column;overflow:hidden;animation:panelIn .26s var(--ease) both}@keyframes panelIn{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}.modal-head{padding:22px 24px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:16px;background:var(--card-2)}.modal-kicker{font-size:9px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);margin-bottom:8px}.modal-title{font-family:'Cormorant Garamond',serif;font-size:34px;line-height:1.1}.modal-sub{font-size:13px;line-height:1.55;color:var(--muted);margin-top:8px}.close{width:38px;height:38px;border-radius:50%;border:1px solid var(--border-2);background:transparent;color:var(--muted);font-size:22px;cursor:pointer}.close:hover{background:#B42318;color:white;border-color:#B42318}.modal-body{padding:22px;overflow:auto}.folder-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.folder-item{border:1px solid var(--border);background:var(--card-2);border-radius:18px;padding:16px;cursor:pointer;display:flex;align-items:center;gap:14px;transition:.2s}.folder-item:hover{border-color:var(--border-2);transform:translateY(-2px);box-shadow:var(--shadow)}.folder-item.disabled{opacity:.45;cursor:not-allowed}.folder-ico{font-size:22px}.folder-label{font-family:'Cormorant Garamond',serif;font-size:22px;line-height:1.08}.folder-desc{font-size:12px;color:var(--muted);line-height:1.45;margin-top:4px}.folder-meta{margin-left:auto;font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);white-space:nowrap}.back-row{display:none;margin-bottom:14px}.back-row.show{display:block}.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);z-index:900;background:var(--reverse-bg);color:var(--reverse);padding:12px 17px;border-radius:999px;font-size:12px;font-weight:700;opacity:0;pointer-events:none;transition:.25s}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 @media(max-width:1100px){.hero{grid-template-columns:1fr}.hero-aside{max-width:620px}.tools{grid-template-columns:repeat(3,1fr)}.notification-grid{grid-template-columns:1fr 1fr}.resource-list{grid-template-columns:1fr}}
 @media(max-width:760px){.nav-inner,main,.footer-inner{padding-left:20px;padding-right:20px}.nav-label,.admin-link{display:none}.hero{padding-top:46px}.tools,.notification-grid,.folder-grid{grid-template-columns:1fr}.resource-card{min-height:116px}.res-body{padding:18px}.spine{width:46px}.section-top{align-items:flex-start;flex-direction:column}.section-note{white-space:normal}.announce-banner{align-items:flex-start;flex-direction:column}.hero h1{font-size:55px}.footer-inner{flex-direction:column}.modal-panel{width:calc(100% - 20px);margin:10px auto;max-height:calc(100svh - 20px)}}
+
+/* ═══ LION'S DEN SPLASH / SUPPORT ═══ */
+.splash{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:var(--bg);transition:opacity .55s var(--ease),visibility .55s var(--ease);cursor:pointer;overflow:hidden}.splash::before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at center,rgba(162,124,61,.16),transparent 32%);animation:splashGlow 2.4s ease-in-out infinite alternate}.splash-inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center;animation:splashRise .75s var(--ease) both}.splash-logo{width:min(210px,42vw);height:min(210px,42vw);object-fit:contain}.splash-logo-dark{display:none}[data-theme="dark"] .splash-logo-light{display:none}[data-theme="dark"] .splash-logo-dark{display:block}.splash-title{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,5vw,62px);font-weight:400;letter-spacing:.01em;line-height:1;color:var(--text)}.splash-sub{font-size:10px;font-weight:900;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}.splash-line{width:54px;height:1px;background:var(--border-2);margin-top:2px}.splash.hide{opacity:0;visibility:hidden;pointer-events:none}@keyframes splashRise{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes splashGlow{from{transform:scale(1);opacity:.5}to{transform:scale(1.08);opacity:1}}.support-top{font-size:10px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border:1px solid var(--border-2);padding:8px 13px;border-radius:999px;color:var(--muted);transition:.2s;background:transparent;cursor:pointer;font-weight:800}.support-top:hover{color:var(--text);background:var(--bg-2)}
+
 </style>
 </head>
 <body>
+
+<div class="splash" id="splash" onclick="hideSplash(true)" aria-label="Peachtree Town & Country loading screen">
+  <div class="splash-inner">
+    <img class="splash-logo splash-logo-light" src="ptc-emblem-light.png" alt="Peachtree Town & Country">
+    <img class="splash-logo splash-logo-dark" src="ptc-emblem-dark.png" alt="Peachtree Town & Country">
+    <div class="splash-line"></div>
+    <div class="splash-title">Welcome to the Lion’s Den</div>
+    <div class="splash-sub">Peachtree Town & Country</div>
+  </div>
+</div>
 <nav>
   <div class="nav-inner">
     <div class="wordmark" aria-label="Peachtree Town & Country">
@@ -55,7 +69,7 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
     <div class="nav-label" id="navLabel">Advisor Hub</div>
     <div class="nav-right">
       <div class="pill-toggle" onclick="toggleTheme()" title="Toggle theme"><span id="tpLight" class="on">Day</span><span id="tpDark">Night</span></div>
-      <a class="admin-link" href="admin.html">Admin</a>
+      <button class="support-top" onclick="openSupport()">🛟 Support</button>
     </div>
   </div>
 </nav>
@@ -83,10 +97,10 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
     <div class="tools" id="quickLinksGrid"></div>
   </section>
   <section class="section">
-    <div class="section-top"><div class="section-kicker">Search Everything</div><div class="section-note">Search links, resources, folders, and files</div></div>
-    <div class="search-panel"><span>⌕</span><input id="searchInput" placeholder="Search advisor tools, resources, guides, links…" autocomplete="off" oninput="handleSearch(this.value)"><span class="search-count" id="searchCount"></span><button class="clear-btn hidden" id="clearSearch" onclick="clearSearch()">Clear</button></div>
+    <div class="section-top"><div class="section-kicker">Search Links</div><div class="section-note">Search the advisor link cards</div></div>
+    <div class="search-panel"><span>⌕</span><input id="searchInput" placeholder="Search advisor tools, portals, support, and links…" autocomplete="off" oninput="handleSearch(this.value)"><span class="search-count" id="searchCount"></span><button class="clear-btn hidden" id="clearSearch" onclick="clearSearch()">Clear</button></div>
   </section>
-  <section class="section">
+  <section class="section hidden" id="resourceLibrarySection">
     <div class="section-top"><div class="section-kicker" id="libraryTitle">Resource Library</div><div class="section-note" id="libraryNote">Guides, brand assets, training, and company materials</div></div>
     <div class="chips" id="filterChips"></div>
     <div class="resource-list" id="resourceList"></div>
@@ -104,7 +118,7 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
 <div class="toast" id="toast"></div>
 <script src="resources.js"></script>
 <script>
-const LS_THEME='ptc_theme_v2';const LS_BANNER='ptc_banner_dismissed_v2';let activeFilter='all';let folderStack=[];let searchTerm='';let adminBuffer='';let adminTimer=null;
+const LS_THEME='ptc_theme_v2';const LS_BANNER='ptc_banner_dismissed_v2';const SUPPORT_URL="https://outlook.cloud.microsoft/mail/deeplink/compose?to=tyler%40peachtreetc.com%3Bgina%40peachtreetc.com%3Bbill%40peachtreetc.com%3BKristi%40peachtreetc.com&subject=Advisor+Support+Request&body=Hi+team%2C%0A%0AI+need+help+with%3A%0A%0A";let activeFilter='all';let folderStack=[];let searchTerm='';
 function $(id){return document.getElementById(id)}
 function dataArray(name){if(name==='NOTIFICATIONS')return (typeof NOTIFICATIONS!=='undefined'&&Array.isArray(NOTIFICATIONS))?NOTIFICATIONS:[];if(name==='QUICK_LINKS')return (typeof QUICK_LINKS!=='undefined'&&Array.isArray(QUICK_LINKS))?QUICK_LINKS:[];if(name==='RESOURCES')return (typeof RESOURCES!=='undefined'&&Array.isArray(RESOURCES))?RESOURCES:[];return []}
 function cfg(){return (typeof SITE_CONFIG==='object'&&SITE_CONFIG)?SITE_CONFIG:{}}
@@ -130,7 +144,7 @@ function flattenResources(items,path=''){let out=[];(items||[]).forEach(item=>{c
 function matches(r,q){q=q.toLowerCase();return [r.label,r.desc,r.type,r.section,r.url].filter(Boolean).join(' ').toLowerCase().includes(q)}
 function matchesDeep(r,q){if(matches(r,q))return true;return (r.children||[]).some(c=>matchesDeep(c,q))}
 function buildSearchResults(q){const quick=dataArray('QUICK_LINKS').filter(i=>matches(i,q));const res=flattenResources(dataArray('RESOURCES')).filter(x=>matches(x.item,q));return {quick,res}}
-function handleSearch(v){searchTerm=v.trim().toLowerCase();$('clearSearch').classList.toggle('hidden',!searchTerm);if(!searchTerm){$('toolsSection').classList.remove('hidden');$('libraryTitle').textContent='Resource Library';$('libraryNote').textContent='Guides, brand assets, training, and company materials';$('searchCount').textContent='';renderQuickLinks();renderResources();return}const found=buildSearchResults(searchTerm);$('toolsSection').classList.add('hidden');$('libraryTitle').textContent='Search Results';$('libraryNote').textContent='Showing advisor links, resources, folders, and files';$('searchCount').textContent=(found.quick.length+found.res.length)+' results';const merged=[...found.quick.map(i=>({kind:'link',item:i,path:'Advisor Link Hub'})),...found.res.map(x=>({kind:'resource',item:x.item,path:x.path||'Resource Library'}))];const list=$('resourceList');list.innerHTML='';merged.forEach((x,i)=>{const r={...x.item,section:x.path||x.kind,desc:x.item.desc||x.item.type||''};list.appendChild(resourceCard(r,i))});$('emptyState').classList.toggle('hidden',merged.length>0)}
+function handleSearch(v){searchTerm=v.trim().toLowerCase();$('clearSearch').classList.toggle('hidden',!searchTerm);if(!searchTerm){$('searchCount').textContent='';renderQuickLinks();return}const found=dataArray('QUICK_LINKS').filter(i=>matches(i,searchTerm));$('searchCount').textContent=found.length+' result'+(found.length===1?'':'s');renderQuickLinks(found)}
 function clearSearch(){$('searchInput').value='';handleSearch('')}
 function openItem(item){if(isFolder(item)){openFolder(item);return}if(isPlaceholder(item.url)){showToast('This link still needs to be added.');return}window.open(item.url,'_blank','noopener')}
 function openFolder(folder){folderStack=[folder];renderFolder(folder);$('modal').classList.add('open');document.body.style.overflow='hidden'}
@@ -139,8 +153,10 @@ function goFolderBack(){if(folderStack.length>1){folderStack.pop();renderFolder(
 function closeModal(){$('modal').classList.remove('open');document.body.style.overflow='';folderStack=[]}
 function copyText(txt){navigator.clipboard?.writeText(txt).then(()=>showToast('Copied to clipboard')).catch(()=>showToast('Copy failed'))}
 function showToast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(window.__toast);window.__toast=setTimeout(()=>t.classList.remove('show'),2600)}
-function adminShortcut(e){const typing=['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName);if(typing)return;if((e.ctrlKey||e.metaKey)&&e.altKey&&e.code==='KeyA'){e.preventDefault();location.href='admin.html';return}if(e.key&&e.key.length===1&&!e.ctrlKey&&!e.metaKey&&!e.altKey){adminBuffer=(adminBuffer+e.key.toLowerCase()).slice(-8);clearTimeout(adminTimer);adminTimer=setTimeout(()=>adminBuffer='',1800);if(adminBuffer.endsWith('ptcadmin'))location.href='admin.html'}}
-function init(){initTheme();applyConfig();renderNotifications();renderQuickLinks();renderChips();renderResources();document.addEventListener('keydown',adminShortcut)}
+function openSupport(){window.open(SUPPORT_URL,'_blank','noopener')}
+function hideSplash(force){const s=$('splash');if(!s)return;s.classList.add('hide')}
+function adminShortcut(e){const typing=['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName);if(typing)return;if((e.metaKey||e.ctrlKey)&&e.altKey&&e.code==='KeyA'){e.preventDefault();location.href='admin.html'}}
+function init(){initTheme();applyConfig();renderNotifications();renderQuickLinks();renderChips();renderResources();document.addEventListener('keydown',adminShortcut);setTimeout(()=>hideSplash(false),1300)}
 init();
 </script>
 </body>
