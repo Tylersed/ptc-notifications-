@@ -46,6 +46,35 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
 /* ═══ LION'S DEN SPLASH / SUPPORT ═══ */
 .splash{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:var(--bg);transition:opacity .55s var(--ease),visibility .55s var(--ease);cursor:pointer;overflow:hidden}.splash::before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at center,rgba(162,124,61,.16),transparent 32%);animation:splashGlow 2.4s ease-in-out infinite alternate}.splash-inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center;animation:splashRise .75s var(--ease) both}.splash-logo{width:min(210px,42vw);height:min(210px,42vw);object-fit:contain}.splash-logo-dark{display:none}[data-theme="dark"] .splash-logo-light{display:none}[data-theme="dark"] .splash-logo-dark{display:block}.splash-title{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,5vw,62px);font-weight:400;letter-spacing:.01em;line-height:1;color:var(--text)}.splash-sub{font-size:10px;font-weight:900;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}.splash-line{width:54px;height:1px;background:var(--border-2);margin-top:2px}.splash.hide{opacity:0;visibility:hidden;pointer-events:none}@keyframes splashRise{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes splashGlow{from{transform:scale(1);opacity:.5}to{transform:scale(1.08);opacity:1}}.support-top{font-size:10px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border:1px solid var(--border-2);padding:8px 13px;border-radius:999px;color:var(--muted);transition:.2s;background:transparent;cursor:pointer;font-weight:800}.support-top:hover{color:var(--text);background:var(--bg-2)}
 
+
+/* ═══ Advisor Hub v3 polished additions ═══ */
+.hero{align-items:center}
+.hero-aside{display:flex;flex-direction:column;gap:16px;padding:0;background:transparent;border:none;box-shadow:none;overflow:visible}
+.hero-aside::after{display:none}
+.hero-notice-panel,.today-card{border:1px solid var(--border);background:linear-gradient(145deg,var(--card),var(--card-2));border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;position:relative;overflow:hidden}
+.today-card::after{content:'';position:absolute;right:-34px;bottom:-44px;width:180px;height:180px;border-radius:50%;background:rgba(162,124,61,.09)}
+.hero-notice-panel{border-left:4px solid var(--gold)}
+.hero-notice-head{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:14px}
+.hero-notice-title{font-size:9px;font-weight:900;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.hero-notice-count{font-size:10px;font-weight:800;color:var(--soft);border:1px solid var(--border-2);padding:5px 9px;border-radius:999px;white-space:nowrap}
+.hero-notices{display:flex;flex-direction:column;gap:10px}
+.mini-notice{border:1px solid var(--border);background:rgba(255,255,255,.38);border-radius:16px;padding:14px 14px 12px;transition:.24s var(--ease)}
+[data-theme="dark"] .mini-notice{background:rgba(245,244,239,.035)}
+.mini-notice:hover{transform:translateY(-2px);border-color:var(--border-2)}
+.mini-meta{font-size:8px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+.mini-title{font-family:'Cormorant Garamond',serif;font-size:22px;line-height:1.08;margin-bottom:6px}
+.mini-msg{font-size:12.5px;line-height:1.5;color:var(--muted)}
+.mini-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.mini-btn{font-size:9px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:8px 11px;text-decoration:none;border:1px solid var(--border-2);background:transparent;color:var(--muted);cursor:pointer}
+.mini-btn.primary{background:var(--reverse-bg);color:var(--reverse);border-color:var(--reverse-bg)}
+.mini-btn:hover{transform:translateY(-1px)}
+.support-section{background:linear-gradient(145deg,var(--card),var(--card-2));border:1px solid var(--border);border-radius:28px;box-shadow:var(--shadow);padding:24px;margin-top:34px;overflow:hidden;position:relative}
+.support-section::after{content:'';position:absolute;right:-80px;top:-80px;width:210px;height:210px;border-radius:50%;background:rgba(162,124,61,.08);pointer-events:none}
+.support-intro{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:22px;align-items:center;margin-bottom:18px;position:relative;z-index:1}
+.support-intro h2{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:400;line-height:1.05;margin-bottom:8px}.support-intro p{font-size:13.5px;line-height:1.65;color:var(--muted);max-width:680px}.support-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;position:relative;z-index:1}.support-card{border:1px solid var(--border);background:var(--card);border-radius:18px;padding:18px;cursor:pointer;transition:.24s var(--ease);min-height:160px;display:flex;flex-direction:column}.support-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);border-color:var(--border-2)}.support-ico{font-size:24px;margin-bottom:12px}.support-name{font-family:'Cormorant Garamond',serif;font-size:23px;line-height:1.08;margin-bottom:7px}.support-desc{font-size:12px;line-height:1.5;color:var(--muted);flex:1}.support-email{font-size:10px;color:var(--soft);margin-top:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.request-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;position:relative;z-index:1}.request-btn{border:1px solid var(--border-2);background:transparent;color:var(--text);border-radius:14px;padding:13px 14px;text-align:left;cursor:pointer;transition:.2s var(--ease);font-family:Geist,system-ui,sans-serif}.request-btn:hover{background:var(--reverse-bg);color:var(--reverse);transform:translateY(-2px)}.request-btn strong{display:block;font-size:12px;margin-bottom:3px}.request-btn span{font-size:10.5px;opacity:.72}.resource-library-card{border:1px solid var(--border);background:linear-gradient(145deg,var(--card),var(--card-2));box-shadow:var(--shadow);border-radius:28px;padding:28px;margin-top:46px}.library-hero{display:flex;justify-content:space-between;gap:24px;align-items:flex-end;margin-bottom:22px}.library-hero h2{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:400;line-height:1.05;margin-bottom:8px}.library-hero p{font-size:13.5px;line-height:1.65;color:var(--muted);max-width:720px}.support-modal .modal-panel{max-width:980px}.support-modal-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.support-choice{border:1px solid var(--border);background:var(--card);border-radius:18px;padding:18px;cursor:pointer;transition:.22s var(--ease);display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}.support-choice:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover);border-color:var(--border-2)}.choice-ico{font-size:26px}.choice-title{font-family:'Cormorant Garamond',serif;font-size:25px;line-height:1.05;margin-bottom:6px}.choice-person{font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}.choice-desc{font-size:12.5px;line-height:1.55;color:var(--muted)}.choice-email{font-size:10.5px;color:var(--soft);margin-top:10px}.modal-sub-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.admin-link{display:none!important}
+@media(max-width:1180px){.hero{grid-template-columns:1fr}.support-grid{grid-template-columns:repeat(3,1fr)}.request-grid{grid-template-columns:repeat(2,1fr)}.tools{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){.hero-aside{gap:12px}.support-intro,.library-hero{grid-template-columns:1fr;align-items:start}.support-grid,.request-grid,.support-modal-grid{grid-template-columns:1fr}.hero-notice-panel,.today-card,.support-section,.resource-library-card{border-radius:20px;padding:18px}.tools{grid-template-columns:1fr}.support-top{display:inline-flex}.nav-right{gap:7px}.pill-toggle span{padding:6px 10px}}
+
 </style>
 </head>
 <body>
@@ -82,26 +111,51 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
       <p id="heroDescription">One polished home for advisor links, company resources, training materials, documents, and time-sensitive updates.</p>
     </div>
     <aside class="hero-aside">
-      <div class="aside-kicker">Today at Peachtree</div>
-      <div class="aside-title" id="todayTitle">Everything in one place.</div>
-      <div class="aside-copy" id="todayCopy">Use the notification center for current updates, then jump into the tools and resources advisors use most.</div>
+      <div class="hero-notice-panel">
+        <div class="hero-notice-head">
+          <div class="hero-notice-title">Notification Center</div>
+          <div class="hero-notice-count" id="heroNoticeCount">Current Updates</div>
+        </div>
+        <div class="hero-notices" id="heroNotifications"></div>
+      </div>
+      <div class="today-card">
+        <div class="aside-kicker">Today at Peachtree</div>
+        <div class="aside-title" id="todayTitle">Everything in one place.</div>
+        <div class="aside-copy" id="todayCopy">Use the updates above for current notices, then jump into the tools and resources advisors use most.</div>
+      </div>
     </aside>
   </section>
   <div class="announce-banner" id="announceBanner"><span id="announceMsg"></span><button onclick="dismissBanner()">Dismiss</button></div>
-  <section class="section" id="notificationSection">
-    <div class="section-top"><div class="section-kicker">Notification Center</div><div class="section-note">Meeting links, office updates, and quick notices</div></div>
-    <div class="notification-grid" id="notificationGrid"></div>
-  </section>
   <section class="section" id="toolsSection">
     <div class="section-top"><div class="section-kicker">Advisor Link Hub</div><div class="section-note">Core platforms and quick access links</div></div>
     <div class="tools" id="quickLinksGrid"></div>
+  </section>
+  <section class="support-section" id="supportSection">
+    <div class="support-intro">
+      <div>
+        <h2>Submit a request.</h2>
+        <p>Choose the best support path and the site will open Outlook in the browser with the right person and a clean subject line already filled in.</p>
+      </div>
+      <button class="btn btn-primary" onclick="openSupportModal()">Open Support Concierge ↗</button>
+    </div>
+    <div class="section-top"><div class="section-kicker">Support Contacts</div><div class="section-note">Pick the right person before sending</div></div>
+    <div class="support-grid" id="supportGrid"></div>
+    <div class="section-top" style="margin-top:22px"><div class="section-kicker">Common Requests</div><div class="section-note">Fast templates for common needs</div></div>
+    <div class="request-grid" id="requestGrid"></div>
   </section>
   <section class="section">
     <div class="section-top"><div class="section-kicker">Search Links</div><div class="section-note">Search the advisor link cards</div></div>
     <div class="search-panel"><span>⌕</span><input id="searchInput" placeholder="Search advisor tools, portals, support, and links…" autocomplete="off" oninput="handleSearch(this.value)"><span class="search-count" id="searchCount"></span><button class="clear-btn hidden" id="clearSearch" onclick="clearSearch()">Clear</button></div>
   </section>
-  <section class="section hidden" id="resourceLibrarySection">
-    <div class="section-top"><div class="section-kicker" id="libraryTitle">Resource Library</div><div class="section-note" id="libraryNote">Guides, brand assets, training, and company materials</div></div>
+  <section class="section resource-library-card" id="resourceLibrarySection">
+    <div class="library-hero">
+      <div>
+        <h2>Advisor Resource Center</h2>
+        <p>The Resource Center is now integrated at the bottom of the Advisor Hub. Advisors can still use the card above to open the full Resource Center page separately, but the main resources can also be accessed here.</p>
+      </div>
+      <a class="btn btn-primary" href="advisor-resource-center.html" target="_blank" rel="noopener">Open Full Resource Center ↗</a>
+    </div>
+    <div class="section-top"><div class="section-kicker" id="libraryTitle">Integrated Resource Library</div><div class="section-note" id="libraryNote">Guides, brand assets, training, and company materials</div></div>
     <div class="chips" id="filterChips"></div>
     <div class="resource-list" id="resourceList"></div>
     <div class="empty hidden" id="emptyState">No matching advisor links or resources were found.</div>
@@ -115,10 +169,45 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
     <div class="modal-body"><div class="back-row" id="backRow"><button class="btn btn-soft" onclick="goFolderBack()">← Back</button></div><div class="folder-grid" id="modalGrid"></div></div>
   </div>
 </div>
+<div class="modal support-modal" id="supportModal">
+  <div class="modal-scrim" onclick="closeSupportModal()"></div>
+  <div class="modal-panel">
+    <div class="modal-head">
+      <div>
+        <div class="modal-kicker">Support Concierge</div>
+        <div class="modal-title">How can we help?</div>
+        <div class="modal-sub">Choose the best contact below and Outlook will open with a pre-filled email.</div>
+        <div class="modal-sub-actions">
+          <button class="btn btn-primary" onclick="composeGeneralSupport()">General Support Request</button>
+          <button class="btn btn-soft" onclick="composeRequest('Report a Website Issue')">Report Website Issue</button>
+        </div>
+      </div>
+      <button class="close" onclick="closeSupportModal()">×</button>
+    </div>
+    <div class="modal-body"><div class="support-modal-grid" id="supportModalGrid"></div></div>
+  </div>
+</div>
 <div class="toast" id="toast"></div>
 <script src="resources.js"></script>
 <script>
-const LS_THEME='ptc_theme_v2';const LS_BANNER='ptc_banner_dismissed_v2';const SUPPORT_URL="https://outlook.cloud.microsoft/mail/deeplink/compose?to=tyler%40peachtreetc.com%3Bgina%40peachtreetc.com%3Bbill%40peachtreetc.com%3BKristi%40peachtreetc.com&subject=Advisor+Support+Request&body=Hi+team%2C%0A%0AI+need+help+with%3A%0A%0A";let activeFilter='all';let folderStack=[];let searchTerm='';
+const LS_THEME='ptc_theme_v2';const LS_BANNER='ptc_banner_dismissed_v2';let activeFilter='all';let folderStack=[];let searchTerm='';
+const SUPPORT_CONTACTS=[
+  {key:'tech',icon:'💻',title:'Technology Support',person:'Tyler Seder',email:'tyler@peachtreetc.com',desc:'Outlook, passwords, Google Drive, email signatures, Moxi access, login issues, website issues, and general tech help.',subject:'Advisor Technology Support Request'},
+  {key:'marketing',icon:'📣',title:'Marketing Support',person:'Kristi Flannagan',email:'Kristi@peachtreetc.com',desc:'Listing marketing, social media, brand assets, flyers, photography, video, and marketing requests.',subject:'Advisor Marketing Support Request'},
+  {key:'operations',icon:'🏢',title:'Operations / Office Support',person:'Gina Campbell',email:'gina@peachtreetc.com',desc:'Office questions, advisor support, onboarding, meetings, processes, and general company guidance.',subject:'Advisor Office / Operations Support Request'},
+  {key:'leadership',icon:'🦁',title:'Leadership / Escalation',person:'Bill Rawlings',email:'bill@peachtreetc.com',desc:'High-level issues, approvals, brokerage direction, or anything that needs leadership review.',subject:'Advisor Leadership Support Request'},
+  {key:'general',icon:'🛟',title:'General Support',person:'Tyler + Gina',email:'tyler@peachtreetc.com;gina@peachtreetc.com',desc:'Use this when you are not sure who should receive the request. Tyler and Gina can help route it.',subject:'Advisor General Support Request'}
+];
+const REQUEST_TYPES=[
+  {label:'Request IT Help',to:'tyler@peachtreetc.com',subject:'Advisor IT Help Request',hint:'Outlook, login, Drive, Moxi, signatures'},
+  {label:'Request Marketing Help',to:'Kristi@peachtreetc.com',subject:'Advisor Marketing Help Request',hint:'Flyers, listing assets, social, campaigns'},
+  {label:'Request Google Drive Access',to:'tyler@peachtreetc.com',subject:'Google Drive Access Request',hint:'Folders, permissions, listing photos'},
+  {label:'Request Listing Photo Folder',to:'tyler@peachtreetc.com;Kristi@peachtreetc.com',subject:'Listing Photo Folder Request',hint:'Create or access listing media'},
+  {label:'Request Signature Help',to:'tyler@peachtreetc.com',subject:'Outlook Signature Help Request',hint:'WiseStamp or Outlook signature issue'},
+  {label:'Request MoxiWorks Help',to:'tyler@peachtreetc.com',subject:'MoxiWorks Help Request',hint:'Login, CRM, contact sync, access'},
+  {label:'Request Training / How-To Help',to:'gina@peachtreetc.com;tyler@peachtreetc.com',subject:'Advisor Training Request',hint:'How-to help or process questions'},
+  {label:'Report Website Issue',to:'tyler@peachtreetc.com',subject:'Advisor Hub Website Issue',hint:'Broken link or site feedback'}
+];
 function $(id){return document.getElementById(id)}
 function dataArray(name){if(name==='NOTIFICATIONS')return (typeof NOTIFICATIONS!=='undefined'&&Array.isArray(NOTIFICATIONS))?NOTIFICATIONS:[];if(name==='QUICK_LINKS')return (typeof QUICK_LINKS!=='undefined'&&Array.isArray(QUICK_LINKS))?QUICK_LINKS:[];if(name==='RESOURCES')return (typeof RESOURCES!=='undefined'&&Array.isArray(RESOURCES))?RESOURCES:[];return []}
 function cfg(){return (typeof SITE_CONFIG==='object'&&SITE_CONFIG)?SITE_CONFIG:{}}
@@ -133,7 +222,7 @@ function applyConfig(){const c=cfg();$('navLabel').textContent=c.navLabel||c.sit
 function buildBanner(){const c=cfg();const bar=$('announceBanner');if(!c.announcementActive||!c.announcementText||localStorage.getItem(LS_BANNER)===c.announcementText){bar.classList.remove('show');return} $('announceMsg').textContent=c.announcementText;bar.classList.add('show')}
 function dismissBanner(){const c=cfg();if(c.announcementText)localStorage.setItem(LS_BANNER,c.announcementText);$('announceBanner').classList.remove('show')}
 function activeNotifications(){return dataArray('NOTIFICATIONS').filter(n=>n&&n.active!==false)}
-function renderNotifications(){const grid=$('notificationGrid');const notes=activeNotifications();grid.innerHTML='';if(!notes.length){grid.innerHTML='<div class="empty" style="grid-column:1/-1">No active notifications right now.</div>';return}notes.slice(0,6).forEach(n=>{const has=!isPlaceholder(n.url);const card=document.createElement('article');card.className='notice '+(n.priority||'normal');card.innerHTML=`<div class="notice-meta">${safe(n.priority||'notice')}</div><div class="notice-title">${safe(n.title||'Notice')}</div><div class="notice-msg">${safe(n.message||'')}</div><div class="notice-actions">${has?`<a class="btn btn-primary" href="${safe(n.url)}" target="_blank" rel="noopener">${safe(n.linkText||'Open Link')} ↗</a>`:''}<button class="btn btn-soft" onclick='copyText(${JSON.stringify((n.title||'')+"\n"+(n.message||''))})'>Copy Text</button></div>`;grid.appendChild(card)})}
+function renderNotifications(){const grid=$('heroNotifications');const count=$('heroNoticeCount');const notes=activeNotifications();grid.innerHTML='';if(count)count.textContent=notes.length?notes.length+' Active':'No Active Notices';if(!notes.length){grid.innerHTML='<div class="mini-notice"><div class="mini-title">All clear.</div><div class="mini-msg">No active notifications right now.</div></div>';return}notes.slice(0,3).forEach(n=>{const has=!isPlaceholder(n.url);const card=document.createElement('article');card.className='mini-notice '+(n.priority||'normal');card.innerHTML=`<div class="mini-meta">${safe(n.priority||'notice')}</div><div class="mini-title">${safe(n.title||'Notice')}</div><div class="mini-msg">${safe(n.message||'')}</div><div class="mini-actions">${has?`<a class="mini-btn primary" href="${safe(n.url)}" target="_blank" rel="noopener">${safe(n.linkText||'Open Link')} ↗</a>`:''}<button class="mini-btn" onclick='copyText(${JSON.stringify((n.title||'')+"\n"+(n.message||''))})'>Copy Text</button></div>`;grid.appendChild(card)})}
 function renderQuickLinks(items=dataArray('QUICK_LINKS')){const grid=$('quickLinksGrid');grid.innerHTML='';items.forEach((r,i)=>{const disabled=!itemHasContent(r);const card=document.createElement('article');card.className='tool-card'+(disabled?' disabled':'');card.onclick=()=>!disabled&&openItem(r);card.innerHTML=`${r.isNew?'<div class="new-badge">New</div>':''}<div class="tool-icon">${safe(r.icon||'🔗')}</div><div class="tool-type">${safe(r.section||r.type||'Link')}</div><div class="tool-title">${safe(r.label||'Untitled')}</div><div class="tool-desc">${safe(r.desc||'')}</div><div class="tool-footer"><span>${disabled?'Needs link':safe(r.type||'Open')}</span><span class="arrow">↗</span></div>`;grid.appendChild(card)})}
 function getSections(){const set=new Set(['all']);dataArray('RESOURCES').forEach(r=>set.add((r.section||r.type||'Resources').toLowerCase()));return [...set]}
 function renderChips(){const chips=$('filterChips');chips.innerHTML='';getSections().forEach(s=>{const b=document.createElement('button');b.className='chip'+(s===activeFilter?' active':'');b.textContent=s==='all'?'All':titleCase(s);b.onclick=()=>{activeFilter=s;renderChips();renderResources()};chips.appendChild(b)})}
@@ -144,19 +233,37 @@ function flattenResources(items,path=''){let out=[];(items||[]).forEach(item=>{c
 function matches(r,q){q=q.toLowerCase();return [r.label,r.desc,r.type,r.section,r.url].filter(Boolean).join(' ').toLowerCase().includes(q)}
 function matchesDeep(r,q){if(matches(r,q))return true;return (r.children||[]).some(c=>matchesDeep(c,q))}
 function buildSearchResults(q){const quick=dataArray('QUICK_LINKS').filter(i=>matches(i,q));const res=flattenResources(dataArray('RESOURCES')).filter(x=>matches(x.item,q));return {quick,res}}
-function handleSearch(v){searchTerm=v.trim().toLowerCase();$('clearSearch').classList.toggle('hidden',!searchTerm);if(!searchTerm){$('searchCount').textContent='';renderQuickLinks();return}const found=dataArray('QUICK_LINKS').filter(i=>matches(i,searchTerm));$('searchCount').textContent=found.length+' result'+(found.length===1?'':'s');renderQuickLinks(found)}
+function handleSearch(v){searchTerm=v.trim().toLowerCase();$('clearSearch').classList.toggle('hidden',!searchTerm);if(!searchTerm){$('searchCount').textContent='';renderQuickLinks();renderResources();return}const found=dataArray('QUICK_LINKS').filter(i=>matches(i,searchTerm));const resCount=flattenResources(dataArray('RESOURCES')).filter(x=>matches(x.item,searchTerm)).length;$('searchCount').textContent=(found.length+resCount)+' result'+((found.length+resCount)===1?'':'s');renderQuickLinks(found);renderResources()}
 function clearSearch(){$('searchInput').value='';handleSearch('')}
-function openItem(item){if(isFolder(item)){openFolder(item);return}if(isPlaceholder(item.url)){showToast('This link still needs to be added.');return}window.open(item.url,'_blank','noopener')}
+function openItem(item){if(String(item.label||'').toLowerCase()==='support'||item.action==='support'){openSupportModal();return}if(isFolder(item)){openFolder(item);return}if(isPlaceholder(item.url)){showToast('This link still needs to be added.');return}window.open(item.url,'_blank','noopener')}
 function openFolder(folder){folderStack=[folder];renderFolder(folder);$('modal').classList.add('open');document.body.style.overflow='hidden'}
 function renderFolder(folder){$('modalKicker').textContent=(folderStack.length>1?'Subfolder':'Folder');$('modalTitle').textContent=folder.label||'Folder';$('modalSub').textContent=folder.desc||'Select a resource below.';$('backRow').classList.toggle('show',folderStack.length>1);const grid=$('modalGrid');grid.innerHTML='';(folder.children||[]).forEach(child=>{const disabled=!itemHasContent(child);const el=document.createElement('div');el.className='folder-item'+(disabled?' disabled':'');el.onclick=()=>{if(disabled)return;if(isFolder(child)){folderStack.push(child);renderFolder(child)}else openItem(child)};el.innerHTML=`<div class="folder-ico">${safe(child.icon||'📄')}</div><div style="min-width:0"><div class="folder-label">${safe(child.label||'Untitled')}</div>${child.desc?`<div class="folder-desc">${safe(child.desc)}</div>`:''}</div><div class="folder-meta">${isFolder(child)?child.children.length+' items':(isPlaceholder(child.url)?'Needs Link':safe(child.type||'Open'))}</div>`;grid.appendChild(el)});if(!(folder.children||[]).length)grid.innerHTML='<div class="empty" style="grid-column:1/-1">This folder is empty.</div>'}
 function goFolderBack(){if(folderStack.length>1){folderStack.pop();renderFolder(folderStack[folderStack.length-1])}}
 function closeModal(){$('modal').classList.remove('open');document.body.style.overflow='';folderStack=[]}
 function copyText(txt){navigator.clipboard?.writeText(txt).then(()=>showToast('Copied to clipboard')).catch(()=>showToast('Copy failed'))}
 function showToast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(window.__toast);window.__toast=setTimeout(()=>t.classList.remove('show'),2600)}
-function openSupport(){window.open(SUPPORT_URL,'_blank','noopener')}
+function outlookComposeUrl(to,subject,body){return 'https://outlook.cloud.microsoft/mail/deeplink/compose?to='+encodeURIComponent(to)+'&subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body)}
+function bodyTemplate(name){return `Hi ${name},
+
+I need help with:
+
+
+Thank you,`}
+function composeTo(contact){window.open(outlookComposeUrl(contact.email,contact.subject,bodyTemplate(contact.person.split(' ')[0])),'_blank','noopener')}
+function composeGeneralSupport(){const c=SUPPORT_CONTACTS.find(x=>x.key==='general');composeTo(c)}
+function composeRequest(label){const req=REQUEST_TYPES.find(r=>r.label===label)||REQUEST_TYPES.find(r=>r.subject===label)||REQUEST_TYPES[0];window.open(outlookComposeUrl(req.to,req.subject,`Hi,
+
+I need help with ${req.label.replace('Request ','').toLowerCase()}:
+
+
+Thank you,`),'_blank','noopener')}
+function openSupport(){openSupportModal()}
+function openSupportModal(){$('supportModal').classList.add('open');document.body.style.overflow='hidden'}
+function closeSupportModal(){$('supportModal').classList.remove('open');document.body.style.overflow=''}
+function renderSupportCards(){const grid=$('supportGrid');const modal=$('supportModalGrid');const req=$('requestGrid');grid.innerHTML='';modal.innerHTML='';req.innerHTML='';SUPPORT_CONTACTS.forEach(c=>{const card=document.createElement('article');card.className='support-card';card.onclick=()=>composeTo(c);card.innerHTML=`<div class="support-ico">${c.icon}</div><div class="support-name">${safe(c.title)}</div><div class="support-desc">${safe(c.desc)}</div><div class="support-email">${safe(c.person)} · ${safe(c.email)}</div>`;grid.appendChild(card);const choice=document.createElement('article');choice.className='support-choice';choice.onclick=()=>composeTo(c);choice.innerHTML=`<div class="choice-ico">${c.icon}</div><div><div class="choice-person">${safe(c.person)}</div><div class="choice-title">${safe(c.title)}</div><div class="choice-desc">${safe(c.desc)}</div><div class="choice-email">${safe(c.email)}</div></div>`;modal.appendChild(choice)});REQUEST_TYPES.forEach(r=>{const b=document.createElement('button');b.className='request-btn';b.onclick=()=>composeRequest(r.label);b.innerHTML=`<strong>${safe(r.label)}</strong><span>${safe(r.hint)}</span>`;req.appendChild(b)})}
 function hideSplash(force){const s=$('splash');if(!s)return;s.classList.add('hide')}
 function adminShortcut(e){const typing=['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName);if(typing)return;if((e.metaKey||e.ctrlKey)&&e.altKey&&e.code==='KeyA'){e.preventDefault();location.href='admin.html'}}
-function init(){initTheme();applyConfig();renderNotifications();renderQuickLinks();renderChips();renderResources();document.addEventListener('keydown',adminShortcut);setTimeout(()=>hideSplash(false),1300)}
+function init(){initTheme();applyConfig();renderNotifications();renderQuickLinks();renderSupportCards();renderChips();renderResources();document.addEventListener('keydown',adminShortcut);setTimeout(()=>hideSplash(false),1300)}
 init();
 </script>
 </body>
