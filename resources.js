@@ -15,124 +15,115 @@
 let SITE_CONFIG = {
   "siteName": "Advisor Hub",
   "navLabel": "Advisor Hub",
-  "eyebrow": "Peachtree Town & Country — Internal",
+  "eyebrow": "Peachtree Town & Country — Advisor Access",
   "heroTitle": "Advisor",
-  "heroItalic": "Hub",
-  "heroDescription": "One polished home for advisor links, company resources, training materials, documents, and time-sensitive updates.",
+  "heroItalic": "Link Hub",
+  "heroDescription": "A clean starting point for the platforms, links, support contacts, and company updates advisors use most.",
   "announcementActive": true,
-  "announcementText": "Welcome to the Advisor Hub. Use this page as your single starting point for tools, resources, and company updates."
+  "announcementText": "Welcome to the Lion’s Den. Use this page as your starting point for advisor tools, updates, and support."
 };
 
 let NOTIFICATIONS = [
   {
     "active": true,
     "priority": "high",
-    "title": "Advisor Meeting",
-    "message": "Meeting in the main office today at 10:00 AM. Use the meeting link below if you are joining remotely.",
-    "linkText": "Open Meeting Link",
-    "url": "PASTE_MEETING_LINK_HERE",
+    "title": "Welcome to the Lion’s Den",
+    "message": "This Advisor Hub is the new quick-start page for company links, tools, support, and important updates.",
+    "linkText": "Open Advisor Resource Center",
+    "url": "advisor-resource-center.html",
     "expires": ""
   },
   {
     "active": true,
     "priority": "normal",
-    "title": "New Advisor Hub Draft",
-    "message": "This is the first draft of the new Advisor Hub. Please send feedback on missing links or sections that should be added.",
-    "linkText": "Send Feedback",
-    "url": "mailto:tyler@peachtreetc.com?subject=Advisor%20Hub%20Feedback",
+    "title": "Need Help?",
+    "message": "Use the Support card below to open Outlook in your browser and send a support request to the Peachtree team.",
+    "linkText": "Open Support Email",
+    "url": "https://outlook.cloud.microsoft/mail/deeplink/compose?to=tyler%40peachtreetc.com%3Bgina%40peachtreetc.com%3Bbill%40peachtreetc.com%3BKristi%40peachtreetc.com&subject=Advisor+Support+Request&body=Hi+team%2C%0A%0AI+need+help+with%3A%0A%0A",
     "expires": ""
   }
 ];
 
 let QUICK_LINKS = [
   {
-    "label": "MoxiEngage",
-    "desc": "Open CRM, client management, and advisor engagement tools.",
+    "label": "AppFiles",
+    "desc": "Access AppFiles for transaction documents and file management.",
+    "icon": "📂",
+    "type": "Documents",
+    "url": "https://login.appfiles.com/login",
+    "section": "Core Tools",
+    "isNew": false
+  },
+  {
+    "label": "Peachtree Portal",
+    "desc": "Open the Peachtree advisor portal dashboard.",
+    "icon": "🦁",
+    "type": "Portal",
+    "url": "https://mypeachtreeportal.com/dashboard",
+    "section": "Core Tools",
+    "isNew": false
+  },
+  {
+    "label": "MoxiWorks",
+    "desc": "Open MoxiWorks through the Peachtree portal single sign-on path.",
     "icon": "👥",
     "type": "CRM",
-    "url": "PASTE_LINK_HERE",
+    "url": "https://mypeachtreeportal.com/saml/moxiworks/",
     "section": "Core Tools",
     "isNew": false
   },
   {
-    "label": "FMLS",
-    "desc": "Access MLS tools, listings, and market data.",
+    "label": "Outlook",
+    "desc": "Open Peachtree email in Outlook on the web.",
+    "icon": "✉️",
+    "type": "Email",
+    "url": "https://outlook.cloud.microsoft/mail",
+    "section": "Core Tools",
+    "isNew": false
+  },
+  {
+    "label": "FMLS / Remine",
+    "desc": "Access FMLS and Remine login tools for listings and MLS workflows.",
     "icon": "🏠",
     "type": "MLS",
-    "url": "PASTE_LINK_HERE",
-    "section": "Core Tools",
+    "url": "https://firstmls-login.sso.remine.com/login?state=hKFo2SBNMnQ3bnlPTHZRUFpQeVhkQmdJWk5URVk2b0NnV3ZHbqFupWxvZ2luo3RpZNkgY291VzJSUlBORjdYb1VBVmcyOGtmcTlVT1lmaGR0Q0ujY2lk2SBNbFllZlBvUjV6dFpkb3lhdVpSQjU0T2RLek1JRFZLSg&client=MlYefPoR5ztZdoyauZRB54OdKzMIDVKJ&protocol=oauth2&scope=openid%20profile%20email&redirect_uri=https%3A%2F%2Ffirstmls.sso.remine.com%2Fcallback&audience=https%3A%2F%2Fsso-dashboard-api%2F&response_type=code&response_mode=query&nonce=THBuQ1lFVmlmQ003MVFDVVllY3NzNVhFYUV1Vi44a2hPNEQ3dVRkRE5WTQ%3D%3D&code_challenge=5Uo-Hxyh4LfTKwLejZV2QYctSP3NBGySROxo-YqOF4Y&code_challenge_method=S256&auth0Client=eyJuYW1lIjoiYXV0aDAtcmVhY3QiLCJ2ZXJzaW9uIjoiMi4zLjAifQ%3D%3D#signin",
+    "section": "MLS & Real Estate",
     "isNew": false
   },
   {
-    "label": "OneHome",
-    "desc": "Open OneHome resources and client-facing listing tools.",
-    "icon": "🔎",
-    "type": "Portal",
-    "url": "PASTE_LINK_HERE",
-    "section": "Core Tools",
+    "label": "GSCCCA",
+    "desc": "Open GSCCCA for Georgia real estate and public record resources.",
+    "icon": "⚖️",
+    "type": "Real Estate",
+    "url": "https://www.gsccca.org/login",
+    "section": "MLS & Real Estate",
     "isNew": false
   },
   {
-    "label": "Google Drive",
-    "desc": "Access shared company folders, listing photos, and advisor resources.",
-    "icon": "📁",
-    "type": "Drive",
-    "url": "PASTE_LINK_HERE",
-    "section": "Company Resources",
+    "label": "ActivePipe",
+    "desc": "Open ActivePipe for marketing emails, campaigns, and advisor marketing tools.",
+    "icon": "📣",
+    "type": "Marketing",
+    "url": "https://live.activepipe.com/dashboard",
+    "section": "Marketing",
     "isNew": false
   },
   {
-    "label": "Listing Photos Upload",
-    "desc": "Upload or access listing media in the shared Drive workflow.",
-    "icon": "📸",
-    "type": "Upload",
-    "url": "PASTE_LINK_HERE",
+    "label": "Advisor Resource Center",
+    "desc": "Open the full Resource Center with brand files, guides, training, documents, and company materials.",
+    "icon": "📚",
+    "type": "Resources",
+    "url": "advisor-resource-center.html",
     "section": "Company Resources",
     "isNew": true
   },
   {
-    "label": "Marketing Requests",
-    "desc": "Submit a marketing request or access approved marketing workflows.",
-    "icon": "✨",
-    "type": "Request",
-    "url": "PASTE_LINK_HERE",
-    "section": "Company Resources",
-    "isNew": false
-  },
-  {
-    "label": "Text Request",
-    "desc": "Open Text Request for advisor texting and client communication workflows.",
-    "icon": "💬",
-    "type": "Communication",
-    "url": "PASTE_LINK_HERE",
-    "section": "Support & Communication",
-    "isNew": false
-  },
-  {
-    "label": "Email Quarantine",
-    "desc": "Review held messages and release legitimate email when needed.",
-    "icon": "🛡️",
-    "type": "Security",
-    "url": "PASTE_LINK_HERE",
-    "section": "Support & Communication",
-    "isNew": false
-  },
-  {
-    "label": "Email Signature Help",
-    "desc": "Quick help for WiseStamp / Outlook signature issues.",
-    "icon": "✉️",
-    "type": "Help",
-    "url": "PASTE_LINK_HERE",
-    "section": "Support & Communication",
-    "isNew": false
-  },
-  {
-    "label": "IT Support",
-    "desc": "Request help with email, access, passwords, devices, or advisor tools.",
-    "icon": "🧰",
+    "label": "Support",
+    "desc": "Open Outlook in your browser and send a support request to Tyler, Gina, Bill, and Kristi.",
+    "icon": "🛟",
     "type": "Support",
-    "url": "mailto:tyler@peachtreetc.com?subject=Advisor%20Support%20Request",
-    "section": "Support & Communication",
+    "url": "https://outlook.cloud.microsoft/mail/deeplink/compose?to=tyler%40peachtreetc.com%3Bgina%40peachtreetc.com%3Bbill%40peachtreetc.com%3BKristi%40peachtreetc.com&subject=Advisor+Support+Request&body=Hi+team%2C%0A%0AI+need+help+with%3A%0A%0A",
+    "section": "Support",
     "isNew": false
   }
 ];
