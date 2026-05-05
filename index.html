@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<title>Peachtree · Advisor Hub</title>
+<title>Peachtree · ROAR</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -47,7 +47,7 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
 .splash{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:var(--bg);transition:opacity .55s var(--ease),visibility .55s var(--ease);cursor:pointer;overflow:hidden}.splash::before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at center,rgba(162,124,61,.16),transparent 32%);animation:splashGlow 2.4s ease-in-out infinite alternate}.splash-inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center;animation:splashRise .75s var(--ease) both}.splash-logo{width:min(210px,42vw);height:min(210px,42vw);object-fit:contain}.splash-logo-dark{display:none}[data-theme="dark"] .splash-logo-light{display:none}[data-theme="dark"] .splash-logo-dark{display:block}.splash-title{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,5vw,62px);font-weight:400;letter-spacing:.01em;line-height:1;color:var(--text)}.splash-sub{font-size:10px;font-weight:900;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}.splash-line{width:54px;height:1px;background:var(--border-2);margin-top:2px}.splash.hide{opacity:0;visibility:hidden;pointer-events:none}@keyframes splashRise{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes splashGlow{from{transform:scale(1);opacity:.5}to{transform:scale(1.08);opacity:1}}.support-top{font-size:10px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border:1px solid var(--border-2);padding:8px 13px;border-radius:999px;color:var(--muted);transition:.2s;background:transparent;cursor:pointer;font-weight:800}.support-top:hover{color:var(--text);background:var(--bg-2)}
 
 
-/* ═══ Advisor Hub v3 polished additions ═══ */
+/* ═══ ROAR polished additions ═══ */
 .hero{align-items:center}
 .hero-aside{display:flex;flex-direction:column;gap:16px;padding:0;background:transparent;border:none;box-shadow:none;overflow:visible}
 .hero-aside::after{display:none}
@@ -75,6 +75,15 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
 @media(max-width:1180px){.hero{grid-template-columns:1fr}.support-grid{grid-template-columns:repeat(3,1fr)}.request-grid{grid-template-columns:repeat(2,1fr)}.tools{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:760px){.hero-aside{gap:12px}.support-intro,.library-hero{grid-template-columns:1fr;align-items:start}.support-grid,.request-grid,.support-modal-grid{grid-template-columns:1fr}.hero-notice-panel,.today-card,.support-section,.resource-library-card{border-radius:20px;padding:18px}.tools{grid-template-columns:1fr}.support-top{display:inline-flex}.nav-right{gap:7px}.pill-toggle span{padding:6px 10px}}
 
+/* ═══ v4 refinements ═══ */
+.tool-card{padding-right:76px}
+.tool-icon{position:absolute;right:18px;top:18px;margin-bottom:0;font-size:34px;line-height:1;opacity:.84;filter:saturate(.9)}
+.tool-title,.tool-desc,.tool-type,.tool-footer{position:relative;z-index:1}
+.tool-card:hover .tool-icon{transform:translateY(-2px) scale(1.04);transition:.22s var(--ease)}
+.new-badge{right:auto;left:14px}
+.tool-card .new-badge + .tool-icon{top:20px}
+.gsccca-note{font-size:12px;color:var(--muted);line-height:1.55;margin-top:8px}
+
 </style>
 </head>
 <body>
@@ -95,10 +104,10 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
       <img class="nav-logo nav-logo-dark" src="ptc-nav-logo-dark.png" alt="Peachtree Town & Country" onerror="this.parentElement.classList.add('logo-missing')">
       <span class="fallback">Peachtree Town & Country</span>
     </div>
-    <div class="nav-label" id="navLabel">Advisor Hub</div>
+    <div class="nav-label" id="navLabel">ROAR</div>
     <div class="nav-right">
       <div class="pill-toggle" onclick="toggleTheme()" title="Toggle theme"><span id="tpLight" class="on">Day</span><span id="tpDark">Night</span></div>
-      <button class="support-top" onclick="openSupport()">🛟 Support</button>
+      <button class="support-top" onclick="openSupport()">🛟 Support Concierge</button>
     </div>
   </div>
 </nav>
@@ -147,19 +156,7 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
     <div class="section-top"><div class="section-kicker">Search Links</div><div class="section-note">Search the advisor link cards</div></div>
     <div class="search-panel"><span>⌕</span><input id="searchInput" placeholder="Search advisor tools, portals, support, and links…" autocomplete="off" oninput="handleSearch(this.value)"><span class="search-count" id="searchCount"></span><button class="clear-btn hidden" id="clearSearch" onclick="clearSearch()">Clear</button></div>
   </section>
-  <section class="section resource-library-card" id="resourceLibrarySection">
-    <div class="library-hero">
-      <div>
-        <h2>Advisor Resource Center</h2>
-        <p>The Resource Center is now integrated at the bottom of the Advisor Hub. Advisors can still use the card above to open the full Resource Center page separately, but the main resources can also be accessed here.</p>
-      </div>
-      <a class="btn btn-primary" href="advisor-resource-center.html" target="_blank" rel="noopener">Open Full Resource Center ↗</a>
-    </div>
-    <div class="section-top"><div class="section-kicker" id="libraryTitle">Integrated Resource Library</div><div class="section-note" id="libraryNote">Guides, brand assets, training, and company materials</div></div>
-    <div class="chips" id="filterChips"></div>
-    <div class="resource-list" id="resourceList"></div>
-    <div class="empty hidden" id="emptyState">No matching advisor links or resources were found.</div>
-  </section>
+
 </main>
 <footer><div class="footer-inner"><div class="footer-brand">Peachtree Town & Country</div><div>Internal Use Only · © 2026</div></div></footer>
 <div class="modal" id="modal">
@@ -192,21 +189,21 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
 <script>
 const LS_THEME='ptc_theme_v2';const LS_BANNER='ptc_banner_dismissed_v2';let activeFilter='all';let folderStack=[];let searchTerm='';
 const SUPPORT_CONTACTS=[
-  {key:'tech',icon:'💻',title:'Technology Support',person:'Tyler Seder',email:'tyler@peachtreetc.com',desc:'Outlook, passwords, Google Drive, email signatures, Moxi access, login issues, website issues, and general tech help.',subject:'Advisor Technology Support Request'},
-  {key:'marketing',icon:'📣',title:'Marketing Support',person:'Kristi Flannagan',email:'Kristi@peachtreetc.com',desc:'Listing marketing, social media, brand assets, flyers, photography, video, and marketing requests.',subject:'Advisor Marketing Support Request'},
+  {key:'tech',icon:'💻',title:'Technology Support',person:'Tyler Seder',email:'tyler@peachtreetc.com',desc:'Outlook, passwords, Google Drive, Moxi access, login issues, website issues, and general tech help.',subject:'Advisor Technology Support Request'},
+  {key:'marketing',icon:'📣',title:'Marketing Support',person:'Marketing Team',email:'marketing@peachtreetc.com',desc:'Listing marketing, social media, brand assets, flyers, photography, video, campaigns, and signature help.',subject:'Advisor Marketing Support Request'},
   {key:'operations',icon:'🏢',title:'Operations / Office Support',person:'Gina Campbell',email:'gina@peachtreetc.com',desc:'Office questions, advisor support, onboarding, meetings, processes, and general company guidance.',subject:'Advisor Office / Operations Support Request'},
-  {key:'leadership',icon:'🦁',title:'Leadership / Escalation',person:'Bill Rawlings',email:'bill@peachtreetc.com',desc:'High-level issues, approvals, brokerage direction, or anything that needs leadership review.',subject:'Advisor Leadership Support Request'},
-  {key:'general',icon:'🛟',title:'General Support',person:'Tyler + Gina',email:'tyler@peachtreetc.com;gina@peachtreetc.com',desc:'Use this when you are not sure who should receive the request. Tyler and Gina can help route it.',subject:'Advisor General Support Request'}
+  {key:'leadership',icon:'🦁',title:'Leadership / Escalation',person:'Bill + Gina + Erica',email:'bill@peachtreetc.com;gina@peachtreetc.com;erica@peachtreetc.com',desc:'High-level issues, approvals, brokerage direction, escalation items, or anything that needs leadership review.',subject:'Advisor Leadership / Escalation Request'},
+  {key:'general',icon:'🛟',title:'General Support',person:'Amy',email:'amy@peachtreetc.com',desc:'Use this when you are not sure who should receive the request. Amy can help route it to the right person.',subject:'Advisor General Support Request'}
 ];
 const REQUEST_TYPES=[
-  {label:'Request IT Help',to:'tyler@peachtreetc.com',subject:'Advisor IT Help Request',hint:'Outlook, login, Drive, Moxi, signatures'},
-  {label:'Request Marketing Help',to:'Kristi@peachtreetc.com',subject:'Advisor Marketing Help Request',hint:'Flyers, listing assets, social, campaigns'},
-  {label:'Request Google Drive Access',to:'tyler@peachtreetc.com',subject:'Google Drive Access Request',hint:'Folders, permissions, listing photos'},
-  {label:'Request Listing Photo Folder',to:'tyler@peachtreetc.com;Kristi@peachtreetc.com',subject:'Listing Photo Folder Request',hint:'Create or access listing media'},
-  {label:'Request Signature Help',to:'tyler@peachtreetc.com',subject:'Outlook Signature Help Request',hint:'WiseStamp or Outlook signature issue'},
+  {label:'Request IT Help',to:'tyler@peachtreetc.com',subject:'Advisor IT Help Request',hint:'Outlook, login, Drive, Moxi, access issues'},
+  {label:'Request Marketing Help',to:'marketing@peachtreetc.com',subject:'Advisor Marketing Help Request',hint:'Flyers, listing assets, social, campaigns'},
+  {label:'Request Google Drive Access',to:'tyler@peachtreetc.com;marketing@peachtreetc.com',subject:'Google Drive Access Request',hint:'Folders, permissions, listing photos'},
+  {label:'Request Listing Photo Folder',to:'tyler@peachtreetc.com;marketing@peachtreetc.com',subject:'Listing Photo Folder Request',hint:'Create or access listing media'},
+  {label:'Request Signature Help',to:'marketing@peachtreetc.com',subject:'Outlook Signature Help Request',hint:'WiseStamp or Outlook signature issue'},
   {label:'Request MoxiWorks Help',to:'tyler@peachtreetc.com',subject:'MoxiWorks Help Request',hint:'Login, CRM, contact sync, access'},
-  {label:'Request Training / How-To Help',to:'gina@peachtreetc.com;tyler@peachtreetc.com',subject:'Advisor Training Request',hint:'How-to help or process questions'},
-  {label:'Report Website Issue',to:'tyler@peachtreetc.com',subject:'Advisor Hub Website Issue',hint:'Broken link or site feedback'}
+  {label:'Request Training / How-To Help',to:'gina@peachtreetc.com',subject:'Advisor Training / How-To Request',hint:'How-to help or process questions'},
+  {label:'Report Website Issue',to:'tyler@peachtreetc.com',subject:'ROAR Website Issue',hint:'Broken link or site feedback'}
 ];
 function $(id){return document.getElementById(id)}
 function dataArray(name){if(name==='NOTIFICATIONS')return (typeof NOTIFICATIONS!=='undefined'&&Array.isArray(NOTIFICATIONS))?NOTIFICATIONS:[];if(name==='QUICK_LINKS')return (typeof QUICK_LINKS!=='undefined'&&Array.isArray(QUICK_LINKS))?QUICK_LINKS:[];if(name==='RESOURCES')return (typeof RESOURCES!=='undefined'&&Array.isArray(RESOURCES))?RESOURCES:[];return []}
@@ -218,12 +215,12 @@ function isFolder(i){return !!(i.children&&i.children.length)}
 function initTheme(){const saved=localStorage.getItem(LS_THEME)||'light';applyTheme(saved)}
 function applyTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem(LS_THEME,t);$('tpLight').classList.toggle('on',t==='light');$('tpDark').classList.toggle('on',t==='dark')}
 function toggleTheme(){applyTheme(document.documentElement.getAttribute('data-theme')==='light'?'dark':'light')}
-function applyConfig(){const c=cfg();$('navLabel').textContent=c.navLabel||c.siteName||'Advisor Hub';$('heroEyebrow').textContent=c.eyebrow||'Peachtree Town & Country — Internal';$('heroTitle').textContent=c.heroTitle||'Advisor';$('heroItalic').textContent=c.heroItalic||'Hub';$('heroDescription').textContent=c.heroDescription||'One polished home for advisor links and resources.';document.title='Peachtree · '+(c.siteName||'Advisor Hub');buildBanner()}
+function applyConfig(){const c=cfg();$('navLabel').textContent=c.navLabel||c.siteName||'ROAR';$('heroEyebrow').textContent=c.eyebrow||'Peachtree Town & Country — Internal';$('heroTitle').textContent=c.heroTitle||'ROAR';$('heroItalic').textContent=c.heroItalic||'Advisor Access';$('heroDescription').textContent=c.heroDescription||'One polished home for advisor links and resources.';document.title='Peachtree · '+(c.siteName||'ROAR');buildBanner()}
 function buildBanner(){const c=cfg();const bar=$('announceBanner');if(!c.announcementActive||!c.announcementText||localStorage.getItem(LS_BANNER)===c.announcementText){bar.classList.remove('show');return} $('announceMsg').textContent=c.announcementText;bar.classList.add('show')}
 function dismissBanner(){const c=cfg();if(c.announcementText)localStorage.setItem(LS_BANNER,c.announcementText);$('announceBanner').classList.remove('show')}
 function activeNotifications(){return dataArray('NOTIFICATIONS').filter(n=>n&&n.active!==false)}
 function renderNotifications(){const grid=$('heroNotifications');const count=$('heroNoticeCount');const notes=activeNotifications();grid.innerHTML='';if(count)count.textContent=notes.length?notes.length+' Active':'No Active Notices';if(!notes.length){grid.innerHTML='<div class="mini-notice"><div class="mini-title">All clear.</div><div class="mini-msg">No active notifications right now.</div></div>';return}notes.slice(0,3).forEach(n=>{const has=!isPlaceholder(n.url);const card=document.createElement('article');card.className='mini-notice '+(n.priority||'normal');card.innerHTML=`<div class="mini-meta">${safe(n.priority||'notice')}</div><div class="mini-title">${safe(n.title||'Notice')}</div><div class="mini-msg">${safe(n.message||'')}</div><div class="mini-actions">${has?`<a class="mini-btn primary" href="${safe(n.url)}" target="_blank" rel="noopener">${safe(n.linkText||'Open Link')} ↗</a>`:''}<button class="mini-btn" onclick='copyText(${JSON.stringify((n.title||'')+"\n"+(n.message||''))})'>Copy Text</button></div>`;grid.appendChild(card)})}
-function renderQuickLinks(items=dataArray('QUICK_LINKS')){const grid=$('quickLinksGrid');grid.innerHTML='';items.forEach((r,i)=>{const disabled=!itemHasContent(r);const card=document.createElement('article');card.className='tool-card'+(disabled?' disabled':'');card.onclick=()=>!disabled&&openItem(r);card.innerHTML=`${r.isNew?'<div class="new-badge">New</div>':''}<div class="tool-icon">${safe(r.icon||'🔗')}</div><div class="tool-type">${safe(r.section||r.type||'Link')}</div><div class="tool-title">${safe(r.label||'Untitled')}</div><div class="tool-desc">${safe(r.desc||'')}</div><div class="tool-footer"><span>${disabled?'Needs link':safe(r.type||'Open')}</span><span class="arrow">↗</span></div>`;grid.appendChild(card)})}
+function renderQuickLinks(items=dataArray('QUICK_LINKS')){const grid=$('quickLinksGrid');grid.innerHTML='';items.forEach((r,i)=>{const disabled=!itemHasContent(r);const folder=isFolder(r);const card=document.createElement('article');card.className='tool-card'+(disabled?' disabled':'');card.onclick=()=>!disabled&&openItem(r);card.innerHTML=`${r.isNew?'<div class="new-badge">New</div>':''}<div class="tool-icon">${safe(r.icon||'🔗')}</div><div class="tool-type">${safe(r.section||r.type||'Link')}</div><div class="tool-title">${safe(r.label||'Untitled')}</div><div class="tool-desc">${safe(r.desc||'')}</div><div class="tool-footer"><span>${disabled?'Needs link':(folder?(r.children.length+' Options'):safe(r.type||'Open'))}</span><span class="arrow">${folder?'→':'↗'}</span></div>`;grid.appendChild(card)})}
 function getSections(){const set=new Set(['all']);dataArray('RESOURCES').forEach(r=>set.add((r.section||r.type||'Resources').toLowerCase()));return [...set]}
 function renderChips(){const chips=$('filterChips');chips.innerHTML='';getSections().forEach(s=>{const b=document.createElement('button');b.className='chip'+(s===activeFilter?' active':'');b.textContent=s==='all'?'All':titleCase(s);b.onclick=()=>{activeFilter=s;renderChips();renderResources()};chips.appendChild(b)})}
 function titleCase(s){return String(s).replace(/\w\S*/g,t=>t[0].toUpperCase()+t.slice(1))}
@@ -233,7 +230,7 @@ function flattenResources(items,path=''){let out=[];(items||[]).forEach(item=>{c
 function matches(r,q){q=q.toLowerCase();return [r.label,r.desc,r.type,r.section,r.url].filter(Boolean).join(' ').toLowerCase().includes(q)}
 function matchesDeep(r,q){if(matches(r,q))return true;return (r.children||[]).some(c=>matchesDeep(c,q))}
 function buildSearchResults(q){const quick=dataArray('QUICK_LINKS').filter(i=>matches(i,q));const res=flattenResources(dataArray('RESOURCES')).filter(x=>matches(x.item,q));return {quick,res}}
-function handleSearch(v){searchTerm=v.trim().toLowerCase();$('clearSearch').classList.toggle('hidden',!searchTerm);if(!searchTerm){$('searchCount').textContent='';renderQuickLinks();renderResources();return}const found=dataArray('QUICK_LINKS').filter(i=>matches(i,searchTerm));const resCount=flattenResources(dataArray('RESOURCES')).filter(x=>matches(x.item,searchTerm)).length;$('searchCount').textContent=(found.length+resCount)+' result'+((found.length+resCount)===1?'':'s');renderQuickLinks(found);renderResources()}
+function handleSearch(v){searchTerm=v.trim().toLowerCase();$('clearSearch').classList.toggle('hidden',!searchTerm);if(!searchTerm){$('searchCount').textContent='';renderQuickLinks();return}const found=dataArray('QUICK_LINKS').filter(i=>matchesDeep(i,searchTerm));$('searchCount').textContent=found.length+' result'+(found.length===1?'':'s');renderQuickLinks(found)}
 function clearSearch(){$('searchInput').value='';handleSearch('')}
 function openItem(item){if(String(item.label||'').toLowerCase()==='support'||item.action==='support'){openSupportModal();return}if(isFolder(item)){openFolder(item);return}if(isPlaceholder(item.url)){showToast('This link still needs to be added.');return}window.open(item.url,'_blank','noopener')}
 function openFolder(folder){folderStack=[folder];renderFolder(folder);$('modal').classList.add('open');document.body.style.overflow='hidden'}
@@ -263,7 +260,7 @@ function closeSupportModal(){$('supportModal').classList.remove('open');document
 function renderSupportCards(){const grid=$('supportGrid');const modal=$('supportModalGrid');const req=$('requestGrid');grid.innerHTML='';modal.innerHTML='';req.innerHTML='';SUPPORT_CONTACTS.forEach(c=>{const card=document.createElement('article');card.className='support-card';card.onclick=()=>composeTo(c);card.innerHTML=`<div class="support-ico">${c.icon}</div><div class="support-name">${safe(c.title)}</div><div class="support-desc">${safe(c.desc)}</div><div class="support-email">${safe(c.person)} · ${safe(c.email)}</div>`;grid.appendChild(card);const choice=document.createElement('article');choice.className='support-choice';choice.onclick=()=>composeTo(c);choice.innerHTML=`<div class="choice-ico">${c.icon}</div><div><div class="choice-person">${safe(c.person)}</div><div class="choice-title">${safe(c.title)}</div><div class="choice-desc">${safe(c.desc)}</div><div class="choice-email">${safe(c.email)}</div></div>`;modal.appendChild(choice)});REQUEST_TYPES.forEach(r=>{const b=document.createElement('button');b.className='request-btn';b.onclick=()=>composeRequest(r.label);b.innerHTML=`<strong>${safe(r.label)}</strong><span>${safe(r.hint)}</span>`;req.appendChild(b)})}
 function hideSplash(force){const s=$('splash');if(!s)return;s.classList.add('hide')}
 function adminShortcut(e){const typing=['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName);if(typing)return;if((e.metaKey||e.ctrlKey)&&e.altKey&&e.code==='KeyA'){e.preventDefault();location.href='admin.html'}}
-function init(){initTheme();applyConfig();renderNotifications();renderQuickLinks();renderSupportCards();renderChips();renderResources();document.addEventListener('keydown',adminShortcut);setTimeout(()=>hideSplash(false),1300)}
+function init(){initTheme();applyConfig();renderNotifications();renderQuickLinks();renderSupportCards();document.addEventListener('keydown',adminShortcut);setTimeout(()=>hideSplash(false),1300)}
 init();
 </script>
 </body>
