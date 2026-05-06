@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   Peachtree Town & Country — Advisor Hub
+   Peachtree Town & Country — ROAR
    DATA FILE
    ───────────────────────────────────────────────────────────────
    This is the only file that needs to be updated for most advisor
@@ -13,12 +13,12 @@
 ═══════════════════════════════════════════════════════════════ */
 
 let SITE_CONFIG = {
-  "siteName": "Advisor Hub",
-  "navLabel": "Advisor Hub",
+  "siteName": "ROAR",
+  "navLabel": "ROAR",
   "eyebrow": "Peachtree Town & Country — Advisor Access",
-  "heroTitle": "Advisor",
-  "heroItalic": "Link Hub",
-  "heroDescription": "A clean starting point for the platforms, links, support contacts, and company updates advisors use most.",
+  "heroTitle": "ROAR",
+  "heroItalic": "Advisor Access",
+  "heroDescription": "A polished starting point for advisor tools, support requests, company updates, and daily resources.",
   "announcementActive": true,
   "announcementText": "Welcome to the Lion’s Den. Use this page as your starting point for advisor tools, updates, and support."
 };
@@ -28,18 +28,18 @@ let NOTIFICATIONS = [
     "active": true,
     "priority": "high",
     "title": "Welcome to the Lion’s Den",
-    "message": "This Advisor Hub is the new quick-start page for company links, tools, support, and important updates.",
+    "message": "ROAR is the quick-start page for company links, tools, support, and important updates.",
     "linkText": "Open Advisor Resource Center",
-    "url": "advisor-resource-center.html",
+    "url": "https://tylersed.github.io/ptc-notifications-/",
     "expires": ""
   },
   {
     "active": true,
     "priority": "normal",
     "title": "Need Help?",
-    "message": "Use the Support card below to open Outlook in your browser and send a support request to the Peachtree team.",
-    "linkText": "Open Support Email",
-    "url": "https://outlook.cloud.microsoft/mail/deeplink/compose?to=tyler%40peachtreetc.com%3Bgina%40peachtreetc.com%3Bbill%40peachtreetc.com%3BKristi%40peachtreetc.com&subject=Advisor+Support+Request&body=Hi+team%2C%0A%0AI+need+help+with%3A%0A%0A",
+    "message": "Use the Support Concierge card below to choose the right contact before sending a request.",
+    "linkText": "Open Support Concierge",
+    "url": "https://outlook.cloud.microsoft/mail/deeplink/compose?to=amy%40peachtreetc.com&subject=Advisor+General+Support+Request&body=Hi%2C%0A%0AI+need+help+with%3A%0A%0A",
     "expires": ""
   }
 ];
@@ -48,7 +48,7 @@ let QUICK_LINKS = [
   {
     "label": "AppFiles",
     "desc": "Access AppFiles for transaction documents and file management.",
-    "icon": "📂",
+    "icon": "\ud83d\udcc2",
     "type": "Documents",
     "url": "https://login.appfiles.com/login",
     "section": "Core Tools",
@@ -57,7 +57,7 @@ let QUICK_LINKS = [
   {
     "label": "Peachtree Portal",
     "desc": "Open the Peachtree advisor portal dashboard.",
-    "icon": "🦁",
+    "icon": "\ud83e\udd81",
     "type": "Portal",
     "url": "https://mypeachtreeportal.com/dashboard",
     "section": "Core Tools",
@@ -66,16 +66,16 @@ let QUICK_LINKS = [
   {
     "label": "MoxiWorks",
     "desc": "Open MoxiWorks through the Peachtree portal single sign-on path.",
-    "icon": "👥",
+    "icon": "\ud83d\udc65",
     "type": "CRM",
     "url": "https://mypeachtreeportal.com/saml/moxiworks/",
     "section": "Core Tools",
     "isNew": false
   },
   {
-    "label": "Outlook",
-    "desc": "Open Peachtree email in Outlook on the web.",
-    "icon": "✉️",
+    "label": "Email",
+    "desc": "Open your Peachtree email in Outlook on the web.",
+    "icon": "\u2709\ufe0f",
     "type": "Email",
     "url": "https://outlook.cloud.microsoft/mail",
     "section": "Core Tools",
@@ -84,25 +84,56 @@ let QUICK_LINKS = [
   {
     "label": "FMLS / Remine",
     "desc": "Access FMLS and Remine login tools for listings and MLS workflows.",
-    "icon": "🏠",
+    "icon": "\ud83c\udfe0",
     "type": "MLS",
     "url": "https://firstmls-login.sso.remine.com/login?state=hKFo2SBNMnQ3bnlPTHZRUFpQeVhkQmdJWk5URVk2b0NnV3ZHbqFupWxvZ2luo3RpZNkgY291VzJSUlBORjdYb1VBVmcyOGtmcTlVT1lmaGR0Q0ujY2lk2SBNbFllZlBvUjV6dFpkb3lhdVpSQjU0T2RLek1JRFZLSg&client=MlYefPoR5ztZdoyauZRB54OdKzMIDVKJ&protocol=oauth2&scope=openid%20profile%20email&redirect_uri=https%3A%2F%2Ffirstmls.sso.remine.com%2Fcallback&audience=https%3A%2F%2Fsso-dashboard-api%2F&response_type=code&response_mode=query&nonce=THBuQ1lFVmlmQ003MVFDVVllY3NzNVhFYUV1Vi44a2hPNEQ3dVRkRE5WTQ%3D%3D&code_challenge=5Uo-Hxyh4LfTKwLejZV2QYctSP3NBGySROxo-YqOF4Y&code_challenge_method=S256&auth0Client=eyJuYW1lIjoiYXV0aDAtcmVhY3QiLCJ2ZXJzaW9uIjoiMi4zLjAifQ%3D%3D#signin",
     "section": "MLS & Real Estate",
     "isNew": false
   },
   {
-    "label": "GSCCCA",
-    "desc": "Open GSCCCA for Georgia real estate and public record resources.",
-    "icon": "⚖️",
-    "type": "Real Estate",
-    "url": "https://www.gsccca.org/login",
+    "label": "Georgia MLS",
+    "desc": "Open Georgia MLS for GAMLS access and real estate marketplace tools.",
+    "icon": "\ud83c\udfe1",
+    "type": "MLS",
+    "url": "https://www.gamls.com/",
     "section": "MLS & Real Estate",
     "isNew": false
   },
   {
+    "label": "GSCCCA / Warranty Deed",
+    "desc": "Choose a warranty deed title search or send a request to a closing attorney partner.",
+    "icon": "\u2696\ufe0f",
+    "type": "Title Search",
+    "section": "MLS & Real Estate",
+    "isNew": false,
+    "children": [
+      {
+        "label": "Warranty Deed Title Search",
+        "desc": "Open the GSCCCA search page for self-service warranty deed title search.",
+        "icon": "\ud83d\udd0e",
+        "type": "Search",
+        "url": "https://www.gsccca.org/search"
+      },
+      {
+        "label": "Campbell & Brannon Request",
+        "desc": "Email Campbell & Brannon for a warranty deed request.",
+        "icon": "\u2709\ufe0f",
+        "type": "Email Request",
+        "url": "https://outlook.cloud.microsoft/mail/deeplink/compose?to=Attorney%40campbellandbrannon.com&subject=Warranty+Deed+Request&body=Hi%2C%0A%0AI+need+help+with+a+warranty+deed+request+for%3A%0A%0AProperty+Address%3A%0ACounty%3A%0AClient+Name%3A%0A%0AThank+you%2C"
+      },
+      {
+        "label": "Ganek Request",
+        "desc": "Email Ganek for a warranty deed request.",
+        "icon": "\u2709\ufe0f",
+        "type": "Email Request",
+        "url": "https://outlook.cloud.microsoft/mail/deeplink/compose?to=goldenteam%40ganekpc.com&subject=Warranty+Deed+Request&body=Hi%2C%0A%0AI+need+help+with+a+warranty+deed+request+for%3A%0A%0AProperty+Address%3A%0ACounty%3A%0AClient+Name%3A%0A%0AThank+you%2C"
+      }
+    ]
+  },
+  {
     "label": "ActivePipe",
     "desc": "Open ActivePipe for marketing emails, campaigns, and advisor marketing tools.",
-    "icon": "📣",
+    "icon": "\ud83d\udce3",
     "type": "Marketing",
     "url": "https://live.activepipe.com/dashboard",
     "section": "Marketing",
@@ -110,19 +141,20 @@ let QUICK_LINKS = [
   },
   {
     "label": "Advisor Resource Center",
-    "desc": "Open the full Resource Center with brand files, guides, training, documents, and company materials.",
-    "icon": "📚",
+    "desc": "Open the full Advisor Resource Center for brand files, guides, training, documents, and company materials.",
+    "icon": "\ud83d\udcda",
     "type": "Resources",
-    "url": "advisor-resource-center.html",
+    "url": "https://tylersed.github.io/ptc-notifications-/",
     "section": "Company Resources",
     "isNew": true
   },
   {
-    "label": "Support",
-    "desc": "Open Outlook in your browser and send a support request to Tyler, Gina, Bill, and Kristi.",
+    "label": "Support Concierge",
+    "desc": "Choose the right Peachtree contact before sending a support request.",
     "icon": "🛟",
-    "type": "Support",
-    "url": "https://outlook.cloud.microsoft/mail/deeplink/compose?to=tyler%40peachtreetc.com%3Bgina%40peachtreetc.com%3Bbill%40peachtreetc.com%3BKristi%40peachtreetc.com&subject=Advisor+Support+Request&body=Hi+team%2C%0A%0AI+need+help+with%3A%0A%0A",
+    "type": "Support Concierge",
+    "url": "https://outlook.cloud.microsoft/mail/deeplink/compose?to=amy%40peachtreetc.com&subject=Advisor+General+Support+Request&body=Hi%2C%0A%0AI+need+help+with%3A%0A%0A",
+    "action": "support",
     "section": "Support",
     "isNew": false
   }
