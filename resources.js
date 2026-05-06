@@ -56,12 +56,21 @@ let QUICK_LINKS = [
   },
   {
     "label": "Peachtree Portal",
-    "desc": "Open the Peachtree advisor portal dashboard.",
+    "desc": "Open the Peachtree portal. ROAR will preserve deeper portal links after login when possible.",
     "icon": "\ud83e\udd81",
     "type": "Portal",
     "url": "https://mypeachtreeportal.com/dashboard",
     "section": "Core Tools",
     "isNew": false
+  },
+  {
+    "label": "Peachtree Portal Deep Link Test",
+    "desc": "Test ROAR smart redirect handling for deeper Peachtree Portal pages. Replace this URL later with a real portal page.",
+    "icon": "🧪",
+    "type": "Portal Test",
+    "url": "https://mypeachtreeportal.com/marketing/691b983aafd53d14347d6ba7",
+    "section": "Core Tools",
+    "isNew": true
   },
   {
     "label": "MoxiWorks",
