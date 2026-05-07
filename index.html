@@ -118,6 +118,236 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
 .tool-card.status-online{border-color:rgba(22,163,74,.20)}
 .tool-footer-left{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 
+
+/* ═══ Mobile Support Concierge Polish ═══ */
+@media(max-width:900px){
+  .support-section{
+    padding:18px;
+    border-radius:22px;
+    margin-top:28px;
+    overflow:hidden;
+  }
+  .support-section::after{
+    width:150px;
+    height:150px;
+    right:-70px;
+    top:-70px;
+    opacity:.75;
+  }
+  .support-intro{
+    display:flex!important;
+    flex-direction:column;
+    align-items:stretch!important;
+    gap:14px;
+    margin-bottom:18px;
+  }
+  .support-intro h2{
+    font-size:34px;
+    line-height:1.02;
+    margin-bottom:7px;
+  }
+  .support-intro p{
+    max-width:none;
+    font-size:13px;
+    line-height:1.62;
+  }
+  .support-intro .btn{
+    width:100%;
+    min-height:48px;
+    justify-content:center;
+    text-align:center;
+    white-space:normal;
+  }
+  .support-section .section-top{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:6px;
+    margin-bottom:12px;
+  }
+  .support-section .section-note{
+    white-space:normal;
+    line-height:1.4;
+  }
+  .support-grid{
+    grid-template-columns:1fr!important;
+    gap:11px;
+  }
+  .support-card{
+    min-height:0;
+    padding:15px;
+    border-radius:16px;
+    display:grid;
+    grid-template-columns:42px minmax(0,1fr);
+    column-gap:13px;
+    row-gap:4px;
+    align-items:start;
+  }
+  .support-card:hover{
+    transform:translateY(-2px);
+  }
+  .support-ico{
+    grid-row:1 / span 4;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--bg-2);
+    font-size:21px;
+    margin:0;
+  }
+  .support-name{
+    font-size:24px;
+    margin-bottom:3px;
+  }
+  .support-desc{
+    font-size:12.25px;
+    line-height:1.48;
+  }
+  .support-email{
+    font-size:10.75px;
+    margin-top:7px;
+    white-space:normal;
+    overflow:visible;
+    text-overflow:clip;
+    overflow-wrap:anywhere;
+    word-break:break-word;
+  }
+  .request-grid{
+    grid-template-columns:1fr!important;
+    gap:9px;
+  }
+  .request-btn{
+    width:100%;
+    min-height:48px;
+    padding:14px 15px;
+    border-radius:15px;
+  }
+  .request-btn strong{
+    font-size:12.5px;
+  }
+  .request-btn span{
+    font-size:11px;
+    line-height:1.35;
+  }
+
+  .support-modal .modal-panel{
+    width:calc(100% - 18px);
+    margin:9px auto;
+    max-height:calc(100svh - 18px);
+    border-radius:22px;
+  }
+  .support-modal .modal-head{
+    padding:17px;
+    gap:12px;
+    align-items:flex-start;
+  }
+  .support-modal .modal-head > div{
+    min-width:0;
+    width:100%;
+  }
+  .support-modal .modal-title{
+    font-size:31px;
+    line-height:1.02;
+  }
+  .support-modal .modal-sub{
+    font-size:12.5px;
+    line-height:1.55;
+  }
+  .support-modal .close{
+    width:42px;
+    height:42px;
+    flex:0 0 auto;
+  }
+  .support-modal .modal-sub-actions{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin-top:13px;
+  }
+  .support-modal .modal-sub-actions .btn{
+    width:100%;
+    min-height:44px;
+    justify-content:center;
+    text-align:center;
+    white-space:normal;
+  }
+  .support-modal .modal-body{
+    padding:14px;
+    padding-bottom:calc(28px + env(safe-area-inset-bottom));
+    overflow:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .support-modal-grid{
+    grid-template-columns:1fr!important;
+    gap:10px;
+  }
+  .support-choice{
+    grid-template-columns:38px minmax(0,1fr);
+    gap:12px;
+    padding:15px;
+    border-radius:16px;
+  }
+  .choice-ico{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--bg-2);
+    font-size:20px;
+  }
+  .choice-title{
+    font-size:23px;
+    line-height:1.05;
+  }
+  .choice-person{
+    font-size:10px;
+    line-height:1.3;
+  }
+  .choice-desc{
+    font-size:12.25px;
+    line-height:1.48;
+  }
+  .choice-email{
+    font-size:10.5px;
+    line-height:1.35;
+    white-space:normal;
+    overflow-wrap:anywhere;
+    word-break:break-word;
+  }
+}
+@media(max-width:430px){
+  .support-section{
+    padding:16px;
+    border-radius:20px;
+  }
+  .support-intro h2{
+    font-size:31px;
+  }
+  .support-card{
+    padding:14px;
+    grid-template-columns:38px minmax(0,1fr);
+    column-gap:12px;
+  }
+  .support-ico{
+    width:38px;
+    height:38px;
+    font-size:19px;
+  }
+  .support-name{
+    font-size:22px;
+  }
+  .support-modal .modal-title{
+    font-size:28px;
+  }
+  .support-modal .modal-head{
+    padding:15px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -206,7 +436,7 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
     <div class="support-intro">
       <div>
         <h2>Support Concierge.</h2>
-        <p>Choose the best support path and the site will open Outlook in the browser with the right person and a clean subject line already filled in.</p>
+        <p>Choose the best support path. On mobile, ROAR will try to open the Outlook app with a pre-filled email. On desktop, it will open Outlook on the web.</p>
       </div>
       <button class="btn btn-primary" onclick="openSupportModal()">Open Support Concierge ↗</button>
     </div>
@@ -315,7 +545,7 @@ function applyConfig(){const c=cfg();$('navLabel').textContent=c.navLabel||c.sit
 function buildBanner(){const c=cfg();const bar=$('announceBanner');if(!c.announcementActive||!c.announcementText||localStorage.getItem(LS_BANNER)===c.announcementText){bar.classList.remove('show');return} $('announceMsg').textContent=c.announcementText;bar.classList.add('show')}
 function dismissBanner(){const c=cfg();if(c.announcementText)localStorage.setItem(LS_BANNER,c.announcementText);$('announceBanner').classList.remove('show')}
 function activeNotifications(){return dataArray('NOTIFICATIONS').filter(n=>n&&n.active!==false)}
-function renderNotifications(){const grid=$('heroNotifications');const count=$('heroNoticeCount');const notes=activeNotifications();grid.innerHTML='';if(count)count.textContent=notes.length?notes.length+' Active':'No Active Notices';if(!notes.length){grid.innerHTML='<div class="mini-notice"><div class="mini-title">All clear.</div><div class="mini-msg">No active notifications right now.</div></div>';return}notes.slice(0,3).forEach(n=>{const has=!isPlaceholder(n.url);const card=document.createElement('article');card.className='mini-notice '+(n.priority||'normal');card.innerHTML=`<div class="mini-meta">${safe(n.priority||'notice')}</div><div class="mini-title">${safe(n.title||'Notice')}</div><div class="mini-msg">${safe(n.message||'')}</div><div class="mini-actions">${has?`<a class="mini-btn primary" href="${safe(n.url)}" target="_blank" rel="noopener">${safe(n.linkText||'Open Link')} ↗</a>`:''}<button class="mini-btn" onclick='copyText(${JSON.stringify((n.title||'')+"\n"+(n.message||''))})'>Copy Text</button></div>`;grid.appendChild(card)})}
+function renderNotifications(){const grid=$('heroNotifications');const count=$('heroNoticeCount');const notes=activeNotifications();grid.innerHTML='';if(count)count.textContent=notes.length?notes.length+' Active':'No Active Notices';if(!notes.length){grid.innerHTML='<div class="mini-notice"><div class="mini-title">All clear.</div><div class="mini-msg">No active notifications right now.</div></div>';return}notes.slice(0,3).forEach(n=>{const has=!isPlaceholder(n.url);const hasSecond=!isPlaceholder(n.secondaryUrl);const copyValue=(n.copyText||((n.title||'')+"\n"+(n.message||'')));const card=document.createElement('article');card.className='mini-notice '+(n.priority||'normal');card.innerHTML=`<div class="mini-meta">${safe(n.priority||'notice')}</div><div class="mini-title">${safe(n.title||'Notice')}</div><div class="mini-msg">${safe(n.message||'')}</div><div class="mini-actions">${has?`<a class="mini-btn primary" href="${safe(n.url)}" target="_blank" rel="noopener">${safe(n.linkText||'Open Link')} ↗</a>`:''}${hasSecond?`<a class="mini-btn" href="${safe(n.secondaryUrl)}" target="_blank" rel="noopener">${safe(n.secondaryLinkText||'Open Link')} ↗</a>`:''}<button class="mini-btn" onclick='copyText(${JSON.stringify(copyValue)})'>Copy Text</button></div>`;grid.appendChild(card)})}
 function renderQuickLinks(items=dataArray('QUICK_LINKS')){const grid=$('quickLinksGrid');grid.innerHTML='';visibleQuickLinks(items).forEach((r,i)=>{const disabled=!itemHasContent(r);const folder=isFolder(r);const login=isLoginAssist(r);const key=linkStatusKey(r);const status=key?LINK_STATUS[key]:null;const card=document.createElement('article');card.className='tool-card'+(disabled?' disabled':'')+(login?' login-ready':'')+(status&&status.state==='offline'?' status-offline':'');if(key)card.dataset.statusKey=key;card.onclick=()=>!disabled&&openItem(r);const footerLabel=disabled?'Needs link':(folder?(r.children.length+' Options'):(isPeachtreeDeepLink(r.url)?'Smart Redirect Test':(login?'Chrome Autofill Ready':safe(r.type||'Open'))));const statusHtml=renderStatusBadge(status);card.innerHTML=`${r.isNew?'<div class="new-badge">New</div>':''}<div class="tool-icon">${safe(r.icon||'🔗')}</div><div class="tool-type">${safe(r.section||r.type||'Link')}</div><div class="tool-title">${safe(r.label||'Untitled')}</div><div class="tool-desc">${safe(r.desc||'')}</div><div class="tool-footer"><span class="tool-footer-left"><span>${footerLabel}</span>${statusHtml}</span><span class="arrow">${folder?'→':'↗'}</span></div>`;grid.appendChild(card)});applyRenderedStatuses()}
 function getSections(){const set=new Set(['all']);dataArray('RESOURCES').forEach(r=>set.add((r.section||r.type||'Resources').toLowerCase()));return [...set]}
 function renderChips(){const chips=$('filterChips');chips.innerHTML='';getSections().forEach(s=>{const b=document.createElement('button');b.className='chip'+(s===activeFilter?' active':'');b.textContent=s==='all'?'All':titleCase(s);b.onclick=()=>{activeFilter=s;renderChips();renderResources()};chips.appendChild(b)})}
