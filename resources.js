@@ -27,10 +27,17 @@ let NOTIFICATIONS = [
   {
     "active": true,
     "priority": "high",
-    "title": "Meeting with Erica · 2:00 PM",
-    "message": "Meeting today at 2:00 PM at the North Atlanta Market Center in Alpharetta. Use the button below to join the Teams meeting when it is time.",
-    "linkText": "Join Teams Meeting",
-    "url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZWI1Nzc4MzUtMDE5YS00YTU4LWI3YzEtNDNlYzgyZDgxODJm%40thread.v2/0?context=%7b%22Tid%22%3a%22bcfdd46a-c2dd-4e71-a9f8-5cd31816ff9e%22%2c%22Oid%22%3a%2233db6f50-00f8-44ec-ad9e-b634df8e42de%22%7d",
+    "title": "Meeting Test at Alpharetta · 1:00 PM",
+    "message": "Test notification for the North Atlanta Market Center in Alpharetta at 1:00 PM. Address: 2325 Lakeview Parkway, Suite 375, Alpharetta, Georgia 30009.",
+    "linkText": "Open Test Link",
+    "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "secondaryLinkText": "Directions",
+    "secondaryUrl": "https://maps.apple.com/?q=2325+Lakeview+Parkway+Suite+375+Alpharetta+GA+30009",
+    "copyText": "Meeting Test at Alpharetta · 1:00 PM
+North Atlanta Market Center
+2325 Lakeview Parkway, Suite 375
+Alpharetta, Georgia 30009
+Test link: https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     "expires": ""
   },
   {
