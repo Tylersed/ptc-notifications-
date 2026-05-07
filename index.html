@@ -236,7 +236,7 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
       <div>
         <div class="modal-kicker">Support Concierge</div>
         <div class="modal-title">How can we help?</div>
-        <div class="modal-sub">Choose the best contact below and Outlook will open with a pre-filled email.</div>
+        <div class="modal-sub">Choose the best contact below. On mobile, ROAR will try to open the Outlook app with a pre-filled email. On desktop, it will open Outlook on the web.</div>
         <div class="modal-sub-actions">
           <button class="btn btn-primary" onclick="composeGeneralSupport()">General Support Request</button>
           <button class="btn btn-soft" onclick="composeRequest('Report a Website Issue')">Report Website Issue</button>
@@ -424,21 +424,53 @@ function goFolderBack(){if(folderStack.length>1){folderStack.pop();renderFolder(
 function closeModal(){$('modal').classList.remove('open');document.body.style.overflow='';folderStack=[]}
 function copyText(txt){navigator.clipboard?.writeText(txt).then(()=>showToast('Copied to clipboard')).catch(()=>showToast('Copy failed'))}
 function showToast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(window.__toast);window.__toast=setTimeout(()=>t.classList.remove('show'),2600)}
-function outlookComposeUrl(to,subject,body){return 'https://outlook.cloud.microsoft/mail/deeplink/compose?to='+encodeURIComponent(to)+'&subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body)}
+function outlookWebComposeUrl(to,subject,body){
+  return 'https://outlook.cloud.microsoft/mail/deeplink/compose?to='+encodeURIComponent(to)+'&subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body)
+}
+function outlookAppComposeUrl(to,subject,body){
+  return 'ms-outlook://compose?to='+encodeURIComponent(to)+'&subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body)
+}
+function isMobileOutlookTarget(){
+  const ua=navigator.userAgent||'';
+  const isiPadOS=navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1;
+  return /iPhone|iPad|iPod|Android/i.test(ua)||isiPadOS;
+}
+function openOutlookCompose(to,subject,body){
+  const webUrl=outlookWebComposeUrl(to,subject,body);
+  if(!isMobileOutlookTarget()){
+    window.open(webUrl,'_blank','noopener');
+    return;
+  }
+
+  let appOpened=false;
+  let fallbackTimer=null;
+  const cancelFallback=()=>{appOpened=true;if(fallbackTimer)clearTimeout(fallbackTimer)};
+  window.addEventListener('pagehide',cancelFallback,{once:true});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)cancelFallback()},{once:true});
+
+  window.location.href=outlookAppComposeUrl(to,subject,body);
+
+  fallbackTimer=setTimeout(()=>{
+    if(!appOpened&&!document.hidden){
+      showToast('Opening Outlook on the web...');
+      window.open(webUrl,'_blank','noopener');
+    }
+  },1600);
+}
 function bodyTemplate(name){return `Hi ${name},
 
 I need help with:
 
 
 Thank you,`}
-function composeTo(contact){window.open(outlookComposeUrl(contact.email,contact.subject,bodyTemplate(contact.person.split(' ')[0])),'_blank','noopener')}
+function composeTo(contact){openOutlookCompose(contact.email,contact.subject,bodyTemplate(contact.person.split(' ')[0]))}
 function composeGeneralSupport(){const c=SUPPORT_CONTACTS.find(x=>x.key==='general');composeTo(c)}
-function composeRequest(label){const req=REQUEST_TYPES.find(r=>r.label===label)||REQUEST_TYPES.find(r=>r.subject===label)||REQUEST_TYPES[0];window.open(outlookComposeUrl(req.to,req.subject,`Hi,
+function composeRequest(label){const req=REQUEST_TYPES.find(r=>r.label===label)||REQUEST_TYPES.find(r=>r.subject===label)||REQUEST_TYPES[0];openOutlookCompose(req.to,req.subject,`Hi,
 
 I need help with ${req.label.replace('Request ','').toLowerCase()}:
 
 
-Thank you,`),'_blank','noopener')}
+Thank you,`)}
 function openSupport(){openSupportModal()}
 function openSupportModal(){$('supportModal').classList.add('open');document.body.style.overflow='hidden'}
 function closeSupportModal(){$('supportModal').classList.remove('open');document.body.style.overflow=''}
