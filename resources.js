@@ -27,6 +27,15 @@ let NOTIFICATIONS = [
   {
     "active": true,
     "priority": "high",
+    "title": "Meeting with Erica · 2:00 PM",
+    "message": "Meeting today at 2:00 PM at the North Atlanta Market Center in Alpharetta. Use the button below to join the Teams meeting when it is time.",
+    "linkText": "Join Teams Meeting",
+    "url": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZWI1Nzc4MzUtMDE5YS00YTU4LWI3YzEtNDNlYzgyZDgxODJm%40thread.v2/0?context=%7b%22Tid%22%3a%22bcfdd46a-c2dd-4e71-a9f8-5cd31816ff9e%22%2c%22Oid%22%3a%2233db6f50-00f8-44ec-ad9e-b634df8e42de%22%7d",
+    "expires": ""
+  },
+  {
+    "active": true,
+    "priority": "high",
     "title": "Welcome to the Lion’s Den",
     "message": "ROAR is the quick-start page for company links, tools, support, and important updates.",
     "linkText": "Open Advisor Resource Center",
