@@ -30,7 +30,7 @@ let NOTIFICATIONS = [
     "title": "Welcome to the Lion’s Den",
     "message": "ROAR is the quick-start page for company links, tools, support, and important updates.",
     "linkText": "Open Advisor Resource Center",
-    "url": "https://tylersed.github.io/ptc-notifications-/",
+    "url": "https://tylersed.github.io/PTC-notes/",
     "expires": ""
   },
   {
@@ -153,7 +153,7 @@ let QUICK_LINKS = [
     "desc": "Open the full Advisor Resource Center for brand files, guides, training, documents, and company materials.",
     "icon": "\ud83d\udcda",
     "type": "Resources",
-    "url": "https://tylersed.github.io/ptc-notifications-/",
+    "url": "https://tylersed.github.io/PTC-notes/",
     "section": "Company Resources",
     "isNew": true
   },
