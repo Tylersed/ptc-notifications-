@@ -33,11 +33,7 @@ let NOTIFICATIONS = [
     "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     "secondaryLinkText": "Directions",
     "secondaryUrl": "https://maps.apple.com/?q=2325+Lakeview+Parkway+Suite+375+Alpharetta+GA+30009",
-    "copyText": "Meeting Test at Alpharetta · 1:00 PM
-North Atlanta Market Center
-2325 Lakeview Parkway, Suite 375
-Alpharetta, Georgia 30009
-Test link: https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "copyText": "Meeting Test at Alpharetta \u00b7 1:00 PM\nNorth Atlanta Market Center\n2325 Lakeview Parkway, Suite 375\nAlpharetta, Georgia 30009\nTest link: https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     "expires": ""
   },
   {
