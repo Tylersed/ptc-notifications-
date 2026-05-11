@@ -519,6 +519,45 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
   }
 }
 
+
+/* ═══ Admin-managed sections ═══ */
+.whats-new-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+.whats-new-card{
+  min-height:145px;
+}
+.what-tag{
+  display:inline-flex;
+  align-items:center;
+  width:max-content;
+  border:1px solid var(--border-2);
+  border-radius:999px;
+  padding:5px 9px;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--gold);
+  background:rgba(162,124,61,.07);
+  margin-bottom:9px;
+}
+.featured-badge{
+  position:absolute;
+  top:14px;
+  right:14px;
+  background:var(--gold);
+  color:white;
+  border-radius:999px;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:.12em;
+  padding:4px 8px;
+  text-transform:uppercase;
+}
+@media(max-width:1100px){.whats-new-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.whats-new-grid{grid-template-columns:1fr}}
+
 </style>
 <link rel="stylesheet" href="holiday-themes.css">
 </head>
@@ -583,31 +622,16 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
   <section class="office-section" id="officeInfo">
     <div class="office-head">
       <div>
-        <div class="section-kicker">Peachtree Market Centers</div>
-        <p class="office-copy">Office hours and location details for our Atlanta and North Atlanta offices.</p>
+        <div class="section-kicker" id="officeSectionTitle">Peachtree Market Centers</div>
+        <p class="office-copy" id="officeCopy">Office hours and location details for our Atlanta and North Atlanta offices.</p>
       </div>
-      <div class="hours-pill"><span>Office Hours</span><strong>Monday–Friday · 9:00 AM–5:00 PM</strong></div>
+      <div class="hours-pill"><span id="officeHoursLabel">Office Hours</span><strong id="officeHoursText">Monday–Friday · 9:00 AM–5:00 PM</strong></div>
     </div>
-    <div class="office-list">
-      <a class="office-card" href="https://maps.apple.com/?q=3017+Bolling+Way+NE+Atlanta+GA+30305" target="_blank" rel="noopener" aria-label="Open Atlanta Market Center in Apple Maps">
-        <div class="office-pin">📍</div>
-        <div>
-          <div class="office-eyebrow">Market Center</div>
-          <div class="office-name">Atlanta Market Center</div>
-          <div class="office-address">3017 Bolling Way NE<br>Atlanta, Georgia 30305</div>
-        </div>
-        <div class="office-action">Open in Apple Maps ↗</div>
-      </a>
-      <a class="office-card" href="https://maps.apple.com/?q=2325+Lakeview+Parkway+Suite+375+Alpharetta+GA+30009" target="_blank" rel="noopener" aria-label="Open North Atlanta Market Center in Apple Maps">
-        <div class="office-pin">📍</div>
-        <div>
-          <div class="office-eyebrow">Market Center</div>
-          <div class="office-name">North Atlanta Market Center</div>
-          <div class="office-address">2325 Lakeview Parkway, Suite 375<br>Alpharetta, Georgia 30009</div>
-        </div>
-        <div class="office-action">Open in Apple Maps ↗</div>
-      </a>
-    </div>
+    <div class="office-list" id="officeList"></div>
+  </section>
+  <section class="section whats-new-section" id="whatsNewSection">
+    <div class="section-top"><div class="section-kicker">What’s New in ROAR</div><div class="section-note">Recent updates and changes</div></div>
+    <div class="notification-grid whats-new-grid" id="whatsNewGrid"></div>
   </section>
   <section class="support-section" id="supportSection">
     <div class="support-intro">
@@ -690,17 +714,20 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
 <script src="inspirations.js"></script>
 <script src="notifications.js"></script>
 <script src="links.js"></script>
+<script src="whats-new.js"></script>
+<script src="offices.js"></script>
+<script src="support.js"></script>
 <script src="holiday-effects.js" defer></script>
 <script>
 const LS_THEME='ptc_theme_v2';const LS_BANNER='ptc_banner_dismissed_v2';let activeFilter='all';let folderStack=[];let searchTerm='';
-const SUPPORT_CONTACTS=[
+const DEFAULT_SUPPORT_CONTACTS=[
   {key:'tech',icon:'💻',title:'Technology Support',person:'Tyler Seder',email:'tyler@peachtreetc.com',desc:'Outlook, passwords, Google Drive, Moxi access, login issues, website issues, and general tech help.',subject:'Advisor Technology Support Request'},
   {key:'marketing',icon:'📣',title:'Marketing Support',person:'Marketing Team',email:'marketing@peachtreetc.com',desc:'Listing marketing, social media, brand assets, flyers, photography, video, campaigns, and signature help.',subject:'Advisor Marketing Support Request'},
   {key:'operations',icon:'🏢',title:'Operations / Office Support',person:'Gina Campbell',email:'gina@peachtreetc.com',desc:'Office questions, advisor support, onboarding, meetings, processes, and general company guidance.',subject:'Advisor Office / Operations Support Request'},
   {key:'leadership',icon:'🦁',title:'Leadership / Escalation',person:'Bill + Gina + Erica',email:'bill@peachtreetc.com;gina@peachtreetc.com;erica@peachtreetc.com',desc:'High-level issues, approvals, brokerage direction, escalation items, or anything that needs leadership review.',subject:'Advisor Leadership / Escalation Request'},
   {key:'general',icon:'🛟',title:'General Support',person:'Amy',email:'amy@peachtreetc.com',desc:'Use this when you are not sure who should receive the request. Amy can help route it to the right person.',subject:'Advisor General Support Request'}
 ];
-const REQUEST_TYPES=[
+const DEFAULT_REQUEST_TYPES=[
   {label:'Request IT Help',to:'tyler@peachtreetc.com',subject:'Advisor IT Help Request',hint:'Outlook, login, Drive, Moxi, access issues'},
   {label:'Request Marketing Help',to:'marketing@peachtreetc.com',subject:'Advisor Marketing Help Request',hint:'Flyers, listing assets, social, campaigns'},
   {label:'Request Google Drive Access',to:'tyler@peachtreetc.com;marketing@peachtreetc.com',subject:'Google Drive Access Request',hint:'Folders, permissions, listing photos'},
@@ -710,8 +737,11 @@ const REQUEST_TYPES=[
   {label:'Request Training / How-To Help',to:'gina@peachtreetc.com',subject:'Advisor Training / How-To Request',hint:'How-to help or process questions'},
   {label:'Report Website Issue',to:'tyler@peachtreetc.com',subject:'ROAR Website Issue',hint:'Broken link or site feedback'}
 ];
+function supportContacts(){return (typeof SUPPORT_CONTACTS!=='undefined'&&Array.isArray(SUPPORT_CONTACTS)&&SUPPORT_CONTACTS.length)?SUPPORT_CONTACTS:DEFAULT_SUPPORT_CONTACTS}
+function requestTypes(){return (typeof REQUEST_TYPES!=='undefined'&&Array.isArray(REQUEST_TYPES)&&REQUEST_TYPES.length)?REQUEST_TYPES:DEFAULT_REQUEST_TYPES}
+
 function $(id){return document.getElementById(id)}
-function dataArray(name){if(name==='NOTIFICATIONS')return (typeof NOTIFICATIONS!=='undefined'&&Array.isArray(NOTIFICATIONS))?NOTIFICATIONS:[];if(name==='QUICK_LINKS')return (typeof QUICK_LINKS!=='undefined'&&Array.isArray(QUICK_LINKS))?QUICK_LINKS:[];if(name==='RESOURCES')return (typeof RESOURCES!=='undefined'&&Array.isArray(RESOURCES))?RESOURCES:[];return []}
+function dataArray(name){if(name==='NOTIFICATIONS')return (typeof NOTIFICATIONS!=='undefined'&&Array.isArray(NOTIFICATIONS))?NOTIFICATIONS:[];if(name==='QUICK_LINKS')return (typeof QUICK_LINKS!=='undefined'&&Array.isArray(QUICK_LINKS))?QUICK_LINKS:[];if(name==='RESOURCES')return (typeof RESOURCES!=='undefined'&&Array.isArray(RESOURCES))?RESOURCES:[];if(name==='WHATS_NEW')return (typeof WHATS_NEW!=='undefined'&&Array.isArray(WHATS_NEW))?WHATS_NEW:[];return []}
 function cfg(){return (typeof SITE_CONFIG==='object'&&SITE_CONFIG)?SITE_CONFIG:{}}
 function safe(s){return String(s||'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
 function isPlaceholder(url){return !url||url==='PASTE_LINK_HERE'||url==='PASTE_MEETING_LINK_HERE'}
@@ -728,10 +758,31 @@ function renderRoarWord(){
 function renderRoarEyebrow(){
   return `<span><b>R</b> Refined</span><span><b>O</b> Operations</span><span><b>A</b> Advisor</span><span><b>R</b> Resources</span>`;
 }
-function applyConfig(){const c=cfg();$('navLabel').textContent=c.navLabel||c.siteName||'ROAR';const eyebrow=$('heroEyebrow');if(eyebrow){eyebrow.classList.add('roar-eyebrow');eyebrow.innerHTML=renderRoarEyebrow();}const title=c.heroTitle||'ROAR';if(String(title).trim().toUpperCase()==='ROAR'){$('heroTitle').innerHTML=renderRoarWord();}else{$('heroTitle').textContent=title;}if($('heroItalic')){$('heroItalic').textContent='';$('heroItalic').style.display='none';}$('heroDescription').textContent=c.heroDescription||'A refined home for advisor tools, operations updates, company resources, and daily business access.';document.title='Peachtree · '+(c.siteName||'ROAR');buildBanner()}
+function normalizeSeason(value){
+  const allowed=['default','christmas','halloween'];
+  const v=String(value||'default').toLowerCase().trim();
+  return allowed.includes(v)?v:'default';
+}
+function applySeasonFromConfig(){
+  const c=cfg();
+  const season=normalizeSeason(c.activeTheme||c.theme||'default');
+  document.body.dataset.season=season;
+  if(window.ROARHoliday&&typeof window.ROARHoliday.setSeason==='function'){
+    window.ROARHoliday.setSeason(season);
+  }
+}
+function applyConfig(){const c=cfg();applySeasonFromConfig();$('navLabel').textContent=c.navLabel||c.siteName||'ROAR';const eyebrow=$('heroEyebrow');if(eyebrow){eyebrow.classList.add('roar-eyebrow');eyebrow.innerHTML=renderRoarEyebrow();}const title=c.heroTitle||'ROAR';if(String(title).trim().toUpperCase()==='ROAR'){$('heroTitle').innerHTML=renderRoarWord();}else{$('heroTitle').textContent=title;}if($('heroItalic')){$('heroItalic').textContent='';$('heroItalic').style.display='none';}$('heroDescription').textContent=c.heroDescription||'A refined home for advisor tools, operations updates, company resources, and daily business access.';document.title='Peachtree · '+(c.siteName||'ROAR');buildBanner()}
 function buildBanner(){const c=cfg();const bar=$('announceBanner');if(!c.announcementActive||!c.announcementText||localStorage.getItem(LS_BANNER)===c.announcementText){bar.classList.remove('show');return} $('announceMsg').textContent=c.announcementText;bar.classList.add('show')}
 function dismissBanner(){const c=cfg();if(c.announcementText)localStorage.setItem(LS_BANNER,c.announcementText);$('announceBanner').classList.remove('show')}
-function activeNotifications(){return dataArray('NOTIFICATIONS').filter(n=>n&&n.active!==false)}
+function notificationInWindow(n){
+  const today=new Date();today.setHours(0,0,0,0);
+  function parseDate(v){if(!v)return null;const d=new Date(v+'T00:00:00');return isNaN(d)?null:d}
+  const start=parseDate(n.startDate);const end=parseDate(n.endDate||n.expires);
+  if(start&&today<start)return false;
+  if(end&&today>end)return false;
+  return true;
+}
+function activeNotifications(){return dataArray('NOTIFICATIONS').filter(n=>n&&n.active!==false&&notificationInWindow(n))}
 function renderNotifications(){
   const grid=$('heroNotifications');const count=$('heroNoticeCount');const notes=activeNotifications();grid.innerHTML='';
   if(count)count.textContent=notes.length?notes.length+' Active':'No Active Notices';
@@ -748,7 +799,7 @@ function renderNotifications(){
     grid.appendChild(card)
   })
 }
-function renderQuickLinks(items=dataArray('QUICK_LINKS')){const grid=$('quickLinksGrid');grid.innerHTML='';visibleQuickLinks(items).forEach((r,i)=>{const disabled=!itemHasContent(r);const folder=isFolder(r);const login=isLoginAssist(r);const key=linkStatusKey(r);const status=key?LINK_STATUS[key]:null;const card=document.createElement('article');card.className='tool-card'+(disabled?' disabled':'')+(login?' login-ready':'')+(status&&status.state==='offline'?' status-offline':'');if(key)card.dataset.statusKey=key;card.onclick=()=>!disabled&&openItem(r);const footerLabel=disabled?'Needs link':(folder?(r.children.length+' Options'):(login?'Chrome Autofill Ready':safe(r.type||'Open')));const statusHtml=renderStatusBadge(status);card.innerHTML=`${r.isNew?'<div class="new-badge">New</div>':''}<div class="tool-icon">${safe(r.icon||'🔗')}</div><div class="tool-type">${safe(r.type||r.section||'Link')}</div><div class="tool-title">${safe(r.label||'Untitled')}</div><div class="tool-desc">${safe(r.desc||'')}</div><div class="tool-footer"><span class="tool-footer-left"><span>${footerLabel}</span>${statusHtml}</span><span class="arrow">${folder?'→':'↗'}</span></div>`;grid.appendChild(card)});applyRenderedStatuses()}
+function renderQuickLinks(items=dataArray('QUICK_LINKS')){const grid=$('quickLinksGrid');grid.innerHTML='';visibleQuickLinks(items).slice().sort((a,b)=>(b.featured===true)-(a.featured===true)).forEach((r,i)=>{const disabled=!itemHasContent(r);const folder=isFolder(r);const login=isLoginAssist(r);const key=linkStatusKey(r);const status=key?LINK_STATUS[key]:null;const card=document.createElement('article');card.className='tool-card'+(disabled?' disabled':'')+(login?' login-ready':'')+(status&&status.state==='offline'?' status-offline':'');if(key)card.dataset.statusKey=key;card.onclick=()=>!disabled&&openItem(r);const footerLabel=disabled?'Needs link':(folder?(r.children.length+' Options'):(login?'Chrome Autofill Ready':safe(r.type||'Open')));const statusHtml=renderStatusBadge(status);const badge=r.featured?'<div class="featured-badge">Featured</div>':(r.isNew?'<div class="new-badge">New</div>':'');card.innerHTML=`${badge}<div class="tool-icon">${safe(r.icon||'🔗')}</div><div class="tool-type">${safe(r.type||r.section||'Link')}</div><div class="tool-title">${safe(r.label||'Untitled')}</div><div class="tool-desc">${safe(r.desc||'')}</div><div class="tool-footer"><span class="tool-footer-left"><span>${footerLabel}</span>${statusHtml}</span><span class="arrow">${folder?'→':'↗'}</span></div>`;grid.appendChild(card)});applyRenderedStatuses()}
 function getSections(){const set=new Set(['all']);dataArray('RESOURCES').forEach(r=>set.add((r.section||r.type||'Resources').toLowerCase()));return [...set]}
 function renderChips(){const chips=$('filterChips');chips.innerHTML='';getSections().forEach(s=>{const b=document.createElement('button');b.className='chip'+(s===activeFilter?' active':'');b.textContent=s==='all'?'All':titleCase(s);b.onclick=()=>{activeFilter=s;renderChips();renderResources()};chips.appendChild(b)})}
 function titleCase(s){return String(s).replace(/\w\S*/g,t=>t[0].toUpperCase()+t.slice(1))}
@@ -896,8 +947,8 @@ I need help with:
 
 Thank you,`}
 function composeTo(contact){openOutlookCompose(contact.email,contact.subject,bodyTemplate(contact.person.split(' ')[0]))}
-function composeGeneralSupport(){const c=SUPPORT_CONTACTS.find(x=>x.key==='general');composeTo(c)}
-function composeRequest(label){const req=REQUEST_TYPES.find(r=>r.label===label)||REQUEST_TYPES.find(r=>r.subject===label)||REQUEST_TYPES[0];openOutlookCompose(req.to,req.subject,`Hi,
+function composeGeneralSupport(){const c=supportContacts().find(x=>x.key==='general')||supportContacts()[0];composeTo(c)}
+function composeRequest(label){const list=requestTypes();const req=list.find(r=>r.label===label)||list.find(r=>r.subject===label)||list[0];openOutlookCompose(req.to,req.subject,`Hi,
 
 I need help with ${req.label.replace('Request ','').toLowerCase()}:
 
@@ -906,7 +957,41 @@ Thank you,`)}
 function openSupport(){openSupportModal()}
 function openSupportModal(){$('supportModal').classList.add('open');document.body.style.overflow='hidden'}
 function closeSupportModal(){$('supportModal').classList.remove('open');document.body.style.overflow=''}
-function renderSupportCards(){const grid=$('supportGrid');const modal=$('supportModalGrid');const req=$('requestGrid');grid.innerHTML='';modal.innerHTML='';req.innerHTML='';SUPPORT_CONTACTS.forEach(c=>{const card=document.createElement('article');card.className='support-card';card.onclick=()=>composeTo(c);card.innerHTML=`<div class="support-ico">${c.icon}</div><div class="support-name">${safe(c.title)}</div><div class="support-desc">${safe(c.desc)}</div><div class="support-email">${safe(c.person)} · ${safe(c.email)}</div>`;grid.appendChild(card);const choice=document.createElement('article');choice.className='support-choice';choice.onclick=()=>composeTo(c);choice.innerHTML=`<div class="choice-ico">${c.icon}</div><div><div class="choice-person">${safe(c.person)}</div><div class="choice-title">${safe(c.title)}</div><div class="choice-desc">${safe(c.desc)}</div><div class="choice-email">${safe(c.email)}</div></div>`;modal.appendChild(choice)});REQUEST_TYPES.forEach(r=>{const b=document.createElement('button');b.className='request-btn';b.onclick=()=>composeRequest(r.label);b.innerHTML=`<strong>${safe(r.label)}</strong><span>${safe(r.hint)}</span>`;req.appendChild(b)})}
+function renderSupportCards(){const grid=$('supportGrid');const modal=$('supportModalGrid');const req=$('requestGrid');grid.innerHTML='';modal.innerHTML='';req.innerHTML='';supportContacts().forEach(c=>{const card=document.createElement('article');card.className='support-card';card.onclick=()=>composeTo(c);card.innerHTML=`<div class="support-ico">${c.icon}</div><div class="support-name">${safe(c.title)}</div><div class="support-desc">${safe(c.desc)}</div><div class="support-email">${safe(c.person)} · ${safe(c.email)}</div>`;grid.appendChild(card);const choice=document.createElement('article');choice.className='support-choice';choice.onclick=()=>composeTo(c);choice.innerHTML=`<div class="choice-ico">${c.icon}</div><div><div class="choice-person">${safe(c.person)}</div><div class="choice-title">${safe(c.title)}</div><div class="choice-desc">${safe(c.desc)}</div><div class="choice-email">${safe(c.email)}</div></div>`;modal.appendChild(choice)});requestTypes().forEach(r=>{const b=document.createElement('button');b.className='request-btn';b.onclick=()=>composeRequest(r.label);b.innerHTML=`<strong>${safe(r.label)}</strong><span>${safe(r.hint)}</span>`;req.appendChild(b)})}
+
+
+function officeInfo(){return (typeof OFFICE_INFO==='object'&&OFFICE_INFO)?OFFICE_INFO:null}
+function renderOfficeInfo(){
+  const info=officeInfo();if(!info)return;
+  if($('officeSectionTitle'))$('officeSectionTitle').textContent=info.sectionTitle||'Peachtree Market Centers';
+  if($('officeCopy'))$('officeCopy').textContent=info.copy||'Office hours and location details.';
+  if($('officeHoursLabel'))$('officeHoursLabel').textContent=info.hoursLabel||'Office Hours';
+  if($('officeHoursText'))$('officeHoursText').textContent=info.hours||'Monday–Friday · 9:00 AM–5:00 PM';
+  const list=$('officeList');if(!list)return;list.innerHTML='';
+  (info.locations||[]).forEach(o=>{
+    const a=document.createElement('a');
+    a.className='office-card';
+    a.href=o.mapsUrl||'#';
+    a.target='_blank';
+    a.rel='noopener';
+    a.setAttribute('aria-label','Open '+(o.name||'office')+' in maps');
+    const address=safe(o.address||'').replace(/\n/g,'<br>');
+    a.innerHTML=`<div class="office-pin">${safe(o.icon||'📍')}</div><div><div class="office-eyebrow">${safe(o.eyebrow||'Market Center')}</div><div class="office-name">${safe(o.name||'Office')}</div><div class="office-address">${address}</div></div><div class="office-action">${safe(o.actionText||'Open in Apple Maps')} ↗</div>`;
+    list.appendChild(a);
+  });
+}
+function renderWhatsNew(){
+  const section=$('whatsNewSection');const grid=$('whatsNewGrid');if(!section||!grid)return;
+  const items=dataArray('WHATS_NEW').filter(x=>x&&x.active!==false).slice(0,3);
+  if(!items.length){section.classList.add('hidden');return}
+  section.classList.remove('hidden');grid.innerHTML='';
+  items.forEach(item=>{
+    const card=document.createElement('article');
+    card.className='notice whats-new-card';
+    card.innerHTML=`<div class="what-tag">${safe(item.tag||item.date||'Update')}</div><div class="notice-title">${safe(item.title||'ROAR Update')}</div><div class="notice-msg">${safe(item.message||'')}</div>${item.date?`<div class="notice-meta" style="margin-top:14px">${safe(item.date)}</div>`:''}`;
+    grid.appendChild(card);
+  });
+}
 
 function quotePool(){return (typeof INSPIRATION_QUOTES!=='undefined'&&Array.isArray(INSPIRATION_QUOTES)&&INSPIRATION_QUOTES.length)?INSPIRATION_QUOTES:[
   {title:'Inspiration of the Day',quote:'Excellence shows up in the details before anyone has to ask.',author:'Peachtree Town & Country'}
@@ -926,7 +1011,7 @@ function renderInspiration(){
 
 function hideSplash(force){const s=$('splash');if(!s)return;s.classList.add('hide')}
 function adminShortcut(e){const typing=['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName);if(typing)return;if((e.metaKey||e.ctrlKey)&&e.altKey&&e.code==='KeyA'){e.preventDefault();location.href='admin.html'}}
-function init(){initTheme();applyConfig();renderInspiration();renderNotifications();renderQuickLinks();renderSupportCards();runOneTimeLinkStatusCheck();document.addEventListener('keydown',adminShortcut);setTimeout(()=>hideSplash(false),1300)}
+function init(){initTheme();applyConfig();renderInspiration();renderNotifications();renderQuickLinks();renderOfficeInfo();renderWhatsNew();renderSupportCards();runOneTimeLinkStatusCheck();document.addEventListener('keydown',adminShortcut);setTimeout(()=>hideSplash(false),1300)}
 init();
 </script>
 </body>
