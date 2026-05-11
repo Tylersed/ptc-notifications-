@@ -1,56 +1,47 @@
-/* ═══════════════════════════════════════════════════════════════
-   Peachtree Town & Country — ROAR
-   ADVISOR LINKS
-   ───────────────────────────────────────────────────────────────
-   Edit this file when you want to change the main advisor link
-   cards on the ROAR homepage.
-
-   Notifications are now in notifications.js.
-   Resource library content is in resources.js.
-═══════════════════════════════════════════════════════════════ */
+/* ROAR advisor links. Edit this file for main homepage link cards. */
 
 let QUICK_LINKS = [
   {
     "label": "AppFiles",
-    "desc": "Access AppFiles for transaction documents and file management.",
+    "desc": "Compliance system for transaction documents, file management, and transaction review.",
     "icon": "\ud83d\udcc2",
-    "type": "Documents",
+    "type": "Compliance System",
     "url": "https://login.appfiles.com/login",
     "section": "Core Tools",
     "isNew": false
   },
   {
     "label": "Peachtree Portal",
-    "desc": "Open the Peachtree portal. ROAR will preserve deeper portal links after login when possible.",
+    "desc": "Open the Listing Hub for listing workflows, portal access, and company listing tools.",
     "icon": "\ud83e\udd81",
-    "type": "Portal",
+    "type": "Listing Hub",
     "url": "https://mypeachtreeportal.com/dashboard",
     "section": "Core Tools",
     "isNew": false
   },
   {
-    "label": "Peachtree Portal Deep Link Test",
-    "desc": "Test ROAR smart redirect handling for deeper Peachtree Portal pages. Replace this URL later with a real portal page.",
-    "icon": "🧪",
-    "type": "Portal Test",
-    "url": "https://mypeachtreeportal.com/marketing/691b983aafd53d14347d6ba7",
-    "section": "Core Tools",
+    "label": "Advisor Business at a Glance",
+    "desc": "Open the agent net summary report for advisor business activity and production at a glance.",
+    "icon": "\ud83d\udcca",
+    "type": "Report",
+    "url": "https://mypeachtreeportal.com/insight/agent-net-summary",
+    "section": "Reports",
     "isNew": true
   },
   {
     "label": "MoxiWorks",
-    "desc": "Open MoxiWorks through the Peachtree portal single sign-on path.",
+    "desc": "Access MoxiWorks for marketing templates and advisor marketing workflows.",
     "icon": "\ud83d\udc65",
-    "type": "CRM",
+    "type": "Marketing Templates",
     "url": "https://mypeachtreeportal.com/saml/moxiworks/",
     "section": "Core Tools",
     "isNew": false
   },
   {
     "label": "Email",
-    "desc": "Open your Peachtree email in Outlook on the web.",
+    "desc": "Open your Peachtree company email in Outlook on the web.",
     "icon": "\u2709\ufe0f",
-    "type": "Email",
+    "type": "Company Email",
     "url": "https://outlook.cloud.microsoft/mail",
     "section": "Core Tools",
     "isNew": false
@@ -75,17 +66,17 @@ let QUICK_LINKS = [
   },
   {
     "label": "GSCCCA / Warranty Deed",
-    "desc": "Choose a warranty deed title search or send a request to a closing attorney partner.",
+    "desc": "Access legal descriptions, warranty deed title search, and closing attorney request options.",
     "icon": "\u2696\ufe0f",
-    "type": "Title Search",
+    "type": "Legal Descriptions",
     "section": "MLS & Real Estate",
     "isNew": false,
     "children": [
       {
-        "label": "Warranty Deed Title Search",
-        "desc": "Open the GSCCCA search page for self-service warranty deed title search.",
+        "label": "Legal Description Search",
+        "desc": "Open GSCCCA for legal description and warranty deed title research.",
         "icon": "\ud83d\udd0e",
-        "type": "Search",
+        "type": "Legal Descriptions",
         "url": "https://www.gsccca.org/search"
       },
       {
@@ -106,9 +97,9 @@ let QUICK_LINKS = [
   },
   {
     "label": "ActivePipe",
-    "desc": "Open ActivePipe for marketing emails, campaigns, and advisor marketing tools.",
+    "desc": "Open ActivePipe for database management, campaigns, and advisor communication tools.",
     "icon": "\ud83d\udce3",
-    "type": "Marketing",
+    "type": "Database Management",
     "url": "https://live.activepipe.com/dashboard",
     "section": "Marketing",
     "isNew": false
@@ -125,7 +116,7 @@ let QUICK_LINKS = [
   {
     "label": "Support Concierge",
     "desc": "Choose the right Peachtree contact before sending a support request.",
-    "icon": "🛟",
+    "icon": "\ud83d\udedf",
     "type": "Support Concierge",
     "url": "https://outlook.cloud.microsoft/mail/deeplink/compose?to=amy%40peachtreetc.com&subject=Advisor+General+Support+Request&body=Hi%2C%0A%0AI+need+help+with%3A%0A%0A",
     "action": "support",
