@@ -13,14 +13,14 @@
 ═══════════════════════════════════════════════════════════════ */
 
 let SITE_CONFIG = {
-  "siteName": "ROAR Holiday Edition",
-  "navLabel": "ROAR Holiday Edition",
-  "eyebrow": "Peachtree Town & Country — Holiday Edition",
-  "heroTitle": "ROAR Holiday Edition",
-  "heroItalic": "Advisor Access",
-  "heroDescription": "A polished starting point for advisor tools, support requests, company updates, and daily resources.",
+  "siteName": "ROAR",
+  "navLabel": "ROAR",
+  "eyebrow": "R Refined · O Operations · A Advisor · R Resources",
+  "heroTitle": "ROAR",
+  "heroItalic": "",
+  "heroDescription": "A refined home for advisor tools, operations updates, company resources, and daily business access.",
   "announcementActive": true,
-  "announcementText": "Welcome to the Lion’s Den. Use this page as your starting point for advisor tools, updates, and support."
+  "announcementText": "Welcome to ROAR: Refined Operations, Advisor Resources. Use this page as your starting point for tools, updates, and support."
 };
 
 let RESOURCES = [
