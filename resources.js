@@ -15,12 +15,14 @@
 let SITE_CONFIG = {
   "siteName": "ROAR",
   "navLabel": "ROAR",
-  "eyebrow": "R Refined · O Operations · A Advisor · R Resources",
+  "eyebrow": "R Refined \u00b7 O Operations \u00b7 A Advisor \u00b7 R Resources",
   "heroTitle": "ROAR",
   "heroItalic": "",
   "heroDescription": "A refined home for advisor tools, operations updates, company resources, and daily business access.",
   "announcementActive": true,
-  "announcementText": "Welcome to ROAR: Refined Operations, Advisor Resources. Use this page as your starting point for tools, updates, and support."
+  "announcementText": "Welcome to ROAR: Refined Operations, Advisor Resources. Use this page as your starting point for tools, updates, and support.",
+  "activeTheme": "default",
+  "versionNote": "Initial admin-managed ROAR setup."
 };
 
 let RESOURCES = [
