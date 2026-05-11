@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<title>Peachtree · ROAR </title>
+<title>Peachtree · ROAR</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -348,6 +348,177 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
   }
 }
 
+
+/* ═══ ROAR brand acronym / normal edition updates ═══ */
+.roar-word{
+  display:inline-flex;
+  align-items:center;
+  gap:.025em;
+  letter-spacing:-.035em;
+}
+.roar-letter{display:inline-block}
+.roar-lion-o{
+  width:.82em;
+  height:.82em;
+  display:inline-flex;
+  align-items:flex-start;
+  justify-content:center;
+  margin:0 .025em;
+  background:transparent;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  transform:translateY(-.035em);
+  overflow:visible;
+}
+.roar-lion{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+  background:transparent;
+  transform:translateY(-.02em);
+}
+.roar-lion-dark{display:none}
+[data-theme="dark"] .roar-lion-light{display:none}
+[data-theme="dark"] .roar-lion-dark{display:block}
+.roar-acronym{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:-10px 0 18px;
+  max-width:620px;
+}
+.roar-acronym span{
+  border:1px solid var(--border-2);
+  background:rgba(162,124,61,.07);
+  border-radius:999px;
+  padding:7px 11px;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.roar-acronym b{
+  color:var(--text);
+  margin-right:4px;
+}
+.inspiration-card{
+  border-left:4px solid var(--gold);
+}
+.quote-author{
+  display:inline-block;
+  margin-top:8px;
+  color:var(--soft);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.mini-details{
+  display:grid;
+  gap:6px;
+  margin-top:10px;
+  padding-top:10px;
+  border-top:1px solid var(--border);
+}
+.mini-detail{
+  display:grid;
+  grid-template-columns:70px minmax(0,1fr);
+  gap:8px;
+  align-items:start;
+  font-size:12px;
+  line-height:1.4;
+}
+.mini-detail span{
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--gold);
+}
+.mini-detail strong{
+  font-weight:600;
+  color:var(--text);
+}
+@media(max-width:760px){
+  .roar-acronym{gap:7px;margin-top:-4px}
+  .roar-acronym span{font-size:9px;padding:6px 9px}
+  .mini-detail{grid-template-columns:1fr;gap:2px}
+}
+
+
+/* ═══ ROAR acronym eyebrow update ═══ */
+.roar-eyebrow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:18px;
+  border:0;
+  padding:0;
+  letter-spacing:normal;
+  text-transform:none;
+}
+.roar-eyebrow span{
+  border:1px solid var(--border-2);
+  background:rgba(162,124,61,.07);
+  border-radius:999px;
+  padding:7px 11px;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.roar-eyebrow b{
+  color:var(--text);
+  margin-right:4px;
+}
+.hero-heading br,
+#heroItalic{
+  display:none!important;
+}
+@media(max-width:760px){
+  .roar-eyebrow{gap:7px;margin-bottom:14px}
+  .roar-eyebrow span{font-size:9px;padding:6px 9px}
+}
+
+
+/* ═══ Hero size / placement refinement ═══ */
+.hero{
+  padding-top:38px!important;
+  padding-bottom:30px;
+}
+.hero h1{
+  font-size:clamp(72px,8.2vw,128px)!important;
+  line-height:.86;
+}
+.roar-word{
+  transform:translateY(-2px);
+}
+.roar-lion-o{
+  width:.82em;
+  height:.82em;
+  margin:0 .025em;
+  transform:translateY(.055em);
+}
+.hero-rule{
+  margin:22px 0 24px;
+}
+@media(max-width:760px){
+  .hero{
+    padding-top:26px!important;
+  }
+  .hero h1{
+    font-size:clamp(68px,20vw,92px)!important;
+    line-height:.88;
+  }
+  .hero-rule{
+    margin:18px 0 20px;
+  }
+}
+
 </style>
 <link rel="stylesheet" href="holiday-themes.css">
 </head>
@@ -369,7 +540,7 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
       <img class="nav-logo nav-logo-dark" src="assets/ptc-nav-logo-dark.png" alt="Peachtree Town & Country" onerror="this.parentElement.classList.add('logo-missing')">
       <span class="fallback">Peachtree Town & Country</span>
     </div>
-    <div class="nav-label" id="navLabel">ROAR Holiday Edition</div>
+    <div class="nav-label" id="navLabel">ROAR</div>
     <div class="nav-right">
       <div class="pill-toggle" onclick="toggleTheme()" title="Toggle theme"><span id="tpLight" class="on">Day</span><span id="tpDark">Night</span></div>
       <button class="support-top" onclick="openSupport()">🛟 Support Concierge</button>
@@ -379,23 +550,28 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
 <main>
   <section class="hero">
     <div>
-      <div class="eyebrow" id="heroEyebrow">Peachtree Town & Country — Holiday Edition</div>
-      <h1><span id="heroTitle">Advisor</span><br><em id="heroItalic">Hub</em></h1>
+      <div class="eyebrow roar-eyebrow" id="heroEyebrow" aria-label="ROAR meaning">
+        <span><b>R</b> Refined</span>
+        <span><b>O</b> Operations</span>
+        <span><b>A</b> Advisor</span>
+        <span><b>R</b> Resources</span>
+      </div>
+      <h1 class="hero-heading"><span id="heroTitle" class="roar-word" aria-label="ROAR">ROAR</span></h1>
       <div class="hero-rule"></div>
-      <p id="heroDescription">One polished home for advisor links, company resources, training materials, documents, and time-sensitive updates.</p>
+      <p id="heroDescription">A refined home for advisor tools, operations updates, company resources, and daily business access.</p>
     </div>
     <aside class="hero-aside">
+      <div class="today-card inspiration-card">
+        <div class="aside-kicker">Inspiration of the Day</div>
+        <div class="aside-title" id="todayTitle">Refined focus. Better outcomes.</div>
+        <div class="aside-copy" id="todayCopy">A daily thought will appear here.</div>
+      </div>
       <div class="hero-notice-panel">
         <div class="hero-notice-head">
           <div class="hero-notice-title">Notification Center</div>
           <div class="hero-notice-count" id="heroNoticeCount">Current Updates</div>
         </div>
         <div class="hero-notices" id="heroNotifications"></div>
-      </div>
-      <div class="today-card">
-        <div class="aside-kicker">Today at Peachtree</div>
-        <div class="aside-title" id="todayTitle">Everything in one place.</div>
-        <div class="aside-copy" id="todayCopy">Use the updates above for current notices, then jump into the tools and resources advisors use most.</div>
       </div>
     </aside>
   </section>
@@ -437,7 +613,7 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
     <div class="support-intro">
       <div>
         <h2>Support Concierge.</h2>
-        <p>Choose the best support path. On mobile, ROAR Holiday Edition will try to open the Outlook app with a pre-filled email. On desktop, it will open Outlook on the web.</p>
+        <p>Choose the best support path. On mobile, ROAR will try to open the Outlook app with a pre-filled email. On desktop, it will open Outlook on the web.</p>
       </div>
       <button class="btn btn-primary" onclick="openSupportModal()">Open Support Concierge ↗</button>
     </div>
@@ -467,7 +643,7 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
       <div>
         <div class="modal-kicker">Support Concierge</div>
         <div class="modal-title">How can we help?</div>
-        <div class="modal-sub">Choose the best contact below. On mobile, ROAR Holiday Edition will try to open the Outlook app with a pre-filled email. On desktop, it will open Outlook on the web.</div>
+        <div class="modal-sub">Choose the best contact below. On mobile, ROAR will try to open the Outlook app with a pre-filled email. On desktop, it will open Outlook on the web.</div>
         <div class="modal-sub-actions">
           <button class="btn btn-primary" onclick="composeGeneralSupport()">General Support Request</button>
           <button class="btn btn-soft" onclick="composeRequest('Report a Website Issue')">Report Website Issue</button>
@@ -486,7 +662,7 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
       <div>
         <div class="modal-kicker">Google Password Manager</div>
         <div class="modal-title" id="loginAssistTitle">Open Login</div>
-        <div class="modal-sub">ROAR Holiday Edition will open the vendor page. Chrome can then use the saved login from Google Password Manager.</div>
+        <div class="modal-sub">ROAR will open the vendor page. Chrome can then use the saved login from Google Password Manager.</div>
       </div>
       <button class="close" onclick="closeLoginAssistModal()">×</button>
     </div>
@@ -497,20 +673,21 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
         <div class="login-steps">
           <div class="login-step"><b>1</b><span>Click <strong>Open Login Page</strong>.</span></div>
           <div class="login-step"><b>2</b><span>When Chrome shows the saved Google Password Manager login, choose the advisor’s saved username/password.</span></div>
-          <div class="login-step"><b>3</b><span>If the vendor sends you to the dashboard instead of the exact page, come back to ROAR Holiday Edition and click the card again after you are signed in.</span></div>
+          <div class="login-step"><b>3</b><span>If the vendor sends you to the dashboard instead of the exact page, come back to ROAR and click the card again after you are signed in.</span></div>
         </div>
         <div class="login-actions">
           <button class="btn btn-primary" onclick="launchLoginAssist('new')">Open Login Page ↗</button>
           <button class="btn btn-soft" onclick="launchLoginAssist('same')">Open in Same Tab</button>
           <button class="btn btn-soft" onclick="copyLoginAssistLink()">Copy Link</button>
         </div>
-        <div class="login-note">ROAR Holiday Edition does not store, read, or submit passwords. This only sends the advisor to the correct website so Chrome / Google Password Manager can autofill normally.</div>
+        <div class="login-note">ROAR does not store, read, or submit passwords. This only sends the advisor to the correct website so Chrome / Google Password Manager can autofill normally.</div>
       </div>
     </div>
   </div>
 </div>
 <div class="toast" id="toast"></div>
 <script src="resources.js"></script>
+<script src="inspirations.js"></script>
 <script src="notifications.js"></script>
 <script src="links.js"></script>
 <script src="holiday-effects.js" defer></script>
@@ -531,7 +708,7 @@ const REQUEST_TYPES=[
   {label:'Request Signature Help',to:'marketing@peachtreetc.com',subject:'Outlook Signature Help Request',hint:'WiseStamp or Outlook signature issue'},
   {label:'Request MoxiWorks Help',to:'tyler@peachtreetc.com',subject:'MoxiWorks Help Request',hint:'Login, CRM, contact sync, access'},
   {label:'Request Training / How-To Help',to:'gina@peachtreetc.com',subject:'Advisor Training / How-To Request',hint:'How-to help or process questions'},
-  {label:'Report Website Issue',to:'tyler@peachtreetc.com',subject:'ROAR Holiday Edition Website Issue',hint:'Broken link or site feedback'}
+  {label:'Report Website Issue',to:'tyler@peachtreetc.com',subject:'ROAR Website Issue',hint:'Broken link or site feedback'}
 ];
 function $(id){return document.getElementById(id)}
 function dataArray(name){if(name==='NOTIFICATIONS')return (typeof NOTIFICATIONS!=='undefined'&&Array.isArray(NOTIFICATIONS))?NOTIFICATIONS:[];if(name==='QUICK_LINKS')return (typeof QUICK_LINKS!=='undefined'&&Array.isArray(QUICK_LINKS))?QUICK_LINKS:[];if(name==='RESOURCES')return (typeof RESOURCES!=='undefined'&&Array.isArray(RESOURCES))?RESOURCES:[];return []}
@@ -545,12 +722,33 @@ function visibleQuickLinks(items){return (items||[]).filter(i=>!isSupportConcier
 function initTheme(){const saved=localStorage.getItem(LS_THEME)||'light';applyTheme(saved)}
 function applyTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem(LS_THEME,t);$('tpLight').classList.toggle('on',t==='light');$('tpDark').classList.toggle('on',t==='dark')}
 function toggleTheme(){applyTheme(document.documentElement.getAttribute('data-theme')==='light'?'dark':'light')}
-function applyConfig(){const c=cfg();$('navLabel').textContent=c.navLabel||c.siteName||'ROAR Holiday Edition';$('heroEyebrow').textContent=c.eyebrow||'Peachtree Town & Country — Holiday Edition';$('heroTitle').textContent=c.heroTitle||'ROAR';$('heroItalic').textContent=c.heroItalic||'Advisor Access';$('heroDescription').textContent=c.heroDescription||'One polished home for advisor links and resources.';document.title='Peachtree · '+(c.siteName||'ROAR');buildBanner()}
+function renderRoarWord(){
+  return `<span class="roar-letter">R</span><span class="roar-lion-o" aria-hidden="true"><img class="roar-lion roar-lion-light" src="assets/ptc-emblem-light.png" alt=""><img class="roar-lion roar-lion-dark" src="assets/ptc-emblem-dark.png" alt=""></span><span class="roar-letter">A</span><span class="roar-letter">R</span>`;
+}
+function renderRoarEyebrow(){
+  return `<span><b>R</b> Refined</span><span><b>O</b> Operations</span><span><b>A</b> Advisor</span><span><b>R</b> Resources</span>`;
+}
+function applyConfig(){const c=cfg();$('navLabel').textContent=c.navLabel||c.siteName||'ROAR';const eyebrow=$('heroEyebrow');if(eyebrow){eyebrow.classList.add('roar-eyebrow');eyebrow.innerHTML=renderRoarEyebrow();}const title=c.heroTitle||'ROAR';if(String(title).trim().toUpperCase()==='ROAR'){$('heroTitle').innerHTML=renderRoarWord();}else{$('heroTitle').textContent=title;}if($('heroItalic')){$('heroItalic').textContent='';$('heroItalic').style.display='none';}$('heroDescription').textContent=c.heroDescription||'A refined home for advisor tools, operations updates, company resources, and daily business access.';document.title='Peachtree · '+(c.siteName||'ROAR');buildBanner()}
 function buildBanner(){const c=cfg();const bar=$('announceBanner');if(!c.announcementActive||!c.announcementText||localStorage.getItem(LS_BANNER)===c.announcementText){bar.classList.remove('show');return} $('announceMsg').textContent=c.announcementText;bar.classList.add('show')}
 function dismissBanner(){const c=cfg();if(c.announcementText)localStorage.setItem(LS_BANNER,c.announcementText);$('announceBanner').classList.remove('show')}
 function activeNotifications(){return dataArray('NOTIFICATIONS').filter(n=>n&&n.active!==false)}
-function renderNotifications(){const grid=$('heroNotifications');const count=$('heroNoticeCount');const notes=activeNotifications();grid.innerHTML='';if(count)count.textContent=notes.length?notes.length+' Active':'No Active Notices';if(!notes.length){grid.innerHTML='<div class="mini-notice"><div class="mini-title">All clear.</div><div class="mini-msg">No active notifications right now.</div></div>';return}notes.slice(0,3).forEach(n=>{const has=!isPlaceholder(n.url);const hasSecond=!isPlaceholder(n.secondaryUrl);const copyValue=(n.copyText||((n.title||'')+"\n"+(n.message||'')));const card=document.createElement('article');card.className='mini-notice '+(n.priority||'normal');card.innerHTML=`<div class="mini-meta">${safe(n.priority||'notice')}</div><div class="mini-title">${safe(n.title||'Notice')}</div><div class="mini-msg">${safe(n.message||'')}</div><div class="mini-actions">${has?`<a class="mini-btn primary" href="${safe(n.url)}" target="_blank" rel="noopener">${safe(n.linkText||'Open Link')} ↗</a>`:''}${hasSecond?`<a class="mini-btn" href="${safe(n.secondaryUrl)}" target="_blank" rel="noopener">${safe(n.secondaryLinkText||'Open Link')} ↗</a>`:''}<button class="mini-btn" onclick='copyText(${JSON.stringify(copyValue)})'>Copy Text</button></div>`;grid.appendChild(card)})}
-function renderQuickLinks(items=dataArray('QUICK_LINKS')){const grid=$('quickLinksGrid');grid.innerHTML='';visibleQuickLinks(items).forEach((r,i)=>{const disabled=!itemHasContent(r);const folder=isFolder(r);const login=isLoginAssist(r);const key=linkStatusKey(r);const status=key?LINK_STATUS[key]:null;const card=document.createElement('article');card.className='tool-card'+(disabled?' disabled':'')+(login?' login-ready':'')+(status&&status.state==='offline'?' status-offline':'');if(key)card.dataset.statusKey=key;card.onclick=()=>!disabled&&openItem(r);const footerLabel=disabled?'Needs link':(folder?(r.children.length+' Options'):(isPeachtreeDeepLink(r.url)?'Smart Redirect Test':(login?'Chrome Autofill Ready':safe(r.type||'Open'))));const statusHtml=renderStatusBadge(status);card.innerHTML=`${r.isNew?'<div class="new-badge">New</div>':''}<div class="tool-icon">${safe(r.icon||'🔗')}</div><div class="tool-type">${safe(r.section||r.type||'Link')}</div><div class="tool-title">${safe(r.label||'Untitled')}</div><div class="tool-desc">${safe(r.desc||'')}</div><div class="tool-footer"><span class="tool-footer-left"><span>${footerLabel}</span>${statusHtml}</span><span class="arrow">${folder?'→':'↗'}</span></div>`;grid.appendChild(card)});applyRenderedStatuses()}
+function renderNotifications(){
+  const grid=$('heroNotifications');const count=$('heroNoticeCount');const notes=activeNotifications();grid.innerHTML='';
+  if(count)count.textContent=notes.length?notes.length+' Active':'No Active Notices';
+  if(!notes.length){grid.innerHTML='<div class="mini-notice"><div class="mini-title">All clear.</div><div class="mini-msg">No active notifications right now.</div></div>';return}
+  notes.slice(0,2).forEach(n=>{
+    const has=!isPlaceholder(n.url);const hasSecond=!isPlaceholder(n.secondaryUrl);
+    const details=[
+      n.date?['Date',n.date]:null,
+      n.time?['Time',n.time]:null,
+      n.location?['Location',n.location]:null
+    ].filter(Boolean).map(d=>`<div class="mini-detail"><span>${safe(d[0])}</span><strong>${safe(d[1])}</strong></div>`).join('');
+    const card=document.createElement('article');card.className='mini-notice '+(n.priority||'normal');
+    card.innerHTML=`<div class="mini-meta">${safe(n.priority||'notice')}</div><div class="mini-title">${safe(n.title||'Notice')}</div><div class="mini-msg">${safe(n.message||'')}</div>${details?`<div class="mini-details">${details}</div>`:''}<div class="mini-actions">${has?`<a class="mini-btn primary" href="${safe(n.url)}" target="_blank" rel="noopener">${safe(n.linkText||'Online Link')} ↗</a>`:''}${hasSecond?`<a class="mini-btn" href="${safe(n.secondaryUrl)}" target="_blank" rel="noopener">${safe(n.secondaryLinkText||'Directions')} ↗</a>`:''}</div>`;
+    grid.appendChild(card)
+  })
+}
+function renderQuickLinks(items=dataArray('QUICK_LINKS')){const grid=$('quickLinksGrid');grid.innerHTML='';visibleQuickLinks(items).forEach((r,i)=>{const disabled=!itemHasContent(r);const folder=isFolder(r);const login=isLoginAssist(r);const key=linkStatusKey(r);const status=key?LINK_STATUS[key]:null;const card=document.createElement('article');card.className='tool-card'+(disabled?' disabled':'')+(login?' login-ready':'')+(status&&status.state==='offline'?' status-offline':'');if(key)card.dataset.statusKey=key;card.onclick=()=>!disabled&&openItem(r);const footerLabel=disabled?'Needs link':(folder?(r.children.length+' Options'):(login?'Chrome Autofill Ready':safe(r.type||'Open')));const statusHtml=renderStatusBadge(status);card.innerHTML=`${r.isNew?'<div class="new-badge">New</div>':''}<div class="tool-icon">${safe(r.icon||'🔗')}</div><div class="tool-type">${safe(r.type||r.section||'Link')}</div><div class="tool-title">${safe(r.label||'Untitled')}</div><div class="tool-desc">${safe(r.desc||'')}</div><div class="tool-footer"><span class="tool-footer-left"><span>${footerLabel}</span>${statusHtml}</span><span class="arrow">${folder?'→':'↗'}</span></div>`;grid.appendChild(card)});applyRenderedStatuses()}
 function getSections(){const set=new Set(['all']);dataArray('RESOURCES').forEach(r=>set.add((r.section||r.type||'Resources').toLowerCase()));return [...set]}
 function renderChips(){const chips=$('filterChips');chips.innerHTML='';getSections().forEach(s=>{const b=document.createElement('button');b.className='chip'+(s===activeFilter?' active':'');b.textContent=s==='all'?'All':titleCase(s);b.onclick=()=>{activeFilter=s;renderChips();renderResources()};chips.appendChild(b)})}
 function titleCase(s){return String(s).replace(/\w\S*/g,t=>t[0].toUpperCase()+t.slice(1))}
@@ -709,9 +907,26 @@ function openSupport(){openSupportModal()}
 function openSupportModal(){$('supportModal').classList.add('open');document.body.style.overflow='hidden'}
 function closeSupportModal(){$('supportModal').classList.remove('open');document.body.style.overflow=''}
 function renderSupportCards(){const grid=$('supportGrid');const modal=$('supportModalGrid');const req=$('requestGrid');grid.innerHTML='';modal.innerHTML='';req.innerHTML='';SUPPORT_CONTACTS.forEach(c=>{const card=document.createElement('article');card.className='support-card';card.onclick=()=>composeTo(c);card.innerHTML=`<div class="support-ico">${c.icon}</div><div class="support-name">${safe(c.title)}</div><div class="support-desc">${safe(c.desc)}</div><div class="support-email">${safe(c.person)} · ${safe(c.email)}</div>`;grid.appendChild(card);const choice=document.createElement('article');choice.className='support-choice';choice.onclick=()=>composeTo(c);choice.innerHTML=`<div class="choice-ico">${c.icon}</div><div><div class="choice-person">${safe(c.person)}</div><div class="choice-title">${safe(c.title)}</div><div class="choice-desc">${safe(c.desc)}</div><div class="choice-email">${safe(c.email)}</div></div>`;modal.appendChild(choice)});REQUEST_TYPES.forEach(r=>{const b=document.createElement('button');b.className='request-btn';b.onclick=()=>composeRequest(r.label);b.innerHTML=`<strong>${safe(r.label)}</strong><span>${safe(r.hint)}</span>`;req.appendChild(b)})}
+
+function quotePool(){return (typeof INSPIRATION_QUOTES!=='undefined'&&Array.isArray(INSPIRATION_QUOTES)&&INSPIRATION_QUOTES.length)?INSPIRATION_QUOTES:[
+  {title:'Inspiration of the Day',quote:'Excellence shows up in the details before anyone has to ask.',author:'Peachtree Town & Country'}
+]}
+function renderInspiration(){
+  const quotes=quotePool();
+  let idx=Math.floor(Math.random()*quotes.length);
+  const last=Number(sessionStorage.getItem('roar_last_quote_idx'));
+  if(quotes.length>1&&idx===last){
+    idx=(idx+1+Math.floor(Math.random()*(quotes.length-1)))%quotes.length;
+  }
+  sessionStorage.setItem('roar_last_quote_idx',String(idx));
+  const q=quotes[idx]||quotes[0];
+  if($('todayTitle'))$('todayTitle').textContent=q.title||'Inspiration of the Day';
+  if($('todayCopy'))$('todayCopy').innerHTML='“'+safe(q.quote||'Excellence is built one detail at a time.')+'”'+(q.author?'<br><span class="quote-author">— '+safe(q.author)+'</span>':'');
+}
+
 function hideSplash(force){const s=$('splash');if(!s)return;s.classList.add('hide')}
 function adminShortcut(e){const typing=['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName);if(typing)return;if((e.metaKey||e.ctrlKey)&&e.altKey&&e.code==='KeyA'){e.preventDefault();location.href='admin.html'}}
-function init(){initTheme();applyConfig();renderNotifications();renderQuickLinks();renderSupportCards();runOneTimeLinkStatusCheck();document.addEventListener('keydown',adminShortcut);setTimeout(()=>hideSplash(false),1300)}
+function init(){initTheme();applyConfig();renderInspiration();renderNotifications();renderQuickLinks();renderSupportCards();runOneTimeLinkStatusCheck();document.addEventListener('keydown',adminShortcut);setTimeout(()=>hideSplash(false),1300)}
 init();
 </script>
 </body>
