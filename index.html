@@ -62,7 +62,7 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
 @media(max-width:760px){.nav-inner,main,.footer-inner{padding-left:20px;padding-right:20px}.nav-label,.admin-link{display:none}.hero{padding-top:46px}.tools,.notification-grid,.folder-grid{grid-template-columns:1fr}.resource-card{min-height:116px}.res-body{padding:18px}.spine{width:46px}.section-top{align-items:flex-start;flex-direction:column}.section-note{white-space:normal}.announce-banner{align-items:flex-start;flex-direction:column}.hero h1{font-size:55px}.footer-inner{flex-direction:column}.modal-panel{width:calc(100% - 20px);margin:10px auto;max-height:calc(100svh - 20px)}}
 
 /* ═══ LION'S DEN SPLASH / SUPPORT ═══ */
-.splash{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:var(--bg);transition:opacity .55s var(--ease),visibility .55s var(--ease);cursor:pointer;overflow:hidden}.splash::before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at center,rgba(162,124,61,.16),transparent 32%);animation:splashGlow 2.4s ease-in-out infinite alternate}.splash-inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center;animation:splashRise .75s var(--ease) both}.splash-logo{width:min(210px,42vw);height:min(210px,42vw);object-fit:contain}.splash-logo-dark{display:none}[data-theme="dark"] .splash-logo-light{display:none}[data-theme="dark"] .splash-logo-dark{display:block}.splash-title{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,5vw,62px);font-weight:400;letter-spacing:.01em;line-height:1;color:var(--text)}.splash-sub{font-size:10px;font-weight:900;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}.splash-line{width:54px;height:1px;background:var(--border-2);margin-top:2px}.splash.hide{opacity:0;visibility:hidden;pointer-events:none}@keyframes splashRise{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes splashGlow{from{transform:scale(1);opacity:.5}to{transform:scale(1.08);opacity:1}}.support-top{font-size:10px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border:1px solid var(--border-2);padding:8px 13px;border-radius:999px;color:var(--muted);transition:.2s;background:transparent;cursor:pointer;font-weight:800}.support-top:hover{color:var(--text);background:var(--bg-2)}
+.splash{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:var(--bg);transition:opacity .55s var(--ease),visibility .55s var(--ease);cursor:pointer;overflow:hidden}.splash::before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at center,rgba(162,124,61,.16),transparent 32%);animation:splashGlow 2.4s ease-in-out infinite alternate}.splash-inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center;animation:splashRise .75s var(--ease) both}.splash-logo{width:min(210px,42vw);height:min(210px,42vw);object-fit:contain}.splash-logo-dark{display:none}[data-theme="dark"] .splash-logo-light{display:none}[data-theme="dark"] .splash-logo-dark{display:block}.splash-title{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,5vw,62px);font-weight:400;letter-spacing:.01em;line-height:1;color:var(--text)}.splash-sub{font-size:10px;font-weight:900;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}.splash-line{display:none}.splash.hide{opacity:0;visibility:hidden;pointer-events:none}@keyframes splashRise{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes splashGlow{from{transform:scale(1);opacity:.5}to{transform:scale(1.08);opacity:1}}.support-top{font-size:10px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border:1px solid var(--border-2);padding:8px 13px;border-radius:999px;color:var(--muted);transition:.2s;background:transparent;cursor:pointer;font-weight:800}.support-top:hover{color:var(--text);background:var(--bg-2)}
 
 
 /* ═══ ROAR polished additions ═══ */
@@ -558,29 +558,254 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
 @media(max-width:1100px){.whats-new-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:760px){.whats-new-grid{grid-template-columns:1fr}}
 
+
+/* ═══ Final ROAR layout refinements ═══ */
+.nav-search{
+  min-width:260px;
+  max-width:410px;
+  flex:1;
+  height:38px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid var(--border-2);
+  background:var(--card);
+  border-radius:999px;
+  padding:0 12px;
+  box-shadow:0 8px 24px rgba(0,0,0,.04);
+}
+.nav-search input{
+  flex:1;
+  min-width:90px;
+  border:0;
+  background:transparent;
+  color:var(--text);
+  outline:0;
+  font-size:13px;
+}
+.nav-search .search-count{
+  max-width:70px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.hero-service-quote{
+  max-width:620px;
+  margin:-10px 0 18px;
+  color:var(--muted);
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(21px,2vw,31px);
+  line-height:1.18;
+}
+.hero-service-quote span{
+  font-family:Geist,system-ui,sans-serif;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--soft);
+  white-space:nowrap;
+}
+.roar-word{
+  gap:0!important;
+  letter-spacing:-.065em!important;
+}
+.roar-lion-o{
+  width:.98em!important;
+  height:.98em!important;
+  margin:0 -.035em!important;
+  transform:translateY(-.05em)!important;
+}
+.roar-lion{
+  transform:translateY(-.015em)!important;
+}
+.link-status.offline{
+  color:#B42318;
+  font-size:8px;
+  padding:4px 7px;
+}
+@media(max-width:1100px){
+  .nav-search{order:5;flex-basis:100%;max-width:none}
+  .nav-inner{height:auto;min-height:68px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
+  nav{height:auto}
+}
+@media(max-width:760px){
+  .nav-search{min-width:100%}
+  .hero-service-quote{font-size:22px;margin-top:-6px}
+}
+
+
+/* ═══ Balanced ROAR wordmark spacing ═══ */
+.roar-word{
+  display:inline-flex!important;
+  align-items:flex-start!important;
+  gap:0!important;
+  letter-spacing:0!important;
+}
+.roar-letter{
+  display:inline-block!important;
+  line-height:.88!important;
+}
+.roar-lion-o{
+  width:.92em!important;
+  height:.92em!important;
+  margin:0 .012em!important;
+  transform:translateY(-.045em)!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+.roar-lion{
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  transform:translateY(-.01em)!important;
+}
+.roar-letter + .roar-letter{
+  margin-left:.035em!important;
+}
+
+
+/* ═══ Final ROAR spacing fix ═══ */
+.roar-word{
+  display:inline-flex!important;
+  align-items:flex-start!important;
+  gap:0!important;
+  letter-spacing:0!important;
+}
+.roar-letter{
+  display:inline-block!important;
+  line-height:.88!important;
+  margin:0!important;
+}
+.roar-r1{
+  margin-right:-.015em!important;
+}
+.roar-lion-o{
+  width:.90em!important;
+  height:.90em!important;
+  margin-left:-.005em!important;
+  margin-right:-.005em!important;
+  transform:translateY(-.035em)!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+}
+.roar-a{
+  margin-left:-.005em!important;
+  margin-right:.045em!important;
+}
+.roar-r2{
+  margin-left:0!important;
+}
+.roar-lion{
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  transform:translateY(-.005em)!important;
+}
+
+
+/* ═══ Tighter ROAR wordmark refinement ═══ */
+.roar-word{
+  display:inline-flex!important;
+  align-items:flex-start!important;
+  gap:0!important;
+  letter-spacing:0!important;
+}
+.roar-r1{
+  margin-right:-.055em!important;
+}
+.roar-lion-o{
+  width:.80em!important;
+  height:.80em!important;
+  margin-left:-.045em!important;
+  margin-right:-.045em!important;
+  transform:translateY(-.03em)!important;
+  flex:0 0 auto!important;
+}
+.roar-a{
+  margin-left:-.055em!important;
+  margin-right:.02em!important;
+}
+.roar-r2{
+  margin-left:.01em!important;
+}
+.roar-lion{
+  transform:translateY(-.003em)!important;
+}
+
+
+/* ═══ Lion O same-height refinement ═══ */
+.roar-word{
+  display:inline-flex!important;
+  align-items:flex-start!important;
+  gap:0!important;
+  letter-spacing:0!important;
+}
+.roar-r1{
+  margin-right:-.055em!important;
+}
+.roar-lion-o{
+  width:.80em!important;
+  height:1.02em!important;
+  margin-left:-.045em!important;
+  margin-right:-.045em!important;
+  transform:translateY(-.105em)!important;
+  flex:0 0 auto!important;
+  display:inline-flex!important;
+  align-items:flex-start!important;
+  justify-content:center!important;
+  overflow:visible!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+.roar-a{
+  margin-left:-.055em!important;
+  margin-right:.02em!important;
+}
+.roar-r2{
+  margin-left:.01em!important;
+}
+.roar-lion{
+  width:1.02em!important;
+  height:1.02em!important;
+  max-width:none!important;
+  object-fit:contain!important;
+  transform:translateY(0)!important;
+}
+
+
+/* ═══ Hide tile badges ═══ */
+.tool-card .new-badge,
+.tool-card .featured-badge{
+  display:none!important;
+}
+
 </style>
 <link rel="stylesheet" href="holiday-themes.css">
 </head>
 <body data-season="default">
 
-<div class="splash" id="splash" onclick="hideSplash(true)" aria-label="Peachtree Town & Country loading screen">
+<div class="splash" id="splash" onclick="hideSplash(true)" aria-label="Peachtree Town and Country loading screen">
   <div class="splash-inner">
-    <img class="splash-logo splash-logo-light" src="assets/ptc-emblem-light.png" alt="Peachtree Town & Country">
-    <img class="splash-logo splash-logo-dark" src="assets/ptc-emblem-dark.png" alt="Peachtree Town & Country">
-    <div class="splash-line"></div>
+    <img class="splash-logo splash-logo-light" src="assets/ptc-emblem-light.png" alt="Peachtree Town and Country">
+    <img class="splash-logo splash-logo-dark" src="assets/ptc-emblem-dark.png" alt="Peachtree Town and Country">
     <div class="splash-title">Welcome to the Lion’s Den</div>
-    <div class="splash-sub">Peachtree Town & Country</div>
+    <div class="splash-sub">Peachtree Town and Country</div>
   </div>
 </div>
 <nav>
   <div class="nav-inner">
-    <div class="wordmark" aria-label="Peachtree Town & Country">
-      <img class="nav-logo nav-logo-light" src="assets/ptc-nav-logo-light.png" alt="Peachtree Town & Country" onerror="this.parentElement.classList.add('logo-missing')">
-      <img class="nav-logo nav-logo-dark" src="assets/ptc-nav-logo-dark.png" alt="Peachtree Town & Country" onerror="this.parentElement.classList.add('logo-missing')">
-      <span class="fallback">Peachtree Town & Country</span>
+    <div class="wordmark" aria-label="Peachtree Town and Country">
+      <img class="nav-logo nav-logo-light" src="assets/ptc-nav-logo-light.png" alt="Peachtree Town and Country" onerror="this.parentElement.classList.add('logo-missing')">
+      <img class="nav-logo nav-logo-dark" src="assets/ptc-nav-logo-dark.png" alt="Peachtree Town and Country" onerror="this.parentElement.classList.add('logo-missing')">
+      <span class="fallback">Peachtree Town and Country</span>
     </div>
     <div class="nav-label" id="navLabel">ROAR</div>
     <div class="nav-right">
+      <div class="nav-search"><span>⌕</span><input id="searchInput" placeholder="Search ROAR…" autocomplete="off" oninput="handleSearch(this.value)"><span class="search-count" id="searchCount"></span><button class="clear-btn hidden" id="clearSearch" onclick="clearSearch()">Clear</button></div>
       <div class="pill-toggle" onclick="toggleTheme()" title="Toggle theme"><span id="tpLight" class="on">Day</span><span id="tpDark">Night</span></div>
       <button class="support-top" onclick="openSupport()">🛟 Support Concierge</button>
     </div>
@@ -601,7 +826,7 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
     </div>
     <aside class="hero-aside">
       <div class="today-card inspiration-card">
-        <div class="aside-kicker">Inspiration of the Day</div>
+        <div class="aside-kicker">Motivational Quotes</div>
         <div class="aside-title" id="todayTitle">Refined focus. Better outcomes.</div>
         <div class="aside-copy" id="todayCopy">A daily thought will appear here.</div>
       </div>
@@ -622,21 +847,17 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
   <section class="office-section" id="officeInfo">
     <div class="office-head">
       <div>
-        <div class="section-kicker" id="officeSectionTitle">Peachtree Market Centers</div>
+        <div class="section-kicker" id="officeSectionTitle">Office Details</div>
         <p class="office-copy" id="officeCopy">Office hours and location details for our Atlanta and North Atlanta offices.</p>
       </div>
       <div class="hours-pill"><span id="officeHoursLabel">Office Hours</span><strong id="officeHoursText">Monday–Friday · 9:00 AM–5:00 PM</strong></div>
     </div>
     <div class="office-list" id="officeList"></div>
   </section>
-  <section class="section whats-new-section" id="whatsNewSection">
-    <div class="section-top"><div class="section-kicker">What’s New in ROAR</div><div class="section-note">Recent updates and changes</div></div>
-    <div class="notification-grid whats-new-grid" id="whatsNewGrid"></div>
-  </section>
   <section class="support-section" id="supportSection">
     <div class="support-intro">
       <div>
-        <h2>Support Concierge.</h2>
+        <h2>Support Concierge</h2>
         <p>Choose the best support path. On mobile, ROAR will try to open the Outlook app with a pre-filled email. On desktop, it will open Outlook on the web.</p>
       </div>
       <button class="btn btn-primary" onclick="openSupportModal()">Open Support Concierge ↗</button>
@@ -646,13 +867,9 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
     <div class="section-top" style="margin-top:22px"><div class="section-kicker">Common Requests</div><div class="section-note">Fast templates for common needs</div></div>
     <div class="request-grid" id="requestGrid"></div>
   </section>
-  <section class="section">
-    <div class="section-top"><div class="section-kicker">Search Links</div><div class="section-note">Search the advisor link cards</div></div>
-    <div class="search-panel"><span>⌕</span><input id="searchInput" placeholder="Search advisor tools, portals, support, and links…" autocomplete="off" oninput="handleSearch(this.value)"><span class="search-count" id="searchCount"></span><button class="clear-btn hidden" id="clearSearch" onclick="clearSearch()">Clear</button></div>
-  </section>
 
 </main>
-<footer><div class="footer-inner"><div class="footer-brand">Peachtree Town & Country</div><div>Internal Use Only · © 2026</div></div></footer>
+<footer><div class="footer-inner"><div class="footer-brand">Peachtree Town and Country LLC</div><div>Internal Use Only · © 2026</div></div></footer>
 <div class="modal" id="modal">
   <div class="modal-scrim" onclick="closeModal()"></div>
   <div class="modal-panel">
@@ -753,7 +970,7 @@ function initTheme(){const saved=localStorage.getItem(LS_THEME)||'light';applyTh
 function applyTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem(LS_THEME,t);$('tpLight').classList.toggle('on',t==='light');$('tpDark').classList.toggle('on',t==='dark')}
 function toggleTheme(){applyTheme(document.documentElement.getAttribute('data-theme')==='light'?'dark':'light')}
 function renderRoarWord(){
-  return `<span class="roar-letter">R</span><span class="roar-lion-o" aria-hidden="true"><img class="roar-lion roar-lion-light" src="assets/ptc-emblem-light.png" alt=""><img class="roar-lion roar-lion-dark" src="assets/ptc-emblem-dark.png" alt=""></span><span class="roar-letter">A</span><span class="roar-letter">R</span>`;
+  return `<span class="roar-letter roar-r1">R</span><span class="roar-lion-o" aria-hidden="true"><img class="roar-lion roar-lion-light" src="assets/ptc-emblem-light.png" alt=""><img class="roar-lion roar-lion-dark" src="assets/ptc-emblem-dark.png" alt=""></span><span class="roar-letter roar-a">A</span><span class="roar-letter roar-r2">R</span>`;
 }
 function renderRoarEyebrow(){
   return `<span><b>R</b> Refined</span><span><b>O</b> Operations</span><span><b>A</b> Advisor</span><span><b>R</b> Resources</span>`;
@@ -799,7 +1016,7 @@ function renderNotifications(){
     grid.appendChild(card)
   })
 }
-function renderQuickLinks(items=dataArray('QUICK_LINKS')){const grid=$('quickLinksGrid');grid.innerHTML='';visibleQuickLinks(items).slice().sort((a,b)=>(b.featured===true)-(a.featured===true)).forEach((r,i)=>{const disabled=!itemHasContent(r);const folder=isFolder(r);const login=isLoginAssist(r);const key=linkStatusKey(r);const status=key?LINK_STATUS[key]:null;const card=document.createElement('article');card.className='tool-card'+(disabled?' disabled':'')+(login?' login-ready':'')+(status&&status.state==='offline'?' status-offline':'');if(key)card.dataset.statusKey=key;card.onclick=()=>!disabled&&openItem(r);const footerLabel=disabled?'Needs link':(folder?(r.children.length+' Options'):(login?'Chrome Autofill Ready':safe(r.type||'Open')));const statusHtml=renderStatusBadge(status);const badge=r.featured?'<div class="featured-badge">Featured</div>':(r.isNew?'<div class="new-badge">New</div>':'');card.innerHTML=`${badge}<div class="tool-icon">${safe(r.icon||'🔗')}</div><div class="tool-type">${safe(r.type||r.section||'Link')}</div><div class="tool-title">${safe(r.label||'Untitled')}</div><div class="tool-desc">${safe(r.desc||'')}</div><div class="tool-footer"><span class="tool-footer-left"><span>${footerLabel}</span>${statusHtml}</span><span class="arrow">${folder?'→':'↗'}</span></div>`;grid.appendChild(card)});applyRenderedStatuses()}
+function renderQuickLinks(items=dataArray('QUICK_LINKS')){const grid=$('quickLinksGrid');grid.innerHTML='';visibleQuickLinks(items).slice().sort((a,b)=>(b.featured===true)-(a.featured===true)).forEach((r,i)=>{const disabled=!itemHasContent(r);const folder=isFolder(r);const login=isLoginAssist(r);const key=linkStatusKey(r);const status=key?LINK_STATUS[key]:null;const card=document.createElement('article');card.className='tool-card'+(disabled?' disabled':'')+(login?' login-ready':'')+(status&&status.state==='offline'?' status-offline':'');if(key)card.dataset.statusKey=key;card.onclick=()=>!disabled&&openItem(r);const footerLabel=disabled?'Needs link':(folder?(r.children.length+' Options'):(login?'Chrome Autofill Ready':safe(r.type||'Open')));const statusHtml=renderStatusBadge(status);const badge='';card.innerHTML=`${badge}<div class="tool-icon">${safe(r.icon||'🔗')}</div><div class="tool-type">${safe(r.type||r.section||'Link')}</div><div class="tool-title">${safe(r.label||'Untitled')}</div><div class="tool-desc">${safe(r.desc||'')}</div><div class="tool-footer"><span class="tool-footer-left"><span>${footerLabel}</span>${statusHtml}</span><span class="arrow">${folder?'→':'↗'}</span></div>`;grid.appendChild(card)});applyRenderedStatuses()}
 function getSections(){const set=new Set(['all']);dataArray('RESOURCES').forEach(r=>set.add((r.section||r.type||'Resources').toLowerCase()));return [...set]}
 function renderChips(){const chips=$('filterChips');chips.innerHTML='';getSections().forEach(s=>{const b=document.createElement('button');b.className='chip'+(s===activeFilter?' active':'');b.textContent=s==='all'?'All':titleCase(s);b.onclick=()=>{activeFilter=s;renderChips();renderResources()};chips.appendChild(b)})}
 function titleCase(s){return String(s).replace(/\w\S*/g,t=>t[0].toUpperCase()+t.slice(1))}
@@ -808,8 +1025,24 @@ function resourceCard(r,i){const disabled=!itemHasContent(r);const card=document
 function flattenResources(items,path=''){let out=[];(items||[]).forEach(item=>{const p=path?path+' › '+(item.label||'Untitled'):(item.label||'Untitled');out.push({item,path});if(item.children)out=out.concat(flattenResources(item.children,p))});return out}
 function matches(r,q){q=q.toLowerCase();return [r.label,r.desc,r.type,r.section,r.url].filter(Boolean).join(' ').toLowerCase().includes(q)}
 function matchesDeep(r,q){if(matches(r,q))return true;return (r.children||[]).some(c=>matchesDeep(c,q))}
+
+/* ═══ Search results scroll behavior ═══ */
+let roarSearchScrollTimer;
+function scrollToToolResults(){
+  const target=document.getElementById('toolsSection');
+  if(!target)return;
+  clearTimeout(roarSearchScrollTimer);
+  roarSearchScrollTimer=setTimeout(()=>{
+    const nav=document.querySelector('nav');
+    const navHeight=nav?nav.offsetHeight:0;
+    const extraSpace=34;
+    const y=target.getBoundingClientRect().top + window.pageYOffset - navHeight - extraSpace;
+    window.scrollTo({top:Math.max(0,y),behavior:'smooth'});
+  },120);
+}
+
 function buildSearchResults(q){const quick=visibleQuickLinks(dataArray('QUICK_LINKS')).filter(i=>matches(i,q));const res=flattenResources(dataArray('RESOURCES')).filter(x=>matches(x.item,q));return {quick,res}}
-function handleSearch(v){searchTerm=v.trim().toLowerCase();$('clearSearch').classList.toggle('hidden',!searchTerm);if(!searchTerm){$('searchCount').textContent='';renderQuickLinks();return}const found=visibleQuickLinks(dataArray('QUICK_LINKS')).filter(i=>matchesDeep(i,searchTerm));$('searchCount').textContent=found.length+' result'+(found.length===1?'':'s');renderQuickLinks(found)}
+function handleSearch(v){searchTerm=v.trim().toLowerCase();$('clearSearch').classList.toggle('hidden',!searchTerm);if(!searchTerm){$('searchCount').textContent='';renderQuickLinks();return}const found=visibleQuickLinks(dataArray('QUICK_LINKS')).filter(i=>matchesDeep(i,searchTerm));$('searchCount').textContent=found.length+' result'+(found.length===1?'':'s');renderQuickLinks(found);scrollToToolResults()}
 function clearSearch(){$('searchInput').value='';handleSearch('')}
 
 const LINK_STATUS={};
@@ -822,7 +1055,7 @@ function renderStatusBadge(status){
   // Only show a status badge when a link is confirmed offline.
   // Online, checking, and unverified states stay visually silent.
   if(!status || status.state!=='offline')return '';
-  return `<span class="link-status offline">Offline</span>`;
+  return `<span class="link-status offline">Maintenance in Progress</span>`;
 }
 function applyRenderedStatuses(){
   document.querySelectorAll('.tool-card[data-status-key]').forEach(card=>{
@@ -994,7 +1227,7 @@ function renderWhatsNew(){
 }
 
 function quotePool(){return (typeof INSPIRATION_QUOTES!=='undefined'&&Array.isArray(INSPIRATION_QUOTES)&&INSPIRATION_QUOTES.length)?INSPIRATION_QUOTES:[
-  {title:'Inspiration of the Day',quote:'Excellence shows up in the details before anyone has to ask.',author:'Peachtree Town & Country'}
+  {title:'Inspiration of the Day',quote:'Excellence shows up in the details before anyone has to ask.',author:'Peachtree Town and Country'}
 ]}
 function renderInspiration(){
   const quotes=quotePool();
@@ -1011,7 +1244,7 @@ function renderInspiration(){
 
 function hideSplash(force){const s=$('splash');if(!s)return;s.classList.add('hide')}
 function adminShortcut(e){const typing=['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName);if(typing)return;if((e.metaKey||e.ctrlKey)&&e.altKey&&e.code==='KeyA'){e.preventDefault();location.href='admin.html'}}
-function init(){initTheme();applyConfig();renderInspiration();renderNotifications();renderQuickLinks();renderOfficeInfo();renderWhatsNew();renderSupportCards();runOneTimeLinkStatusCheck();document.addEventListener('keydown',adminShortcut);setTimeout(()=>hideSplash(false),1300)}
+function init(){initTheme();applyConfig();renderInspiration();renderNotifications();renderQuickLinks();renderOfficeInfo();renderSupportCards();runOneTimeLinkStatusCheck();document.addEventListener('keydown',adminShortcut);setTimeout(()=>hideSplash(false),1300)}
 init();
 </script>
 </body>
