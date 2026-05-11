@@ -783,6 +783,108 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
   display:none!important;
 }
 
+
+/* ═══ Mobile navigation / Search ROAR fix ═══ */
+@media(max-width:900px){
+  nav{
+    height:auto!important;
+  }
+  .nav-inner{
+    height:auto!important;
+    min-height:68px!important;
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    align-items:center!important;
+    gap:10px!important;
+    padding-top:10px!important;
+    padding-bottom:12px!important;
+  }
+  .wordmark{
+    min-width:0!important;
+    width:100%!important;
+    justify-content:center!important;
+  }
+  .nav-logo{
+    width:min(245px,78vw)!important;
+    height:42px!important;
+    object-position:center!important;
+  }
+  .nav-right{
+    width:100%!important;
+    max-width:100%!important;
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+    gap:8px!important;
+    align-items:center!important;
+  }
+  .nav-search{
+    grid-column:1 / -1!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    flex:none!important;
+    box-sizing:border-box!important;
+    height:42px!important;
+    padding:0 10px!important;
+    overflow:hidden!important;
+  }
+  .nav-search input{
+    min-width:0!important;
+    width:100%!important;
+    flex:1 1 auto!important;
+    font-size:13px!important;
+  }
+  .nav-search .search-count{
+    max-width:54px!important;
+    flex:0 0 auto!important;
+    font-size:10px!important;
+  }
+  .nav-search .clear-btn{
+    flex:0 0 auto!important;
+    padding:4px 6px!important;
+    font-size:11px!important;
+  }
+  .pill-toggle,
+  .support-top{
+    width:100%!important;
+    min-width:0!important;
+    justify-content:center!important;
+  }
+  .pill-toggle span{
+    flex:1!important;
+    text-align:center!important;
+    padding:7px 8px!important;
+  }
+  .support-top{
+    padding:10px 8px!important;
+    font-size:9.5px!important;
+    letter-spacing:.09em!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
+}
+
+@media(max-width:380px){
+  .nav-inner{
+    padding-left:14px!important;
+    padding-right:14px!important;
+  }
+  .nav-right{
+    gap:7px!important;
+  }
+  .nav-search{
+    height:40px!important;
+  }
+  .nav-search input{
+    font-size:12px!important;
+  }
+  .support-top{
+    font-size:8.8px!important;
+    letter-spacing:.06em!important;
+  }
+}
+
 </style>
 <link rel="stylesheet" href="holiday-themes.css">
 </head>
