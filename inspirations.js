@@ -1127,5 +1127,65 @@ let INSPIRATION_QUOTES = [
     "title": "Inspiration of the Day",
     "quote": "Do what you feel in your heart to be right.",
     "author": "Eleanor Roosevelt"
+  },
+  {
+    "title": "Inspiration of the Day",
+    "quote": "Excellence begins when every person chooses ownership over excuses.",
+    "author": "Inspired by Horst Schulze, Excellence Wins"
+  },
+  {
+    "title": "Inspiration of the Day",
+    "quote": "Service becomes exceptional when people feel seen, respected, and cared for.",
+    "author": "Inspired by Horst Schulze, Excellence Wins"
+  },
+  {
+    "title": "Inspiration of the Day",
+    "quote": "A standard is only real when it is lived in the smallest details.",
+    "author": "Inspired by Horst Schulze, Excellence Wins"
+  },
+  {
+    "title": "Inspiration of the Day",
+    "quote": "Great organizations are built by people who know the purpose behind the work.",
+    "author": "Inspired by Horst Schulze, Excellence Wins"
+  },
+  {
+    "title": "Inspiration of the Day",
+    "quote": "Hospitality is not a department; it is the way people are made to feel.",
+    "author": "Inspired by Horst Schulze, Excellence Wins"
+  },
+  {
+    "title": "Inspiration of the Day",
+    "quote": "The client experience improves when the team is aligned around one clear standard.",
+    "author": "Inspired by Horst Schulze, Excellence Wins"
+  },
+  {
+    "title": "Inspiration of the Day",
+    "quote": "Excellence is a decision made before the client ever asks for help.",
+    "author": "Inspired by Horst Schulze, Excellence Wins"
+  },
+  {
+    "title": "Inspiration of the Day",
+    "quote": "People remember how clearly you cared, how quickly you owned it, and how well you followed through.",
+    "author": "Inspired by Horst Schulze, Excellence Wins"
+  },
+  {
+    "title": "Inspiration of the Day",
+    "quote": "A refined experience is created by consistency, respect, and attention to what matters.",
+    "author": "Inspired by Horst Schulze, Excellence Wins"
+  },
+  {
+    "title": "Inspiration of the Day",
+    "quote": "Leadership is setting a standard others can understand, believe in, and repeat.",
+    "author": "Inspired by Horst Schulze, Excellence Wins"
+  },
+  {
+    "title": "Inspiration of the Day",
+    "quote": "Luxury service is not about being complicated; it is about being thoughtful every time.",
+    "author": "Inspired by Horst Schulze, Excellence Wins"
+  },
+  {
+    "title": "Inspiration of the Day",
+    "quote": "The best teams do ordinary things with extraordinary care.",
+    "author": "Inspired by Horst Schulze, Excellence Wins"
   }
 ];
