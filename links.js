@@ -8,7 +8,8 @@ let QUICK_LINKS = [
     "type": "Compliance System",
     "url": "https://login.appfiles.com/login",
     "section": "Core Tools",
-    "isNew": false
+    "isNew": false,
+    "featured": true
   },
   {
     "label": "Peachtree Portal",
@@ -17,7 +18,8 @@ let QUICK_LINKS = [
     "type": "Listing Hub",
     "url": "https://mypeachtreeportal.com/dashboard",
     "section": "Core Tools",
-    "isNew": false
+    "isNew": false,
+    "featured": true
   },
   {
     "label": "Advisor Business at a Glance",
@@ -26,7 +28,8 @@ let QUICK_LINKS = [
     "type": "Report",
     "url": "https://mypeachtreeportal.com/insight/agent-net-summary",
     "section": "Reports",
-    "isNew": true
+    "isNew": true,
+    "featured": false
   },
   {
     "label": "MoxiWorks",
@@ -35,7 +38,8 @@ let QUICK_LINKS = [
     "type": "Marketing Templates",
     "url": "https://mypeachtreeportal.com/saml/moxiworks/",
     "section": "Core Tools",
-    "isNew": false
+    "isNew": false,
+    "featured": false
   },
   {
     "label": "Email",
@@ -44,7 +48,8 @@ let QUICK_LINKS = [
     "type": "Company Email",
     "url": "https://outlook.cloud.microsoft/mail",
     "section": "Core Tools",
-    "isNew": false
+    "isNew": false,
+    "featured": false
   },
   {
     "label": "FMLS / Remine",
@@ -53,7 +58,8 @@ let QUICK_LINKS = [
     "type": "MLS",
     "url": "https://firstmls-login.sso.remine.com/login?state=hKFo2SBNMnQ3bnlPTHZRUFpQeVhkQmdJWk5URVk2b0NnV3ZHbqFupWxvZ2luo3RpZNkgY291VzJSUlBORjdYb1VBVmcyOGtmcTlVT1lmaGR0Q0ujY2lk2SBNbFllZlBvUjV6dFpkb3lhdVpSQjU0T2RLek1JRFZLSg&client=MlYefPoR5ztZdoyauZRB54OdKzMIDVKJ&protocol=oauth2&scope=openid%20profile%20email&redirect_uri=https%3A%2F%2Ffirstmls.sso.remine.com%2Fcallback&audience=https%3A%2F%2Fsso-dashboard-api%2F&response_type=code&response_mode=query&nonce=THBuQ1lFVmlmQ003MVFDVVllY3NzNVhFYUV1Vi44a2hPNEQ3dVRkRE5WTQ%3D%3D&code_challenge=5Uo-Hxyh4LfTKwLejZV2QYctSP3NBGySROxo-YqOF4Y&code_challenge_method=S256&auth0Client=eyJuYW1lIjoiYXV0aDAtcmVhY3QiLCJ2ZXJzaW9uIjoiMi4zLjAifQ%3D%3D#signin",
     "section": "MLS & Real Estate",
-    "isNew": false
+    "isNew": false,
+    "featured": false
   },
   {
     "label": "Georgia MLS",
@@ -62,7 +68,8 @@ let QUICK_LINKS = [
     "type": "MLS",
     "url": "https://www.gamls.com/",
     "section": "MLS & Real Estate",
-    "isNew": false
+    "isNew": false,
+    "featured": false
   },
   {
     "label": "GSCCCA / Warranty Deed",
@@ -93,7 +100,8 @@ let QUICK_LINKS = [
         "type": "Email Request",
         "url": "https://outlook.cloud.microsoft/mail/deeplink/compose?to=goldenteam%40ganekpc.com&subject=Warranty+Deed+Request&body=Hi%2C%0A%0AI+need+help+with+a+warranty+deed+request+for%3A%0A%0AProperty+Address%3A%0ACounty%3A%0AClient+Name%3A%0A%0AThank+you%2C"
       }
-    ]
+    ],
+    "featured": false
   },
   {
     "label": "ActivePipe",
@@ -102,7 +110,8 @@ let QUICK_LINKS = [
     "type": "Database Management",
     "url": "https://live.activepipe.com/dashboard",
     "section": "Marketing",
-    "isNew": false
+    "isNew": false,
+    "featured": false
   },
   {
     "label": "Advisor Resource Center",
@@ -111,7 +120,8 @@ let QUICK_LINKS = [
     "type": "Resources",
     "url": "https://tylersed.github.io/PTC-notes/",
     "section": "Company Resources",
-    "isNew": true
+    "isNew": true,
+    "featured": false
   },
   {
     "label": "Support Concierge",
@@ -121,6 +131,7 @@ let QUICK_LINKS = [
     "url": "https://outlook.cloud.microsoft/mail/deeplink/compose?to=amy%40peachtreetc.com&subject=Advisor+General+Support+Request&body=Hi%2C%0A%0AI+need+help+with%3A%0A%0A",
     "action": "support",
     "section": "Support",
-    "isNew": false
+    "isNew": false,
+    "featured": false
   }
 ];
