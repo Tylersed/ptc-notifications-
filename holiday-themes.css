@@ -163,7 +163,7 @@ body[data-season="christmas"] .hero-aside::after {
 
 body[data-season="christmas"] .hero-text::before,
 body[data-season="christmas"] .hero-copy::before {
-  content:'Holiday Edition';
+  content:'Christmas Edition';
   display:inline-flex;
   align-items:center;
   gap:6px;
@@ -185,7 +185,7 @@ body[data-season="christmas"] .hero-copy::before {
 }
 
 body[data-season="christmas"] .hero-text::before {
-  content:'Holiday Edition ✦';
+  content:'Christmas Edition ✦';
 }
 
 body[data-season="christmas"] .hero h1,
@@ -358,7 +358,7 @@ body[data-season="christmas"] .link-status.offline {
 
 /* Elegant holiday announcement strip inside the page flow */
 body[data-season="christmas"] main::before {
-  content: 'Peachtree Holiday Edition · Advisor Access';
+  content: 'Peachtree Christmas Edition · Advisor Access';
   display: flex;
   align-items: center;
   justify-content: center;
