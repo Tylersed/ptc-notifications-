@@ -9,43 +9,93 @@ let QUICK_LINKS = [
     "url": "https://login.appfiles.com/login",
     "section": "Core Tools",
     "isNew": false,
-    "featured": true
+    "featured": false
   },
   {
     "label": "Peachtree Portal",
-    "desc": "Open the Listing Hub for listing workflows, portal access, and company listing tools.",
+    "desc": "Open Peachtree Portal for listing workflows.",
     "icon": "\ud83e\udd81",
-    "type": "Listing Hub",
+    "type": "Listing Management",
     "url": "https://mypeachtreeportal.com/dashboard",
     "section": "Core Tools",
     "isNew": false,
-    "featured": true
+    "featured": false
   },
   {
-    "label": "Advisor Business at a Glance",
-    "desc": "Open the agent net summary report for advisor business activity and production at a glance.",
+    "label": "Your Business at a Glance",
+    "desc": "Click to view the summary view of your summary report at a glance.",
     "icon": "\ud83d\udcca",
-    "type": "Report",
+    "type": "Reports",
     "url": "https://mypeachtreeportal.com/insight/agent-net-summary",
     "section": "Reports",
-    "isNew": true,
+    "isNew": false,
     "featured": false
   },
   {
     "label": "MoxiWorks",
-    "desc": "Access MoxiWorks for marketing templates and advisor marketing workflows.",
+    "desc": "Open MoxiWorks tools, ActivePipe, Engage, Promote, Marketing Center, and the company directory.",
     "icon": "\ud83d\udc65",
-    "type": "Marketing Templates",
-    "url": "https://mypeachtreeportal.com/saml/moxiworks/",
+    "type": "MoxiWorks",
+    "url": "",
     "section": "Core Tools",
     "isNew": false,
-    "featured": false
+    "featured": false,
+    "children": [
+      {
+        "label": "MoxiWorks Dashboard",
+        "desc": "Open the main MoxiWorks dashboard.",
+        "icon": "\ud83c\udfe0",
+        "type": "Dashboard",
+        "url": "https://my.moxiworks.com/profile",
+        "section": "MoxiWorks"
+      },
+      {
+        "label": "ActivePipe",
+        "desc": "Open ActivePipe for email marketing and campaigns.",
+        "icon": "\ud83d\udce7",
+        "type": "Email Marketing",
+        "url": "https://live.activepipe.com/dashboard",
+        "section": "MoxiWorks"
+      },
+      {
+        "label": "MoxiEngage",
+        "desc": "Open MoxiEngage for CRM and contact management.",
+        "icon": "\ud83e\udd1d",
+        "type": "CRM",
+        "url": "https://engage.moxiworks.com/manager/dashboard",
+        "section": "MoxiWorks"
+      },
+      {
+        "label": "Marketing Center",
+        "desc": "Open the marketing center for designs and marketing materials.",
+        "icon": "\ud83c\udfa8",
+        "type": "Marketing",
+        "url": "https://marketing.imprev.net/ui/?cssName=default.css#home",
+        "section": "MoxiWorks"
+      },
+      {
+        "label": "MoxiPromote",
+        "desc": "Open MoxiPromote for listing promotion tools.",
+        "icon": "\ud83d\udce3",
+        "type": "Promote",
+        "url": "https://promote.moxiworks.com/#/dashboard",
+        "section": "MoxiWorks"
+      },
+      {
+        "label": "Moxi Directory",
+        "desc": "Open the Moxi company directory.",
+        "icon": "\ud83d\udc65",
+        "type": "Directory",
+        "url": "https://base.moxiworks.com/directory",
+        "section": "MoxiWorks"
+      }
+    ]
   },
   {
-    "label": "Email",
-    "desc": "Open your Peachtree company email in Outlook on the web.",
+    "label": "Your Email",
+    "desc": "Peachtree Town and Country email in Outlook on the web.",
     "icon": "\u2709\ufe0f",
-    "type": "Company Email",
+    "type": "Email",
     "url": "https://outlook.cloud.microsoft/mail",
     "section": "Core Tools",
     "isNew": false,
@@ -105,9 +155,9 @@ let QUICK_LINKS = [
   },
   {
     "label": "ActivePipe",
-    "desc": "Open ActivePipe for database management, campaigns, and advisor communication tools.",
+    "desc": "Open ActivePipe for email marketing, email campaigns, and client tools.",
     "icon": "\ud83d\udce3",
-    "type": "Database Management",
+    "type": "Email Marketing",
     "url": "https://live.activepipe.com/dashboard",
     "section": "Marketing",
     "isNew": false,
@@ -120,7 +170,7 @@ let QUICK_LINKS = [
     "type": "Resources",
     "url": "https://tylersed.github.io/PTC-notes/",
     "section": "Company Resources",
-    "isNew": true,
+    "isNew": false,
     "featured": false
   },
   {
