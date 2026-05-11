@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   Peachtree Town & Country — ROAR
+   Peachtree Town and Country — ROAR
    MAIN RESOURCE DATA
    ───────────────────────────────────────────────────────────────
    This file controls the site settings and resource library content.
