@@ -8,7 +8,8 @@ let SUPPORT_CONTACTS = [
     "person": "Tyler Seder",
     "email": "tyler@peachtreetc.com",
     "desc": "Outlook, passwords, Google Drive, Moxi access, login issues, website issues, and general tech help.",
-    "subject": "Advisor Technology Support Request"
+    "subject": "Advisor Technology Support Request",
+    "body": ""
   },
   {
     "key": "marketing",
@@ -17,7 +18,8 @@ let SUPPORT_CONTACTS = [
     "person": "Marketing Team",
     "email": "marketing@peachtreetc.com",
     "desc": "Listing marketing, social media, brand assets, flyers, photography, video, campaigns, and signature help.",
-    "subject": "Advisor Marketing Support Request"
+    "subject": "Advisor Marketing Support Request",
+    "body": ""
   },
   {
     "key": "operations",
@@ -26,16 +28,18 @@ let SUPPORT_CONTACTS = [
     "person": "Gina Campbell",
     "email": "gina@peachtreetc.com",
     "desc": "Office questions, advisor support, onboarding, meetings, processes, and general company guidance.",
-    "subject": "Advisor Office / Operations Support Request"
+    "subject": "Advisor Office / Operations Support Request",
+    "body": ""
   },
   {
-    "key": "leadership",
-    "icon": "\ud83e\udd81",
-    "title": "Leadership / Escalation",
-    "person": "Bill + Gina + Erica",
-    "email": "bill@peachtreetc.com;gina@peachtreetc.com;erica@peachtreetc.com",
-    "desc": "High-level issues, approvals, brokerage direction, escalation items, or anything that needs leadership review.",
-    "subject": "Advisor Leadership / Escalation Request"
+    "key": "support_on_standby",
+    "icon": "\ud83d\udd34",
+    "title": "Support On Standby",
+    "person": "Gina Campbell + Bill",
+    "email": "gina@peachtreetc.com;bill@peachtreetc.com",
+    "desc": "Advisor support requests for open house support and other advisor assistance.",
+    "subject": "\ud83d\udd34 High Priority: Support On Standby Request",
+    "body": "Priority: High\n\nHello,\n\nI am requesting support for hosting an open house or other assistance.\n\nBelow please find details:\n\nLocation:\nDate:\nDescription of assistance requested:\n\nThank you."
   },
   {
     "key": "general",
@@ -44,7 +48,8 @@ let SUPPORT_CONTACTS = [
     "person": "Amy",
     "email": "amy@peachtreetc.com",
     "desc": "Use this when you are not sure who should receive the request. Amy can help route it to the right person.",
-    "subject": "Advisor General Support Request"
+    "subject": "Advisor General Support Request",
+    "body": ""
   }
 ];
 
