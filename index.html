@@ -1043,7 +1043,19 @@ const DEFAULT_SUPPORT_CONTACTS=[
   {key:'tech',icon:'💻',title:'Technology Support',person:'Tyler Seder',email:'tyler@peachtreetc.com',desc:'Outlook, passwords, Google Drive, Moxi access, login issues, website issues, and general tech help.',subject:'Advisor Technology Support Request'},
   {key:'marketing',icon:'📣',title:'Marketing Support',person:'Marketing Team',email:'marketing@peachtreetc.com',desc:'Listing marketing, social media, brand assets, flyers, photography, video, campaigns, and signature help.',subject:'Advisor Marketing Support Request'},
   {key:'operations',icon:'🏢',title:'Operations / Office Support',person:'Gina Campbell',email:'gina@peachtreetc.com',desc:'Office questions, advisor support, onboarding, meetings, processes, and general company guidance.',subject:'Advisor Office / Operations Support Request'},
-  {key:'leadership',icon:'🦁',title:'Leadership / Escalation',person:'Bill + Gina + Erica',email:'bill@peachtreetc.com;gina@peachtreetc.com;erica@peachtreetc.com',desc:'High-level issues, approvals, brokerage direction, escalation items, or anything that needs leadership review.',subject:'Advisor Leadership / Escalation Request'},
+  {key:'support_on_standby',icon:'🔴',title:'Support On Standby',person:'Gina Campbell + Bill',email:'gina@peachtreetc.com;bill@peachtreetc.com',desc:'Advisor support requests for open house support and other advisor assistance.',subject:'🔴 High Priority: Support On Standby Request',body:`Priority: High
+
+Hello,
+
+I am requesting support for hosting an open house or other assistance.
+
+Below please find details:
+
+Location:
+Date:
+Description of assistance requested:
+
+Thank you.`},
   {key:'general',icon:'🛟',title:'General Support',person:'Amy',email:'amy@peachtreetc.com',desc:'Use this when you are not sure who should receive the request. Amy can help route it to the right person.',subject:'Advisor General Support Request'}
 ];
 const DEFAULT_REQUEST_TYPES=[
@@ -1281,7 +1293,7 @@ I need help with:
 
 
 Thank you,`}
-function composeTo(contact){openOutlookCompose(contact.email,contact.subject,bodyTemplate(contact.person.split(' ')[0]))}
+function composeTo(contact){openOutlookCompose(contact.email,contact.subject,contact.body||bodyTemplate((contact.person||'').split(' ')[0]||'there'))}
 function composeGeneralSupport(){const c=supportContacts().find(x=>x.key==='general')||supportContacts()[0];composeTo(c)}
 function composeRequest(label){const list=requestTypes();const req=list.find(r=>r.label===label)||list.find(r=>r.subject===label)||list[0];openOutlookCompose(req.to,req.subject,`Hi,
 
