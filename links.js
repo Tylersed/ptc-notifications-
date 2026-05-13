@@ -134,7 +134,11 @@ let QUICK_LINKS = [
         "desc": "Open GSCCCA for legal description and warranty deed title research.",
         "icon": "\ud83d\udd0e",
         "type": "Legal Descriptions",
-        "url": "https://www.gsccca.org/search"
+        "url": "https://www.gsccca.org/search",
+        "loginAssist": true,
+        "loginHint": "Login credentials are available below. Copy the username and password, then open the GSCCCA search page.",
+        "loginUsername": "townandcountry",
+        "loginPassword": "Peachtree1231!"
       },
       {
         "label": "Campbell & Brannon Request",
@@ -154,14 +158,18 @@ let QUICK_LINKS = [
     "featured": false
   },
   {
-    "label": "ActivePipe",
-    "desc": "Open ActivePipe for email marketing, email campaigns, and client tools.",
-    "icon": "\ud83d\udce3",
-    "type": "Email Marketing",
-    "url": "https://live.activepipe.com/dashboard",
-    "section": "Marketing",
+    "label": "CompFlow",
+    "desc": "Open CompFlow for appraisal database access and workflow support.",
+    "icon": "\ud83e\uddfe",
+    "type": "Appraisal Database",
+    "url": "https://app.compflo.com/login/authenticate",
+    "section": "Core Tools",
     "isNew": false,
-    "featured": false
+    "featured": false,
+    "loginAssist": true,
+    "loginHint": "Login credentials are available below. Copy the username and password, then open the login page.",
+    "loginUsername": "bill@peachtree.com",
+    "loginPassword": "RollTide#1"
   },
   {
     "label": "Advisor Resource Center",
