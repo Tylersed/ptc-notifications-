@@ -20,6 +20,220 @@ input,textarea,select{width:100%;border:1px solid var(--border-2);background:var
 .tabs{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.tab{border:1px solid var(--border-2);background:var(--card);color:var(--muted);border-radius:999px;padding:9px 13px;font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}.tab.active{background:var(--reverse-bg);color:var(--reverse);border-color:var(--reverse-bg)}
 .workspace{display:grid;grid-template-columns:360px minmax(0,1fr);gap:18px}.panel{background:var(--card);border:1px solid var(--border);border-radius:24px;box-shadow:var(--shadow);overflow:hidden}.panel-head{padding:18px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:14px}.panel-title{font-family:'Cormorant Garamond',serif;font-size:28px}.panel-sub{font-size:12px;color:var(--muted);margin-top:3px}.list{max-height:calc(100svh - 250px);overflow:auto;padding:10px}.row{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:16px;cursor:pointer;border:1px solid transparent}.row:hover,.row.active{background:var(--bg-2);border-color:var(--border)}.row-ico{font-size:20px;width:28px}.row-main{min-width:0}.row-title{font-weight:700;font-size:13px}.row-sub{font-size:11px;color:var(--muted);line-height:1.4;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:250px}.editor{padding:20px;display:grid;gap:16px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:13px}.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:13px}.toolbar{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}.notice{border:1px solid var(--border);background:var(--card-2);border-radius:16px;padding:14px;color:var(--muted);font-size:13px;line-height:1.5}.switch-row{display:flex;align-items:center;gap:10px}.switch-row input{width:auto}.preview-card,.export-box{border:1px solid var(--border);background:linear-gradient(145deg,var(--card),var(--card-2));border-radius:18px;padding:18px}.preview-title,.export-title{font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1.1}.preview-copy,.export-copy{font-size:13px;line-height:1.6;color:var(--muted);margin-top:8px}.section-label{font-size:9px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-top:6px}.status-list{display:grid;gap:8px}.status-item{display:flex;justify-content:space-between;gap:12px;border:1px solid var(--border);border-radius:14px;padding:10px;font-size:12px}.ok{color:var(--green)}.bad{color:var(--danger)}.theme-card{border:1px solid var(--border);border-radius:18px;padding:18px;background:var(--card-2)}.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);z-index:999;background:var(--reverse-bg);color:var(--reverse);padding:12px 17px;border-radius:999px;font-size:12px;font-weight:700;opacity:0;pointer-events:none;transition:.25s}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 @media(max-width:900px){.nav-inner,main{padding-left:18px;padding-right:18px}.workspace{grid-template-columns:1fr}.grid2,.grid3{grid-template-columns:1fr}.list{max-height:none}.brand{font-size:24px}}
+
+/* ═══ Guided Admin Workflow ═══ */
+.dashboard-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+}
+.dash-card{
+  border:1px solid var(--border);
+  background:linear-gradient(145deg,var(--card),var(--card-2));
+  border-radius:20px;
+  padding:18px;
+  cursor:pointer;
+  transition:.22s var(--ease);
+  min-height:150px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.dash-card:hover{
+  transform:translateY(-2px);
+  border-color:var(--border-2);
+  box-shadow:var(--shadow);
+}
+.dash-icon{font-size:26px;margin-bottom:10px}
+.dash-title{font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1.05}
+.dash-copy{font-size:13px;line-height:1.5;color:var(--muted);margin-top:8px}
+.dash-file{
+  margin-top:14px;
+  width:max-content;
+  max-width:100%;
+  border:1px solid var(--border-2);
+  border-radius:999px;
+  padding:6px 10px;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--soft);
+}
+.publish-note{
+  border:1px solid var(--border);
+  background:var(--card-2);
+  border-radius:18px;
+  padding:14px;
+  font-size:13px;
+  line-height:1.55;
+  color:var(--muted);
+}
+.publish-note strong{color:var(--text)}
+.validation-list{
+  display:grid;
+  gap:8px;
+  margin-top:10px;
+}
+.validation-item{
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:10px;
+  font-size:12px;
+  color:var(--muted);
+}
+.validation-item.bad{
+  border-color:rgba(180,35,24,.35);
+  background:rgba(180,35,24,.07);
+}
+.validation-item.ok{
+  border-color:rgba(22,128,60,.28);
+  background:rgba(22,128,60,.07);
+}
+.export-main-btn{
+  min-width:180px;
+}
+@media(max-width:900px){
+  .dashboard-grid{grid-template-columns:1fr}
+}
+
+
+/* ═══ Smooth Admin UX Fixes ═══ */
+.tabs{
+  position:sticky;
+  top:68px;
+  z-index:8;
+  background:var(--bg);
+  padding:10px 0 12px;
+  margin:16px 0 18px!important;
+  border-bottom:1px solid var(--border);
+}
+.tab{
+  min-height:38px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  white-space:nowrap;
+  user-select:none;
+}
+.tab:focus-visible,
+.btn:focus-visible,
+.row:focus-visible{
+  outline:2px solid var(--gold);
+  outline-offset:2px;
+}
+.panel-head{
+  align-items:flex-start;
+}
+.panel-head .toolbar{
+  margin-top:0;
+  justify-content:flex-end;
+}
+#editorSub,
+#listSub{
+  max-width:740px;
+}
+.unsaved-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  border:1px solid var(--border-2);
+  border-radius:999px;
+  padding:5px 9px;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--soft);
+}
+.unsaved-pill.dirty{
+  color:var(--gold);
+  background:rgba(162,124,61,.08);
+}
+.notice strong,
+.publish-note strong{
+  color:var(--text);
+}
+@media(max-width:900px){
+  .tabs{
+    top:0;
+    overflow-x:auto;
+    flex-wrap:nowrap;
+    scrollbar-width:none;
+    margin-left:-18px!important;
+    margin-right:-18px!important;
+    padding-left:18px;
+    padding-right:18px;
+  }
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{
+    flex:0 0 auto;
+    font-size:9px;
+    padding:9px 12px;
+  }
+  .panel-head{
+    flex-direction:column;
+  }
+  .panel-head .toolbar{
+    width:100%;
+    justify-content:flex-start;
+  }
+  .panel-head .toolbar .btn{
+    flex:1 1 auto;
+  }
+}
+
+
+/* ═══ Drag-and-drop reorder for Admin lists ═══ */
+.row{
+  position:relative;
+}
+.row[draggable="true"]{
+  cursor:grab;
+}
+.row.dragging{
+  opacity:.42;
+  transform:scale(.985);
+}
+.row.drag-over{
+  border-color:var(--gold);
+  background:rgba(162,124,61,.09);
+}
+.drag-handle{
+  width:26px;
+  height:26px;
+  border:1px solid var(--border-2);
+  border-radius:9px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-size:14px;
+  color:var(--soft);
+  flex:0 0 auto;
+  cursor:grab;
+  user-select:none;
+}
+.row:hover .drag-handle{
+  color:var(--text);
+  border-color:var(--border-2);
+}
+.reorder-help{
+  border:1px solid var(--border);
+  background:var(--card-2);
+  border-radius:14px;
+  padding:11px 12px;
+  margin:10px;
+  font-size:12px;
+  line-height:1.45;
+  color:var(--muted);
+}
+@media(max-width:900px){
+  .drag-handle{
+    width:30px;
+    height:30px;
+  }
+}
+
 </style>
 </head>
 <body data-season="default">
@@ -36,7 +250,7 @@ input,textarea,select{width:100%;border:1px solid var(--border-2);background:var
     <div class="tabs" id="tabs"></div>
     <div class="workspace">
       <aside class="panel"><div class="panel-head"><div><div class="panel-title" id="listTitle"></div><div class="panel-sub" id="listSub"></div></div><button class="btn btn-soft" id="addBtn" onclick="addItem()">Add</button></div><div class="list" id="list"></div></aside>
-      <section class="panel"><div class="panel-head"><div><div class="panel-title" id="editorTitle"></div><div class="panel-sub" id="editorSub"></div></div><button class="btn btn-soft" onclick="renderCurrent()">Refresh</button></div><div class="editor" id="editor"></div></section>
+      <section class="panel"><div class="panel-head"><div><div class="panel-title" id="editorTitle"></div><div class="panel-sub" id="editorSub"></div></div><div class="toolbar"><button class="btn btn-primary export-main-btn" id="exportPageBtn" onclick="exportCurrentFile()">Export This Page</button><button class="btn btn-soft" onclick="renderCurrent()">Refresh</button></div></div><div class="editor" id="editor"></div></section>
     </div>
   </section>
 </main>
@@ -50,19 +264,32 @@ input,textarea,select{width:100%;border:1px solid var(--border-2);background:var
 <script src="support.js"></script>
 <script src="holiday-effects.js" defer></script>
 <script>
+
+window.addEventListener('error', function(e){
+  try{
+    const gateErr=document.getElementById('gateErr');
+    if(gateErr && document.getElementById('app')?.style.display==='none'){
+      gateErr.textContent='Admin script error: '+(e.message||'Unknown error');
+      gateErr.classList.remove('hidden');
+    }
+    console.error('ROAR Admin error:', e.message, e.error);
+  }catch(_){}
+});
+
 const ADMIN_PASSWORD='peachtree2026';
 const LS_THEME='ptc_theme_v2';
 const TABS=[
-  ['site','Site + Theme'],
+  ['home','Admin Home'],
+  ['site','Homepage'],
   ['notifications','Notifications'],
-  ['links','Advisor Links'],
-  ['inspirations','Inspirations'],
-  ['offices','Office Info'],
-  ['support','Support Contacts'],
-  ['requests','Support Requests'],
+  ['links','Advisor Tiles'],
+  ['inspirations','Quotes'],
+  ['offices','Office Details'],
+  ['support','Support Concierge'],
+  ['requests','Request Buttons'],
   ['resources','Resources'],
   ['status','Test Links'],
-  ['export','Export']
+  ['export','Export / Publish']
 ];
 let DATA={
   SITE_CONFIG:structuredClone(typeof SITE_CONFIG==='object'?SITE_CONFIG:{}),
@@ -77,8 +304,9 @@ let DATA={
 };
 DATA.SITE_CONFIG.activeTheme=DATA.SITE_CONFIG.activeTheme||'default';
 DATA.SITE_CONFIG.versionNote=DATA.SITE_CONFIG.versionNote||'';
-let tab='site';
+let tab='home';
 let selected=0;
+let draggedIndex=null;
 function $(id){return document.getElementById(id)}
 function safe(s){return String(s||'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
 function initTheme(){applyTheme(localStorage.getItem(LS_THEME)||'light')}
@@ -86,7 +314,13 @@ function applyTheme(t){document.documentElement.setAttribute('data-theme',t);loc
 function toggleTheme(){applyTheme(document.documentElement.getAttribute('data-theme')==='light'?'dark':'light')}
 function unlock(){if($('password').value===ADMIN_PASSWORD){$('gate').classList.add('hidden');$('app').style.display='block';renderTabs();renderCurrent();showToast('Admin unlocked')}else{$('gateErr').classList.remove('hidden');$('password').value='';$('password').focus()}}
 function renderTabs(){const wrap=$('tabs');wrap.innerHTML='';TABS.forEach(([key,label])=>{const b=document.createElement('button');b.className='tab'+(key===tab?' active':'');b.textContent=label;b.onclick=()=>setTab(key);wrap.appendChild(b)})}
-function setTab(t){try{commit()}catch(e){return}tab=t;selected=0;renderTabs();renderCurrent()}
+function setTab(t){
+  tab=t;
+  selected=0;
+  renderTabs();
+  renderCurrent();
+  showToast(pageLabel(t)+' opened');
+}
 function arr(){if(tab==='notifications')return DATA.NOTIFICATIONS;if(tab==='links')return DATA.QUICK_LINKS;if(tab==='resources')return DATA.RESOURCES;if(tab==='whatsnew')return DATA.WHATS_NEW;if(tab==='inspirations')return DATA.INSPIRATION_QUOTES;if(tab==='offices')return DATA.OFFICE_INFO.locations||(DATA.OFFICE_INFO.locations=[]);if(tab==='support')return DATA.SUPPORT_CONTACTS;if(tab==='requests')return DATA.REQUEST_TYPES;return []}
 function iconForTab(){return {notifications:'📣',links:'🔗',resources:'📄',whatsnew:'✨',inspirations:'“',offices:'📍',support:'🛟',requests:'✉️'}[tab]||'⚙️'}
 function titleForTab(){return {notifications:'Notifications',links:'Advisor Links',resources:'Resources',whatsnew:"What’s New",inspirations:'Inspirations',offices:'Office Info',support:'Support Contacts',requests:'Support Requests'}[tab]||'Editor'}
@@ -122,31 +356,199 @@ function contentForFile(file){
 }
 function sectionFileNote(){return 'Current section modifies: '+fileForTab();}
 
-function renderCurrent(){if(tab==='site')return renderSite();if(tab==='status')return renderStatus();if(tab==='export')return renderExport();renderList();renderEditor()}
-function renderList(){const list=$('list');$('listTitle').textContent=titleForTab();$('listSub').textContent=arr().length+' item'+(arr().length===1?'':'s')+' · '+sectionFileNote();$('addBtn').style.display='';list.innerHTML='';arr().forEach((item,i)=>{const row=document.createElement('div');row.className='row'+(i===selected?' active':'');row.onclick=()=>{commit();selected=i;renderCurrent()};row.innerHTML=`<div class="row-ico">${safe(item.icon||iconForTab())}</div><div class="row-main"><div class="row-title">${safe(item.title||item.label||item.name||item.quote||'Untitled')}</div><div class="row-sub">${safe(item.message||item.desc||item.address||item.author||item.type||item.email||'')}</div></div>`;list.appendChild(row)});if(!arr().length)list.innerHTML='<div class="notice">No items yet. Click Add to create one.</div>'}
-function renderEditor(){const item=arr()[selected];$('editorTitle').textContent=item?(item.title||item.label||item.name||item.quote||'Untitled'):'Editor';$('editorSub').textContent='Changes stay here until you export · '+sectionFileNote();if(!item){$('editor').innerHTML='<div class="notice">Choose or add an item first.</div>';return}if(tab==='notifications')return renderNotificationEditor(item);if(tab==='links')return renderLinkEditor(item);if(tab==='resources')return renderResourceEditor(item);if(tab==='whatsnew')return renderWhatsNewEditor(item);if(tab==='inspirations')return renderInspirationEditor(item);if(tab==='offices')return renderOfficeEditor(item);if(tab==='support')return renderSupportEditor(item);if(tab==='requests')return renderRequestEditor(item)}
+function pageLabel(t=tab){
+  return {
+    home:'Admin Home',
+    site:'Homepage + Theme',
+    notifications:'Notifications',
+    links:'Advisor Link Tiles',
+    inspirations:'Motivational Quotes',
+    offices:'Office Details',
+    support:'Support Concierge',
+    requests:'Support Request Buttons',
+    resources:'Resource Cards',
+    status:'Test Links',
+    export:'Export / Publish'
+  }[t]||'Current Page';
+}
+function pageAction(t=tab){
+  return {
+    site:'change the theme or homepage wording',
+    notifications:'add or update homepage notifications',
+    links:'add or update advisor link tiles',
+    inspirations:'add or update motivational quotes',
+    offices:'update office hours, addresses, or map links',
+    support:'update Support Concierge contacts and email templates',
+    requests:'update common support request buttons',
+    resources:'update resource cards',
+    status:'test links before publishing',
+    export:'download a file for GitHub'
+  }[t]||'make updates';
+}
+function exportLabel(t=tab){
+  return 'Export '+pageLabel(t);
+}
+function setExportButton(){
+  const btn=$('exportPageBtn');
+  if(!btn)return;
+  const hide=(tab==='home'||tab==='status'||tab==='export');
+  btn.style.display=hide?'none':'inline-flex';
+  btn.classList.toggle('hidden',hide);
+  if(!hide)btn.textContent=exportLabel();
+}
+function githubInstructions(file){
+  return `<div class="publish-note"><strong>After download:</strong><br>1. Go to GitHub.<br>2. Open the ROAR website repo.<br>3. Replace <strong>${file}</strong> with the downloaded file.<br>4. Commit changes.<br>5. Refresh ROAR and test the page.</div>`;
+}
+function dashboardCards(){
+  return [
+    ['notifications','📣','Notifications','Meeting notices, online links, directions, and expiration dates.'],
+    ['links','🔗','Advisor Link Tiles','Change portal links, tile names, descriptions, folders, and reports.'],
+    ['support','🛟','Support Concierge','Change support contacts, recipients, subjects, and email body templates.'],
+    ['offices','📍','Office Details','Change office hours, addresses, and Apple Maps links.'],
+    ['inspirations','“','Motivational Quotes','Add, edit, or remove quotes shown on the homepage.'],
+    ['site','🎨','Homepage + Theme','Switch Normal, Christmas, or Halloween and update homepage copy.'],
+    ['resources','📄','Update Resource Cards','Edit resource cards if you use the resource area in this ROAR build.'],
+    ['status','✅','Test Links','Check links before publishing changes.']
+  ];
+}
+function renderHome(){
+  $('listTitle').textContent='Admin Home';
+  $('listSub').textContent='Choose what you need to update';
+  $('addBtn').style.display='none';
+  $('list').innerHTML='<div class="notice">Start here. Pick the page you need to update. ROAR will tell you which single file to export and replace in GitHub.</div>';
+  $('editorTitle').textContent='What are you trying to update?';
+  $('editorSub').textContent='No coding needed. Choose a page below. Top buttons now open instantly.';
+  $('editor').innerHTML=`<div class="dashboard-grid">${dashboardCards().map(([key,icon,title,copy])=>`<article class="dash-card" onclick="setTab('${key}')"><div><div class="dash-icon">${icon}</div><div class="dash-title">${title}</div><div class="dash-copy">${copy}</div></div><div class="dash-file">Exports ${fileForTab(key)}</div></article>`).join('')}</div><div class="publish-note"><strong>Simple workflow:</strong><br>1. Pick what you need to update.<br>2. Make the change.<br>3. Click <strong>Export This Page</strong>.<br>4. Replace only the downloaded file in GitHub.</div>`;
+}
+
+
+function renderCurrent(){
+  if(tab==='home'){renderHome();setExportButton();return}
+  if(tab==='site'){renderSite();setExportButton();return}
+  if(tab==='status'){renderStatus();setExportButton();return}
+  if(tab==='export'){renderExport();setExportButton();return}
+  renderList();
+  renderEditor();
+  setExportButton();
+}
+
+function canDragCurrentTab(){
+  return !['home','site','status','export'].includes(tab) && Array.isArray(arr()) && arr().length>1;
+}
+function reorderItems(from,to){
+  const a=arr();
+  if(from===null||to===null||from===to||from<0||to<0||from>=a.length||to>=a.length)return;
+  const [item]=a.splice(from,1);
+  a.splice(to,0,item);
+  selected=to;
+  renderCurrent();
+  showToast(pageLabel()+' reordered. Export this page when finished.');
+}
+function rowDragStart(e,i){
+  draggedIndex=i;
+  e.currentTarget.classList.add('dragging');
+  e.dataTransfer.effectAllowed='move';
+  e.dataTransfer.setData('text/plain',String(i));
+}
+function rowDragOver(e,i){
+  if(draggedIndex===null)return;
+  e.preventDefault();
+  e.currentTarget.classList.add('drag-over');
+  e.dataTransfer.dropEffect='move';
+}
+function rowDragLeave(e){
+  e.currentTarget.classList.remove('drag-over');
+}
+function rowDrop(e,i){
+  e.preventDefault();
+  e.currentTarget.classList.remove('drag-over');
+  const from=draggedIndex!==null?draggedIndex:Number(e.dataTransfer.getData('text/plain'));
+  draggedIndex=null;
+  reorderItems(from,i);
+}
+function rowDragEnd(e){
+  draggedIndex=null;
+  document.querySelectorAll('.row.dragging,.row.drag-over').forEach(r=>r.classList.remove('dragging','drag-over'));
+}
+
+function renderList(){
+  const list=$('list');if(!list)return;
+  $('listTitle').textContent=titleForTab();
+  $('listSub').textContent=arr().length+' item'+(arr().length===1?'':'s')+' · Exports '+fileForTab();
+  $('addBtn').style.display='';
+  list.innerHTML='';
+  const dragEnabled=canDragCurrentTab();
+  if(dragEnabled){
+    const help=document.createElement('div');
+    help.className='reorder-help';
+    help.innerHTML='<strong>Reorder:</strong> drag the handle ↕ to move items. Then click <strong>Export This Page</strong>.';
+    list.appendChild(help);
+  }
+  arr().forEach((item,i)=>{
+    const row=document.createElement('div');
+    row.className='row'+(i===selected?' active':'');
+    row.draggable=dragEnabled;
+    if(dragEnabled){
+      row.ondragstart=e=>rowDragStart(e,i);
+      row.ondragover=e=>rowDragOver(e,i);
+      row.ondragleave=rowDragLeave;
+      row.ondrop=e=>rowDrop(e,i);
+      row.ondragend=rowDragEnd;
+    }
+    row.onclick=e=>{
+      if(e.target.closest('.drag-handle'))return;
+      selected=i;
+      renderCurrent();
+    };
+    row.tabIndex=0;
+    row.onkeydown=e=>{
+      if(e.key==='Enter'||e.key===' '){
+        e.preventDefault();
+        selected=i;
+        renderCurrent();
+      }
+    };
+    row.innerHTML=`${dragEnabled?'<div class="drag-handle" title="Drag to reorder">↕</div>':''}<div class="row-ico">${safe(item.icon||iconForTab())}</div><div class="row-main"><div class="row-title">${safe(item.title||item.label||item.name||item.quote||'Untitled')}</div><div class="row-sub">${safe(item.message||item.desc||item.address||item.author||item.type||item.email||'')}</div></div>`;
+    list.appendChild(row);
+  });
+  if(!arr().length)list.innerHTML='<div class="notice">No items yet. Click Add to create one.</div>';
+}
+function renderEditor(){const currentArr=arr();if(selected>=currentArr.length)selected=Math.max(0,currentArr.length-1);const item=currentArr[selected];$('editorTitle').textContent=item?(item.title||item.label||item.name||item.quote||'Untitled'):'Editor';$('editorSub').textContent='You are editing '+pageLabel()+'. Export only '+fileForTab()+' when finished.';if(!item){$('editor').innerHTML='<div class="notice">Choose or add an item first.</div>';return}if(tab==='notifications')return renderNotificationEditor(item);if(tab==='links')return renderLinkEditor(item);if(tab==='resources')return renderResourceEditor(item);if(tab==='whatsnew')return renderWhatsNewEditor(item);if(tab==='inspirations')return renderInspirationEditor(item);if(tab==='offices')return renderOfficeEditor(item);if(tab==='support')return renderSupportEditor(item);if(tab==='requests')return renderRequestEditor(item)}
 function inputField(id,label,value,type='text'){return `<div class="field"><label>${label}</label><input id="${id}" type="${type}" value="${safe(value)}"></div>`}
 function areaField(id,label,value){return `<div class="field"><label>${label}</label><textarea id="${id}">${safe(value)}</textarea></div>`}
 function selectField(id,label,value,opts){return `<div class="field"><label>${label}</label><select id="${id}">${opts.map(o=>`<option value="${safe(o[0])}" ${o[0]===value?'selected':''}>${safe(o[1])}</option>`).join('')}</select></div>`}
-function renderSite(){selected=0;$('listTitle').textContent='Site + Theme';$('listSub').textContent='Global settings · Current section modifies: resources.js';$('addBtn').style.display='none';$('list').innerHTML='<div class="notice">Control the live theme, homepage wording, banner, and version note. Theme changes export inside resources.js.</div>';$('editorTitle').textContent='Site + Theme';$('editorSub').textContent='Change normal/holiday themes and homepage copy.';const c=DATA.SITE_CONFIG;$('editor').innerHTML=`<div class="grid2">${inputField('cSiteName','Site Name',c.siteName||'ROAR')}${inputField('cNavLabel','Nav Label',c.navLabel||'ROAR')}</div>${selectField('cActiveTheme','Active Theme',c.activeTheme||'default',[['default','Normal ROAR'],['christmas','Christmas Theme'],['halloween','Halloween Theme']])}<div class="toolbar"><button class="btn btn-soft" onclick="previewTheme('default')">Preview Normal</button><button class="btn btn-soft" onclick="previewTheme('christmas')">Preview Christmas</button><button class="btn btn-soft" onclick="previewTheme('halloween')">Preview Halloween</button></div><div class="theme-card">Preview changes only affect this Admin screen until you export and upload the files.</div>${inputField('cEyebrow','Hero Eyebrow',c.eyebrow||'R Refined · O Operations · A Advisor · R Resources')}<div class="grid2">${inputField('cHeroTitle','Hero Title First Line',c.heroTitle||'ROAR')}${inputField('cHeroItalic','Hero Title Italic Line',c.heroItalic||'')}</div>${areaField('cHeroDescription','Hero Description',c.heroDescription||'')}${areaField('cAnnouncementText','Slim Banner Text',c.announcementText||'')}<div class="field"><label>Slim Banner Active</label><div class="switch-row"><input id="cAnnouncementActive" type="checkbox" ${c.announcementActive?'checked':''}> <span>Show slim banner above notifications</span></div></div>${areaField('cVersionNote','Version Note / Change Summary',c.versionNote||'')}<div class="toolbar"><button class="btn btn-primary" onclick="commitSite();showToast('Site settings saved in editor')">Save Site Settings</button></div>`}
+function renderSite(){selected=0;$('listTitle').textContent='Homepage + Theme';$('listSub').textContent='Theme, banner, and homepage wording · Exports resources.js';$('addBtn').style.display='none';$('list').innerHTML='<div class="notice">Control the live theme, homepage wording, banner, and version note. Theme changes export inside resources.js.</div>';$('editorTitle').textContent='Homepage + Theme';$('editorSub').textContent='Change theme, banner, and homepage copy. Export only resources.js when finished.';const c=DATA.SITE_CONFIG;$('editor').innerHTML=`<div class="grid2">${inputField('cSiteName','Site Name',c.siteName||'ROAR')}${inputField('cNavLabel','Nav Label',c.navLabel||'ROAR')}</div>${selectField('cActiveTheme','Active Theme',c.activeTheme||'default',[['default','Normal ROAR'],['christmas','Christmas Theme'],['halloween','Halloween Theme']])}<div class="toolbar"><button class="btn btn-soft" onclick="previewTheme('default')">Preview Normal</button><button class="btn btn-soft" onclick="previewTheme('christmas')">Preview Christmas</button><button class="btn btn-soft" onclick="previewTheme('halloween')">Preview Halloween</button></div><div class="theme-card">Preview changes only affect this Admin screen until you export and upload the files.</div>${inputField('cEyebrow','Hero Eyebrow',c.eyebrow||'R Refined · O Operations · A Advisor · R Resources')}<div class="grid2">${inputField('cHeroTitle','Hero Title First Line',c.heroTitle||'ROAR')}${inputField('cHeroItalic','Hero Title Italic Line',c.heroItalic||'')}</div>${areaField('cHeroDescription','Hero Description',c.heroDescription||'')}${areaField('cAnnouncementText','Slim Banner Text',c.announcementText||'')}<div class="field"><label>Slim Banner Active</label><div class="switch-row"><input id="cAnnouncementActive" type="checkbox" ${c.announcementActive?'checked':''}> <span>Show slim banner above notifications</span></div></div>${areaField('cVersionNote','Version Note / Change Summary',c.versionNote||'')}<div class="toolbar"><button class="btn btn-primary" onclick="commitSite();showToast('Site settings saved in editor')">Save Site Settings</button><button class="btn btn-soft" onclick="exportCurrentFile()">Export Homepage + Theme</button></div>${githubInstructions('resources.js')}`}
 function previewTheme(theme){$('cActiveTheme').value=theme;document.body.dataset.season=theme;if(window.ROARHoliday&&typeof window.ROARHoliday.setSeason==='function')window.ROARHoliday.setSeason(theme);showToast('Previewing '+theme)}
 function commitSite(){if(!$('cSiteName'))return;const c=DATA.SITE_CONFIG;c.siteName=$('cSiteName').value;c.navLabel=$('cNavLabel').value;c.activeTheme=$('cActiveTheme').value;c.eyebrow=$('cEyebrow').value;c.heroTitle=$('cHeroTitle').value;c.heroItalic=$('cHeroItalic').value;c.heroDescription=$('cHeroDescription').value;c.announcementText=$('cAnnouncementText').value;c.announcementActive=$('cAnnouncementActive').checked;c.versionNote=$('cVersionNote').value}
+
+function safeCommit(show=true){
+  try{
+    commit();
+    if(show)showToast(pageLabel()+' saved in admin');
+    return true;
+  }catch(e){
+    console.error(e);
+    showToast('Could not save. Check the highlighted fields or JSON.');
+    return false;
+  }
+}
+
 function activeBox(id,checked,label='Active'){return `<div class="field"><label>${label}</label><div class="switch-row"><input id="${id}" type="checkbox" ${checked!==false?'checked':''}> <span>${label}</span></div></div>`}
-function renderNotificationEditor(n){$('editor').innerHTML=`<div class="grid2">${inputField('nTitle','Title',n.title)}${selectField('nPriority','Priority',n.priority||'normal',[['high','High'],['normal','Normal'],['low','Low']])}</div>${areaField('nMessage','Message',n.message)}<div class="grid3">${inputField('nDate','Display Date',n.date||'')}${inputField('nTime','Display Time',n.time||'')}${inputField('nLocation','Display Location',n.location||'')}</div><div class="grid2">${inputField('nStartDate','Start Date',n.startDate||'','date')}${inputField('nEndDate','End Date / Expiration',n.endDate||n.expires||'','date')}</div><div class="grid2">${inputField('nLinkText','Online Button Text',n.linkText||'Online Link')}${inputField('nUrl','Online Link',n.url)}</div><div class="grid2">${inputField('nSecondText','Directions Button Text',n.secondaryLinkText||'Directions')}${inputField('nSecondUrl','Directions Link',n.secondaryUrl||'')}</div>${activeBox('nActive',n.active,'Show Notification')}<div class="toolbar"><button class="btn btn-primary" onclick="commit();showToast('Notification saved')">Save</button><button class="btn btn-soft" onclick="moveItem(-1)">Move Up</button><button class="btn btn-soft" onclick="moveItem(1)">Move Down</button><button class="btn btn-danger" onclick="deleteItem()">Delete</button></div>`}
-function renderLinkEditor(l){$('editor').innerHTML=`<div class="grid3">${inputField('lIcon','Icon',l.icon||'🔗')}${inputField('lType','Gray Text / Type',l.type||'Link')}${inputField('lSection','Section',l.section||'Core Tools')}</div>${inputField('lLabel','Card Name',l.label)}${areaField('lDesc','Description',l.desc||'')}${inputField('lUrl','URL',l.url||'')}<div class="grid3">${activeBox('lNew',l.isNew,'New Badge Hidden')}${activeBox('lFeatured Hidden',l.featured,'Featured Hidden')}${activeBox('lLoginAssist',l.loginAssist,'Login Assist')}</div>${inputField('lLoginHint','Login Hint',l.loginHint||'')}<div class="toolbar"><button class="btn btn-primary" onclick="commit();showToast('Link saved')">Save</button><button class="btn btn-soft" onclick="moveItem(-1)">Move Up</button><button class="btn btn-soft" onclick="moveItem(1)">Move Down</button><button class="btn btn-soft" onclick="pinToTop()">Pin to Top</button><button class="btn btn-soft" onclick="testSingleLink()">Test Link</button><button class="btn btn-danger" onclick="deleteItem()">Delete</button></div>`}
-function renderResourceEditor(r){$('editor').innerHTML=`<div class="grid3">${inputField('rIcon','Icon',r.icon||'📄')}${inputField('rType','Type',r.type||'Guide')}${inputField('rSection','Section',r.section||'Resource Library')}</div>${inputField('rLabel','Label',r.label)}${areaField('rDesc','Description',r.desc||'')}${inputField('rUrl','URL',r.url||'')} ${activeBox('rNew',r.isNew,'New Badge Hidden')}${areaField('rChildren','Children JSON',JSON.stringify(r.children||[],null,2))}<div class="toolbar"><button class="btn btn-primary" onclick="commit();showToast('Resource saved')">Save</button><button class="btn btn-soft" onclick="moveItem(-1)">Move Up</button><button class="btn btn-soft" onclick="moveItem(1)">Move Down</button><button class="btn btn-danger" onclick="deleteItem()">Delete</button></div>`}
-function renderWhatsNewEditor(w){$('editor').innerHTML=`<div class="grid3">${inputField('wDate','Date / Label',w.date||'')}${inputField('wTag','Tag',w.tag||'ROAR')}${activeBox('wActive',w.active,'Show Update')}</div>${inputField('wTitle','Title',w.title||'')}${areaField('wMessage','Message',w.message||'')}<div class="toolbar"><button class="btn btn-primary" onclick="commit();showToast('What’s New saved')">Save</button><button class="btn btn-soft" onclick="moveItem(-1)">Move Up</button><button class="btn btn-soft" onclick="moveItem(1)">Move Down</button><button class="btn btn-danger" onclick="deleteItem()">Delete</button></div>`}
-function renderInspirationEditor(q){$('editor').innerHTML=`${inputField('qTitle','Card Title',q.title||'Inspiration of the Day')}${areaField('qQuote','Quote',q.quote||'')}${inputField('qAuthor','Author',q.author||'')}<div class="toolbar"><button class="btn btn-primary" onclick="commit();showToast('Quote saved')">Save</button><button class="btn btn-soft" onclick="moveItem(-1)">Move Up</button><button class="btn btn-soft" onclick="moveItem(1)">Move Down</button><button class="btn btn-danger" onclick="deleteItem()">Delete</button></div>`}
-function renderOfficeEditor(o){$('editorTitle').textContent=o.name||'Office';$('editorSub').textContent='Edit one office location. Hours are managed below.';$('editor').innerHTML=`<div class="grid2">${inputField('oIcon','Icon',o.icon||'📍')}${inputField('oEyebrow','Eyebrow',o.eyebrow||'Market Center')}</div>${inputField('oName','Office Name',o.name||'')}${areaField('oAddress','Address',o.address||'')}${inputField('oMapsUrl','Apple Maps Link',o.mapsUrl||'')}${inputField('oActionText','Button Text',o.actionText||'Open in Apple Maps')}<div class="preview-card"><div class="section-label">Office Section Settings</div><div class="grid2" style="margin-top:12px">${inputField('officeTitle','Section Title',DATA.OFFICE_INFO.sectionTitle||'Office Details')}${inputField('officeHours','Office Hours',DATA.OFFICE_INFO.hours||'Monday–Friday · 9:00 AM–5:00 PM')}</div>${areaField('officeCopy','Section Copy',DATA.OFFICE_INFO.copy||'')}</div><div class="toolbar"><button class="btn btn-primary" onclick="commit();showToast('Office saved')">Save</button><button class="btn btn-soft" onclick="moveItem(-1)">Move Up</button><button class="btn btn-soft" onclick="moveItem(1)">Move Down</button><button class="btn btn-danger" onclick="deleteItem()">Delete</button></div>`}
-function renderSupportEditor(s){$('editor').innerHTML=`<div class="grid3">${inputField('sKey','Key',s.key||'')}${inputField('sIcon','Icon',s.icon||'🛟')}${inputField('sPerson','Person / Team',s.person||'')}</div>${inputField('sTitle','Title',s.title||'')}${inputField('sEmail','Email(s)',s.email||'')}${inputField('sSubject','Subject Line',s.subject||'')}${areaField('sDesc','Description',s.desc||'')}${areaField('sBody','Email Body Template',s.body||'')}<div class="notice">This section modifies <strong>support.js</strong>. The email body above is what opens in Outlook when someone clicks this support tile.</div><div class="toolbar"><button class="btn btn-primary" onclick="commit();showToast('Support contact saved')">Save</button><button class="btn btn-soft" onclick="exportCurrentFile()">Download support.js</button><button class="btn btn-soft" onclick="moveItem(-1)">Move Up</button><button class="btn btn-soft" onclick="moveItem(1)">Move Down</button><button class="btn btn-danger" onclick="deleteItem()">Delete</button></div>`}
-function renderRequestEditor(r){$('editor').innerHTML=`${inputField('reqLabel','Button Label',r.label||'')}${inputField('reqTo','To Email(s)',r.to||'')}${inputField('reqSubject','Subject',r.subject||'')}${inputField('reqHint','Hint Text',r.hint||'')}<div class="toolbar"><button class="btn btn-primary" onclick="commit();showToast('Request template saved')">Save</button><button class="btn btn-soft" onclick="moveItem(-1)">Move Up</button><button class="btn btn-soft" onclick="moveItem(1)">Move Down</button><button class="btn btn-danger" onclick="deleteItem()">Delete</button></div>`}
+function renderNotificationEditor(n){$('editor').innerHTML=`<div class="grid2">${inputField('nTitle','Title',n.title)}${selectField('nPriority','Priority',n.priority||'normal',[['high','High'],['normal','Normal'],['low','Low']])}</div>${areaField('nMessage','Message',n.message)}<div class="grid3">${inputField('nDate','Display Date',n.date||'')}${inputField('nTime','Display Time',n.time||'')}${inputField('nLocation','Display Location',n.location||'')}</div><div class="grid2">${inputField('nStartDate','Start Date',n.startDate||'','date')}${inputField('nEndDate','End Date / Expiration',n.endDate||n.expires||'','date')}</div><div class="grid2">${inputField('nLinkText','Online Button Text',n.linkText||'Online Link')}${inputField('nUrl','Online Link',n.url)}</div><div class="grid2">${inputField('nSecondText','Directions Button Text',n.secondaryLinkText||'Directions')}${inputField('nSecondUrl','Directions Link',n.secondaryUrl||'')}</div>${activeBox('nActive',n.active,'Show Notification')}<div class="toolbar"><button class="btn btn-primary" onclick="safeCommit()">Save</button><button class="btn btn-soft" onclick="exportCurrentFile()">Export Notifications</button><button class="btn btn-soft" onclick="moveItem(-1)">Move Up</button><button class="btn btn-soft" onclick="moveItem(1)">Move Down</button><button class="btn btn-danger" onclick="deleteItem()">Delete</button></div>`}
+function renderLinkEditor(l){$('editor').innerHTML=`<div class="grid3">${inputField('lIcon','Icon',l.icon||'🔗')}${inputField('lType','Gray Text / Type',l.type||'Link')}${inputField('lSection','Section',l.section||'Core Tools')}</div>${inputField('lLabel','Card Name',l.label)}${areaField('lDesc','Description',l.desc||'')}${inputField('lUrl','URL',l.url||'')}<div class="grid3">${activeBox('lNew',l.isNew,'New Badge Hidden')}${activeBox('lFeatured',l.featured,'Featured Hidden')}${activeBox('lLoginAssist',l.loginAssist,'Login Assist')}</div>${areaField('lLoginHint','Login Hint / Credentials',l.loginHint||'')}<div class="grid2">${inputField('lLoginUsername','Login Username',l.loginUsername||'')}${inputField('lLoginPassword','Login Password',l.loginPassword||'')}</div><div class="toolbar"><button class="btn btn-primary" onclick="safeCommit()">Save</button><button class="btn btn-soft" onclick="exportCurrentFile()">Export Advisor Links</button><button class="btn btn-soft" onclick="moveItem(-1)">Move Up</button><button class="btn btn-soft" onclick="moveItem(1)">Move Down</button><button class="btn btn-soft" onclick="pinToTop()">Pin to Top</button><button class="btn btn-soft" onclick="testSingleLink()">Test Link</button><button class="btn btn-danger" onclick="deleteItem()">Delete</button></div>`}
+function renderResourceEditor(r){$('editor').innerHTML=`<div class="grid3">${inputField('rIcon','Icon',r.icon||'📄')}${inputField('rType','Type',r.type||'Guide')}${inputField('rSection','Section',r.section||'Resource Library')}</div>${inputField('rLabel','Label',r.label)}${areaField('rDesc','Description',r.desc||'')}${inputField('rUrl','URL',r.url||'')} ${activeBox('rNew',r.isNew,'New Badge Hidden')}${areaField('rChildren','Children JSON',JSON.stringify(r.children||[],null,2))}<div class="toolbar"><button class="btn btn-primary" onclick="safeCommit()">Save</button><button class="btn btn-soft" onclick="exportCurrentFile()">Export Resources</button><button class="btn btn-soft" onclick="moveItem(-1)">Move Up</button><button class="btn btn-soft" onclick="moveItem(1)">Move Down</button><button class="btn btn-danger" onclick="deleteItem()">Delete</button></div>`}
+function renderWhatsNewEditor(w){$('editor').innerHTML=`<div class="grid3">${inputField('wDate','Date / Label',w.date||'')}${inputField('wTag','Tag',w.tag||'ROAR')}${activeBox('wActive',w.active,'Show Update')}</div>${inputField('wTitle','Title',w.title||'')}${areaField('wMessage','Message',w.message||'')}<div class="toolbar"><button class="btn btn-primary" onclick="safeCommit()">Save</button><button class="btn btn-soft" onclick="exportCurrentFile()">Export What’s New</button><button class="btn btn-soft" onclick="moveItem(-1)">Move Up</button><button class="btn btn-soft" onclick="moveItem(1)">Move Down</button><button class="btn btn-danger" onclick="deleteItem()">Delete</button></div>`}
+function renderInspirationEditor(q){$('editor').innerHTML=`${inputField('qTitle','Card Title',q.title||'Inspiration of the Day')}${areaField('qQuote','Quote',q.quote||'')}${inputField('qAuthor','Author',q.author||'')}<div class="toolbar"><button class="btn btn-primary" onclick="safeCommit()">Save</button><button class="btn btn-soft" onclick="exportCurrentFile()">Export Quotes</button><button class="btn btn-soft" onclick="moveItem(-1)">Move Up</button><button class="btn btn-soft" onclick="moveItem(1)">Move Down</button><button class="btn btn-danger" onclick="deleteItem()">Delete</button></div>`}
+function renderOfficeEditor(o){$('editorTitle').textContent=o.name||'Office';$('editorSub').textContent='Edit one office location. Hours are managed below.';$('editor').innerHTML=`<div class="grid2">${inputField('oIcon','Icon',o.icon||'📍')}${inputField('oEyebrow','Eyebrow',o.eyebrow||'Market Center')}</div>${inputField('oName','Office Name',o.name||'')}${areaField('oAddress','Address',o.address||'')}${inputField('oMapsUrl','Apple Maps Link',o.mapsUrl||'')}${inputField('oActionText','Button Text',o.actionText||'Open in Apple Maps')}<div class="preview-card"><div class="section-label">Office Section Settings</div><div class="grid2" style="margin-top:12px">${inputField('officeTitle','Section Title',DATA.OFFICE_INFO.sectionTitle||'Office Details')}${inputField('officeHours','Office Hours',DATA.OFFICE_INFO.hours||'Monday–Friday · 9:00 AM–5:00 PM')}</div>${areaField('officeCopy','Section Copy',DATA.OFFICE_INFO.copy||'')}</div><div class="toolbar"><button class="btn btn-primary" onclick="safeCommit()">Save</button><button class="btn btn-soft" onclick="exportCurrentFile()">Export Office Details</button><button class="btn btn-soft" onclick="moveItem(-1)">Move Up</button><button class="btn btn-soft" onclick="moveItem(1)">Move Down</button><button class="btn btn-danger" onclick="deleteItem()">Delete</button></div>`}
+function renderSupportEditor(s){$('editor').innerHTML=`<div class="grid3">${inputField('sKey','Key',s.key||'')}${inputField('sIcon','Icon',s.icon||'🛟')}${inputField('sPerson','Person / Team',s.person||'')}</div>${inputField('sTitle','Title',s.title||'')}${inputField('sEmail','Email(s)',s.email||'')}${inputField('sSubject','Subject Line',s.subject||'')}${areaField('sDesc','Description',s.desc||'')}${areaField('sBody','Email Body Template',s.body||'')}<div class="notice">This section modifies <strong>support.js</strong>. The email body above is what opens in Outlook when someone clicks this support tile.</div><div class="toolbar"><button class="btn btn-primary" onclick="safeCommit()">Save</button><button class="btn btn-soft" onclick="exportCurrentFile()">Export Support Concierge</button><button class="btn btn-soft" onclick="moveItem(-1)">Move Up</button><button class="btn btn-soft" onclick="moveItem(1)">Move Down</button><button class="btn btn-danger" onclick="deleteItem()">Delete</button></div>`}
+function renderRequestEditor(r){$('editor').innerHTML=`${inputField('reqLabel','Button Label',r.label||'')}${inputField('reqTo','To Email(s)',r.to||'')}${inputField('reqSubject','Subject',r.subject||'')}${inputField('reqHint','Hint Text',r.hint||'')}<div class="toolbar"><button class="btn btn-primary" onclick="safeCommit()">Save</button><button class="btn btn-soft" onclick="exportCurrentFile()">Export Support Requests</button><button class="btn btn-soft" onclick="moveItem(-1)">Move Up</button><button class="btn btn-soft" onclick="moveItem(1)">Move Down</button><button class="btn btn-danger" onclick="deleteItem()">Delete</button></div>`}
 function commit(){if(tab==='site')return commitSite();const item=arr()[selected];if(!item)return;if(tab==='notifications'&&$('nTitle')){item.title=$('nTitle').value;item.priority=$('nPriority').value;item.message=$('nMessage').value;item.date=$('nDate').value;item.time=$('nTime').value;item.location=$('nLocation').value;item.startDate=$('nStartDate').value;item.endDate=$('nEndDate').value;item.expires=$('nEndDate').value;item.linkText=$('nLinkText').value;item.url=$('nUrl').value;item.secondaryLinkText=$('nSecondText').value;item.secondaryUrl=$('nSecondUrl').value;item.active=$('nActive').checked}
-if(tab==='links'&&$('lLabel')){item.icon=$('lIcon').value;item.type=$('lType').value;item.section=$('lSection').value;item.label=$('lLabel').value;item.desc=$('lDesc').value;item.url=$('lUrl').value;item.isNew=$('lNew').checked;item.featured=$('lFeatured').checked;item.loginAssist=$('lLoginAssist').checked;item.loginHint=$('lLoginHint').value}
+if(tab==='links'&&$('lLabel')){item.icon=$('lIcon').value;item.type=$('lType').value;item.section=$('lSection').value;item.label=$('lLabel').value;item.desc=$('lDesc').value;item.url=$('lUrl').value;item.isNew=$('lNew').checked;item.featured=$('lFeatured')?.checked||false;item.loginAssist=$('lLoginAssist').checked;item.loginHint=$('lLoginHint').value;item.loginUsername=$('lLoginUsername')?.value||'';item.loginPassword=$('lLoginPassword')?.value||''}
 if(tab==='resources'&&$('rLabel')){item.icon=$('rIcon').value;item.type=$('rType').value;item.section=$('rSection').value;item.label=$('rLabel').value;item.desc=$('rDesc').value;item.url=$('rUrl').value;item.isNew=$('rNew').checked;try{item.children=JSON.parse($('rChildren').value||'[]')}catch(e){showToast('Children JSON is not valid');throw e}}
 if(tab==='whatsnew'&&$('wTitle')){item.date=$('wDate').value;item.tag=$('wTag').value;item.title=$('wTitle').value;item.message=$('wMessage').value;item.active=$('wActive').checked}
 if(tab==='inspirations'&&$('qQuote')){item.title=$('qTitle').value;item.quote=$('qQuote').value;item.author=$('qAuthor').value}
 if(tab==='offices'&&$('oName')){item.icon=$('oIcon').value;item.eyebrow=$('oEyebrow').value;item.name=$('oName').value;item.address=$('oAddress').value;item.mapsUrl=$('oMapsUrl').value;item.actionText=$('oActionText').value;DATA.OFFICE_INFO.sectionTitle=$('officeTitle').value;DATA.OFFICE_INFO.hours=$('officeHours').value;DATA.OFFICE_INFO.copy=$('officeCopy').value;DATA.OFFICE_INFO.hoursLabel=DATA.OFFICE_INFO.hoursLabel||'Office Hours'}
-if(tab==='support'&&$('sTitle')){item.key=$('sKey').value;item.icon=$('sIcon').value;item.person=$('sPerson').value;item.title=$('sTitle').value;item.email=$('sEmail').value;item.subject=$('sSubject').value;item.desc=$('sDesc').value;item.body=$('sBody').value}
+if(tab==='support'&&$('sTitle')){item.key=$('sKey').value;item.icon=$('sIcon').value;item.person=$('sPerson').value;item.title=$('sTitle').value;item.email=$('sEmail').value;item.subject=$('sSubject').value;item.desc=$('sDesc').value;item.body=$('sBody')?.value||''}
 if(tab==='requests'&&$('reqLabel')){item.label=$('reqLabel').value;item.to=$('reqTo').value;item.subject=$('reqSubject').value;item.hint=$('reqHint').value}}
 function addItem(){commit();if(tab==='notifications')DATA.NOTIFICATIONS.push({active:true,priority:'normal',title:'New Notification',message:'Add your message here.',date:'',time:'',location:'',startDate:'',endDate:'',linkText:'Online Link',url:'PASTE_LINK_HERE',secondaryLinkText:'Directions',secondaryUrl:'PASTE_LINK_HERE',expires:''});if(tab==='links')DATA.QUICK_LINKS.push({label:'New Advisor Link',desc:'Add description here.',icon:'🔗',type:'Link',url:'PASTE_LINK_HERE',section:'Core Tools',isNew:false,featured:false,loginAssist:false,loginHint:''});if(tab==='resources')DATA.RESOURCES.push({label:'New Resource',desc:'Add description here.',icon:'📄',type:'Guide',url:'PASTE_LINK_HERE',section:'Resource Library',isNew:false,children:[]});if(tab==='whatsnew')DATA.WHATS_NEW.push({active:true,date:'New',tag:'ROAR',title:'New Update',message:'Add update details here.'});if(tab==='inspirations')DATA.INSPIRATION_QUOTES.push({title:'Inspiration of the Day',quote:'Add a quote here.',author:''});if(tab==='offices')arr().push({eyebrow:'Market Center',name:'New Office',address:'',mapsUrl:'',icon:'📍',actionText:'Open in Apple Maps'});if(tab==='support')DATA.SUPPORT_CONTACTS.push({key:'new',icon:'🛟',title:'New Support Contact',person:'',email:'',desc:'',subject:'',body:''});if(tab==='requests')DATA.REQUEST_TYPES.push({label:'New Request',to:'',subject:'',hint:''});selected=arr().length-1;renderCurrent()}
 function deleteItem(){if(!arr()[selected])return;if(confirm('Delete this item?')){arr().splice(selected,1);selected=Math.max(0,selected-1);renderCurrent();showToast('Deleted in editor')}}
@@ -157,11 +559,60 @@ function urlForItem(item){try{const u=new URL(item.url);return u.href}catch{retu
 async function testOne(url){const controller=new AbortController();const t=setTimeout(()=>controller.abort(),4500);try{await fetch(url,{method:'GET',mode:'no-cors',cache:'no-store',signal:controller.signal});clearTimeout(t);return 'Looks good'}catch(e){clearTimeout(t);return e.name==='AbortError'?'Could not verify':'Possible issue'}}
 async function testSingleLink(){commit();const item=arr()[selected];if(!item||!urlForItem(item)){showToast('No valid URL');return}showToast('Testing link...');const result=await testOne(urlForItem(item));showToast(result)}
 async function testAllLinks(){const out=$('statusResults');out.innerHTML='';for(const item of DATA.QUICK_LINKS.filter(x=>x.url)){const row=document.createElement('div');row.className='status-item';row.innerHTML=`<span>${safe(item.label)}</span><span>Checking...</span>`;out.appendChild(row);const res=await testOne(urlForItem(item));row.lastElementChild.textContent=res;row.lastElementChild.className=res==='Looks good'?'ok':res==='Possible issue'?'bad':''}}
-function renderExport(){const current=fileForTab(tab==='export'?'site':tab);$('listTitle').textContent='Export';$('listSub').textContent='Smart export';$('addBtn').style.display='none';$('list').innerHTML='<div class="notice">Normal workflow: download only the file for the section you edited. Use Download All only when you intentionally want a full backup.</div>';$('editorTitle').textContent='Smart Export';$('editorSub').textContent='Download only the file you need to replace in GitHub.';$('editor').innerHTML=`<div class="export-box"><div class="export-title">Download One File</div><div class="export-copy">Choose the file you changed, then upload/replace only that file in GitHub.</div><div class="grid2">${selectField('exportFileSelect','File to Download',current,[['resources.js','resources.js'],['notifications.js','notifications.js'],['links.js','links.js'],['inspirations.js','inspirations.js'],['offices.js','offices.js'],['support.js','support.js'],['whats-new.js','whats-new.js']])}<div class="field"><label>Suggested</label><input value="${current}" readonly></div></div><div class="toolbar"><button class="btn btn-primary" onclick="exportSelectedFile()">Download Selected File</button><button class="btn btn-soft" onclick="exportAllFiles()">Download All Data Files</button></div></div><div class="notice"><strong>File map:</strong><br>Site + Theme or Resources = resources.js<br>Notifications = notifications.js<br>Advisor Links = links.js<br>Inspirations = inspirations.js<br>Office Info = offices.js<br>Support Contacts or Support Requests = support.js</div>`}
+function renderExport(){const current=fileForTab(tab==='export'?'site':tab);$('listTitle').textContent='Export / Publish';$('listSub').textContent='Download one page file only';$('addBtn').style.display='none';$('list').innerHTML='<div class="notice">Use this when you know which page you changed. Normal users should export one page/file only.</div>';$('editorTitle').textContent='Export One Page';$('editorSub').textContent='Choose the page you updated. ROAR will download only the matching file.';$('editor').innerHTML=`<div class="export-box"><div class="export-title">Export One Page</div><div class="export-copy">Pick what you changed. This will download only the single file needed for GitHub.</div><div class="grid2">${selectField('exportFileSelect','Page / Section',current,[['resources.js','Homepage + Theme / Resources'],['notifications.js','Notifications'],['links.js','Advisor Link Tiles'],['inspirations.js','Motivational Quotes'],['offices.js','Office Details'],['support.js','Support Concierge + Request Buttons'],['whats-new.js','What’s New']])}<div class="field"><label>GitHub File to Replace</label><input value="${current}" readonly></div></div><div class="toolbar"><button class="btn btn-primary" onclick="exportSelectedFile()">Export Selected Page</button></div></div>${githubInstructions(current)}<details class="publish-note"><summary><strong>Advanced backup options</strong></summary><p style="margin-top:10px">Only use this if you intentionally want every data file. For normal edits, export one page only.</p><div class="toolbar" style="margin-top:10px"><button class="btn btn-soft" onclick="exportAllFiles()">Download All Data Files</button></div></details>`}
 function downloadDataFile(filename,content,type='application/javascript'){const blob=new Blob([content],{type});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
-function exportCurrentFile(){try{commit()}catch(e){return}const file=fileForTab();downloadDataFile(file,contentForFile(file));showToast(file+' downloaded')}
-function exportSelectedFile(){try{commit()}catch(e){return}const file=$('exportFileSelect')?.value||fileForTab();downloadDataFile(file,contentForFile(file));showToast(file+' downloaded')}
-function exportAllFiles(){try{commit()}catch(e){return}const files=['resources.js','inspirations.js','notifications.js','links.js','whats-new.js','offices.js','support.js'];files.forEach((file,i)=>setTimeout(()=>downloadDataFile(file,contentForFile(file)),i*200));setTimeout(()=>downloadDataFile('VERSION-NOTE.txt',(DATA.SITE_CONFIG.versionNote||'No version note added.'),'text/plain'),files.length*200);showToast('All data files downloaded')}
+
+function validateFile(file){
+  const issues=[];
+  const isBlank=v=>!String(v||'').trim();
+  const badUrl=v=>String(v||'').trim() && !/^https?:\/\//i.test(String(v).trim()) && !String(v).startsWith('mailto:');
+  if(file==='notifications.js'){
+    DATA.NOTIFICATIONS.forEach((n,i)=>{
+      if(n.active!==false && isBlank(n.title))issues.push('Notification '+(i+1)+' is missing a title.');
+      if(n.active!==false && isBlank(n.message))issues.push('Notification '+(i+1)+' is missing a message.');
+    });
+  }
+  if(file==='links.js'){
+    DATA.QUICK_LINKS.forEach((l,i)=>{
+      if(isBlank(l.label))issues.push('Advisor link '+(i+1)+' is missing a title.');
+      if((!l.children||!l.children.length) && isBlank(l.url))issues.push((l.label||'Advisor link '+(i+1))+' is missing a URL or folder options.');
+      if(badUrl(l.url))issues.push((l.label||'Advisor link '+(i+1))+' has a URL that may not open correctly.');
+    });
+  }
+  if(file==='support.js'){
+    DATA.SUPPORT_CONTACTS.forEach((s,i)=>{
+      if(isBlank(s.title))issues.push('Support contact '+(i+1)+' is missing a title.');
+      if(isBlank(s.email))issues.push((s.title||'Support contact '+(i+1))+' is missing an email.');
+      if(isBlank(s.subject))issues.push((s.title||'Support contact '+(i+1))+' is missing a subject line.');
+    });
+    DATA.REQUEST_TYPES.forEach((r,i)=>{
+      if(isBlank(r.label))issues.push('Support request button '+(i+1)+' is missing a label.');
+      if(isBlank(r.to))issues.push((r.label||'Support request '+(i+1))+' is missing a recipient.');
+    });
+  }
+  if(file==='offices.js'){
+    (DATA.OFFICE_INFO.locations||[]).forEach((o,i)=>{
+      if(isBlank(o.name))issues.push('Office '+(i+1)+' is missing a name.');
+      if(isBlank(o.address))issues.push((o.name||'Office '+(i+1))+' is missing an address.');
+      if(isBlank(o.mapsUrl))issues.push((o.name||'Office '+(i+1))+' is missing an Apple Maps link.');
+    });
+  }
+  if(file==='inspirations.js'){
+    if(!DATA.INSPIRATION_QUOTES.length)issues.push('There are no motivational quotes.');
+    DATA.INSPIRATION_QUOTES.forEach((q,i)=>{if(isBlank(q.quote))issues.push('Quote '+(i+1)+' is blank.');});
+  }
+  return issues;
+}
+function confirmExport(file){
+  const issues=validateFile(file);
+  if(!issues.length)return true;
+  const msg='Before exporting '+file+', ROAR found these possible issues:\\n\\n- '+issues.slice(0,8).join('\\n- ')+(issues.length>8?'\\n- And '+(issues.length-8)+' more...':'')+'\\n\\nExport anyway?';
+  return confirm(msg);
+}
+
+function exportCurrentFile(){if(!safeCommit(false))return;const file=fileForTab();if(!confirmExport(file))return;downloadDataFile(file,contentForFile(file));showToast(pageLabel()+' exported. Replace '+file+' in GitHub.')}
+function exportSelectedFile(){if(!safeCommit(false))return;const file=$('exportFileSelect')?.value||fileForTab();if(!confirmExport(file))return;downloadDataFile(file,contentForFile(file));showToast('Downloaded '+file+'. Replace only this file in GitHub.')}
+function exportAllFiles(){if(!safeCommit(false))return;const files=['resources.js','inspirations.js','notifications.js','links.js','whats-new.js','offices.js','support.js'];files.forEach((file,i)=>setTimeout(()=>downloadDataFile(file,contentForFile(file)),i*200));setTimeout(()=>downloadDataFile('VERSION-NOTE.txt',(DATA.SITE_CONFIG.versionNote||'No version note added.'),'text/plain'),files.length*200);showToast('All data files downloaded')}
 function exportFile(){exportCurrentFile()}
 let toastTimer;function showToast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),3000)}
 initTheme();setTimeout(()=>$('password').focus(),200);
