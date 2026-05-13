@@ -885,6 +885,61 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
   }
 }
 
+
+/* ═══ Login assist credential formatting ═══ */
+#loginAssistDesc{
+  white-space:pre-line;
+}
+
+
+/* ═══ Login assist credential copy box ═══ */
+.credential-box{
+  display:grid;
+  gap:10px;
+  margin:14px 0 16px;
+}
+.credential-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  border:1px solid var(--border);
+  background:var(--card);
+  border-radius:16px;
+  padding:13px;
+}
+.credential-label{
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--soft);
+  margin-bottom:5px;
+}
+.credential-value{
+  font-family:Geist,system-ui,sans-serif;
+  font-size:14px;
+  font-weight:750;
+  color:var(--text);
+  overflow-wrap:anywhere;
+}
+.password-value{
+  letter-spacing:.02em;
+}
+.credential-copy{
+  flex:0 0 auto;
+  white-space:nowrap;
+}
+@media(max-width:640px){
+  .credential-row{
+    align-items:stretch;
+    flex-direction:column;
+  }
+  .credential-copy{
+    width:100%;
+  }
+}
+
 </style>
 <link rel="stylesheet" href="holiday-themes.css">
 </head>
@@ -946,16 +1001,6 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
     <div class="section-top"><div class="section-kicker">Advisor Link Hub</div><div class="section-note">Core platforms and quick access links</div></div>
     <div class="tools" id="quickLinksGrid"></div>
   </section>
-  <section class="office-section" id="officeInfo">
-    <div class="office-head">
-      <div>
-        <div class="section-kicker" id="officeSectionTitle">Office Details</div>
-        <p class="office-copy" id="officeCopy">Office hours and location details for our Atlanta and North Atlanta offices.</p>
-      </div>
-      <div class="hours-pill"><span id="officeHoursLabel">Office Hours</span><strong id="officeHoursText">Monday–Friday · 9:00 AM–5:00 PM</strong></div>
-    </div>
-    <div class="office-list" id="officeList"></div>
-  </section>
   <section class="support-section" id="supportSection">
     <div class="support-intro">
       <div>
@@ -969,6 +1014,18 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
     <div class="section-top" style="margin-top:22px"><div class="section-kicker">Common Requests</div><div class="section-note">Fast templates for common needs</div></div>
     <div class="request-grid" id="requestGrid"></div>
   </section>
+
+  <section class="office-section" id="officeInfo">
+    <div class="office-head">
+      <div>
+        <div class="section-kicker" id="officeSectionTitle">Office Details</div>
+        <p class="office-copy" id="officeCopy">Office hours and location details for our Atlanta and North Atlanta offices.</p>
+      </div>
+      <div class="hours-pill"><span id="officeHoursLabel">Office Hours</span><strong id="officeHoursText">Monday–Friday · 9:00 AM–5:00 PM</strong></div>
+    </div>
+    <div class="office-list" id="officeList"></div>
+  </section>
+
 
 </main>
 <footer><div class="footer-inner"><div class="footer-brand">Peachtree Town and Country LLC</div><div>Internal Use Only · © 2026</div></div></footer>
@@ -1013,6 +1070,22 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
       <div class="login-assist-box">
         <div class="login-assist-title" id="loginAssistName">Login Assist</div>
         <div class="login-assist-copy" id="loginAssistDesc"></div>
+        <div class="credential-box hidden" id="loginCredentialBox">
+          <div class="credential-row">
+            <div>
+              <div class="credential-label">Username</div>
+              <div class="credential-value" id="loginUsernameValue"></div>
+            </div>
+            <button class="btn btn-soft credential-copy" onclick="copyLoginUsername()">Copy Username</button>
+          </div>
+          <div class="credential-row">
+            <div>
+              <div class="credential-label">Password</div>
+              <div class="credential-value password-value" id="loginPasswordValue"></div>
+            </div>
+            <button class="btn btn-soft credential-copy" onclick="copyLoginPassword()">Copy Password</button>
+          </div>
+        </div>
         <div class="login-steps">
           <div class="login-step"><b>1</b><span>Click <strong>Open Login Page</strong>.</span></div>
           <div class="login-step"><b>2</b><span>When Chrome shows the saved Google Password Manager login, choose the advisor’s saved username/password.</span></div>
@@ -1023,7 +1096,7 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--soft);font-
           <button class="btn btn-soft" onclick="launchLoginAssist('same')">Open in Same Tab</button>
           <button class="btn btn-soft" onclick="copyLoginAssistLink()">Copy Link</button>
         </div>
-        <div class="login-note">ROAR does not store, read, or submit passwords. This only sends the advisor to the correct website so Chrome / Google Password Manager can autofill normally.</div>
+        <div class="login-note">ROAR does not submit the password for you. Copy the credentials if needed, then open the vendor login page.</div>
       </div>
     </div>
   </div>
@@ -1244,10 +1317,26 @@ function openSmartUrl(url){
   setTimeout(()=>window.open(finalUrl,'_blank','noopener'), finalUrl!==url?350:0);
 }
 function openItem(item){if(String(item.label||'').toLowerCase()==='support'||item.action==='support'){openSupportModal();return}if(isFolder(item)){openFolder(item);return}if(isPlaceholder(item.url)){showToast('This link still needs to be added.');return}if(isPeachtreePortalUrl(item.url)){openSmartUrl(item.url);return}if(isLoginAssist(item)){openLoginAssistModal(item);return}window.open(item.url,'_blank','noopener')}
-function openLoginAssistModal(item){pendingLoginAssist=item;$('loginAssistTitle').textContent='Open '+(item.label||'Login');$('loginAssistName').textContent=item.label||'Login Assist';$('loginAssistDesc').textContent=item.loginHint||'Chrome may offer the saved Google Password Manager login for this website after the page opens.';$('loginAssistModal').classList.add('open');document.body.style.overflow='hidden'}
+function openLoginAssistModal(item){
+  pendingLoginAssist=item;
+  $('loginAssistTitle').textContent='Open '+(item.label||'Login');
+  $('loginAssistName').textContent=item.label||'Login Assist';
+  $('loginAssistDesc').textContent=item.loginHint||'Copy the login credentials if shown below, then open the login page.';
+  const box=$('loginCredentialBox');
+  const user=$('loginUsernameValue');
+  const pass=$('loginPasswordValue');
+  const hasCred=!!(item.loginUsername||item.loginPassword);
+  if(box)box.classList.toggle('hidden',!hasCred);
+  if(user)user.textContent=item.loginUsername||'';
+  if(pass)pass.textContent=item.loginPassword||'';
+  $('loginAssistModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
 function closeLoginAssistModal(){$('loginAssistModal').classList.remove('open');document.body.style.overflow='';pendingLoginAssist=null}
 function launchLoginAssist(mode){if(!pendingLoginAssist||isPlaceholder(pendingLoginAssist.url))return;const url=isPeachtreePortalUrl(pendingLoginAssist.url)?buildPeachtreeRedirectUrl(pendingLoginAssist.url):pendingLoginAssist.url;if(mode==='same'){location.href=url}else{window.open(url,'_blank','noopener')}closeLoginAssistModal()}
 function copyLoginAssistLink(){if(!pendingLoginAssist)return;copyText(pendingLoginAssist.url)}
+function copyLoginUsername(){if(!pendingLoginAssist||!pendingLoginAssist.loginUsername)return;copyText(pendingLoginAssist.loginUsername);showToast('Username copied')}
+function copyLoginPassword(){if(!pendingLoginAssist||!pendingLoginAssist.loginPassword)return;copyText(pendingLoginAssist.loginPassword);showToast('Password copied')}
 function openFolder(folder){folderStack=[folder];renderFolder(folder);$('modal').classList.add('open');document.body.style.overflow='hidden'}
 function renderFolder(folder){$('modalKicker').textContent=(folderStack.length>1?'Subfolder':'Folder');$('modalTitle').textContent=folder.label||'Folder';$('modalSub').textContent=folder.desc||'Select a resource below.';$('backRow').classList.toggle('show',folderStack.length>1);const grid=$('modalGrid');grid.innerHTML='';(folder.children||[]).forEach(child=>{const disabled=!itemHasContent(child);const el=document.createElement('div');el.className='folder-item'+(disabled?' disabled':'');el.onclick=()=>{if(disabled)return;if(isFolder(child)){folderStack.push(child);renderFolder(child)}else openItem(child)};el.innerHTML=`<div class="folder-ico">${safe(child.icon||'📄')}</div><div style="min-width:0"><div class="folder-label">${safe(child.label||'Untitled')}</div>${child.desc?`<div class="folder-desc">${safe(child.desc)}</div>`:''}</div><div class="folder-meta">${isFolder(child)?child.children.length+' items':(isPlaceholder(child.url)?'Needs Link':safe(child.type||'Open'))}</div>`;grid.appendChild(el)});if(!(folder.children||[]).length)grid.innerHTML='<div class="empty" style="grid-column:1/-1">This folder is empty.</div>'}
 function goFolderBack(){if(folderStack.length>1){folderStack.pop();renderFolder(folderStack[folderStack.length-1])}}
