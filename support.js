@@ -1,6 +1,29 @@
-/* ROAR support contacts and request templates. Edit this file for Support Concierge. */
+/* My Peachtree Portal support contacts and request templates. Edit this file for Support Concierge. */
 
 let SUPPORT_CONTACTS = [
+  {
+    "key": "how_to_use_support_concierge",
+    "icon": "\ud83d\udca1",
+    "title": "How to Use Support Concierge",
+    "person": "Advisor Guidance",
+    "email": "",
+    "desc": "Quick guidance on choosing the right support path and submitting a clear request.",
+    "subject": "",
+    "body": "",
+    "action": "info",
+    "infoTitle": "How to Use Support Concierge",
+    "infoBody": "Support Concierge is here to help route your request to the right person as quickly as possible.\n\nBefore submitting a request, please include:\n\n1. What you need help with\n2. The tool, listing, office, or client involved\n3. Any deadline or time sensitivity\n4. Screenshots, links, or error messages if available\n\nWhich option should I choose?\n\nTechnology Support\nUse this for Outlook, passwords, login issues, Google Drive, website issues, or system access.\n\nMarketing Support\nUse this for listing marketing, brand materials, flyers, social media, campaigns, or signature help.\n\nOperations / Office Support\nUse this for office questions, onboarding, advisor support, meetings, process questions, or general company guidance.\n\nSupport On Standby\nUse this for open house support or advisor assistance that needs attention from Gina and Bill.\n\nNot Sure Where to Start?\nUse this when you are unsure who should receive your request. Amy will help route it to the right person.\n\nBest practice:\nThe more information you provide, the more we can help."
+  },
+  {
+    "key": "not_sure_where_to_start",
+    "icon": "\ud83e\udded",
+    "title": "Not Sure Where to Start?",
+    "person": "Amy",
+    "email": "amy@peachtreetc.com",
+    "desc": "Not sure who to contact? Send a general request and Amy will help route it to the right person.",
+    "subject": "General Support Routing Request",
+    "body": "Hello,\n\nI am not sure who this should go to, but I need help with the request below.\n\nRequest details:\n\n\nThank you."
+  },
   {
     "key": "tech",
     "icon": "\ud83d\udcbb",
@@ -99,7 +122,7 @@ let REQUEST_TYPES = [
   {
     "label": "Report Website Issue",
     "to": "tyler@peachtreetc.com",
-    "subject": "ROAR Website Issue",
+    "subject": "My Peachtree Portal Website Issue",
     "hint": "Broken link or site feedback"
   }
 ];
