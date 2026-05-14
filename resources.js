@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   Peachtree Town and Country — ROAR
+   Peachtree Town and Country — My Peachtree Portal
    MAIN RESOURCE DATA
    ───────────────────────────────────────────────────────────────
    This file controls the site settings and resource library content.
@@ -13,16 +13,16 @@
 ═══════════════════════════════════════════════════════════════ */
 
 let SITE_CONFIG = {
-  "siteName": "ROAR",
-  "navLabel": "ROAR",
-  "eyebrow": "R Refined \u00b7 O Operations \u00b7 A Advisor \u00b7 R Resources",
-  "heroTitle": "ROAR",
+  "siteName": "My Peachtree Portal",
+  "navLabel": "My Peachtree Portal",
+  "eyebrow": "Advisor tools, resources, support, and company updates",
+  "heroTitle": "My Peachtree Portal",
   "heroItalic": "",
-  "heroDescription": "A refined home for advisor tools, operations updates, company resources, and daily business access.",
+  "heroDescription": "A refined home for advisor tools, company resources, support requests, and daily business access.",
   "announcementActive": true,
-  "announcementText": "Welcome to ROAR: Refined Operations, Advisor Resources. Use this page as your starting point for tools, updates, and support.",
+  "announcementText": "Welcome to My Peachtree Portal. Use this page as your starting point for tools, updates, resources, and support.",
   "activeTheme": "default",
-  "versionNote": "Initial admin-managed ROAR setup."
+  "versionNote": "Renamed site from My Peachtree Portal to My Peachtree Portal and removed visible My Peachtree Portal/Lion\u2019s Den wording."
 };
 
 let RESOURCES = [
