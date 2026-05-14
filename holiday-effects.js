@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   Peachtree Town & Country — ROAR
+   Peachtree Town & Country — My Peachtree Portal
    HOLIDAY EFFECTS
    ───────────────────────────────────────────────────────────────
    Visual-only seasonal effects.
@@ -310,7 +310,7 @@
     htmlObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
   }
 
-  window.ROARHoliday = {
+  window.PortalHoliday = {
     setSeason: function (newSeason) {
       document.body.dataset.season = newSeason || "default";
       syncHolidayEffects();
