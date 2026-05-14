@@ -1,4 +1,4 @@
-/* ROAR advisor links. Edit this file for main homepage link cards. */
+/* My Peachtree Portal advisor links. Edit this file for main homepage link cards. */
 
 let QUICK_LINKS = [
   {
